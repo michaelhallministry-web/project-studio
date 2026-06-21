@@ -1,550 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Collins Audio & Production</title>
+<title>Collins Audio & Production</title>
 
-  <style>
-    :root {
-      --bg: #0b0f16;
-      --bg-soft: #121826;
-      --card: #171f2e;
-      --text: #f5f7fb;
-      --muted: #a8b3c7;
-      --accent: #4f8cff;
-      --accent-2: #8b5cf6;
-      --warm: #f59e0b;
-      --border: rgba(255,255,255,.12);
-    }
+<style>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+:root{
+  --bg:#0b0f16;
+  --bg2:#121826;
+  --card:#171f2e;
+  --text:#f5f7fb;
+  --muted:#aab5c8;
+  --accent:#4f8cff;
+  --accent2:#8b5cf6;
+  --border:rgba(255,255,255,.10);
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(11,15,22,.86);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
-    .nav-inner {
-      max-width: 1180px;
-      margin: auto;
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+.container{
+  width:min(1200px,90%);
+  margin:auto;
+}
 
-    .logo {
-      font-weight: 800;
-      letter-spacing: .5px;
-      font-size: 1.05rem;
-    }
+/* NAVIGATION */
 
-    .logo span {
-      color: var(--accent);
-    }
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(11,15,22,.90);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
 
-    .nav-links {
-      display: flex;
-      gap: 1.25rem;
-      font-size: .95rem;
-      color: var(--muted);
-    }
+.nav-wrap{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 0;
+}
 
-    .nav-links a:hover {
-      color: var(--text);
-    }
+.logo{
+  font-size:1.2rem;
+  font-weight:700;
+}
 
-    .hero {
-      min-height: 100vh;
-      background:
-        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.72)),
-        url("media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.png") center center / cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 7rem 1.5rem 4rem;
-    }
+.logo span{
+  color:var(--accent);
+}
 
-    .hero-content {
-      max-width: 950px;
-      background: rgba(11,15,22,.45);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 3rem 2rem;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 30px 80px rgba(0,0,0,.45);
-    }
+.nav-links{
+  display:flex;
+  gap:1.5rem;
+}
 
-    .eyebrow {
-      color: var(--warm);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: .82rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
+.nav-links a{
+  color:var(--muted);
+}
 
-    .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 5rem);
-      line-height: 1.05;
-      margin-bottom: 1.25rem;
-    }
+.nav-links a:hover{
+  color:white;
+}
 
-    .hero p {
-      max-width: 760px;
-      margin: 0 auto 2rem;
-      font-size: clamp(1.05rem, 2vw, 1.35rem);
-      color: #dbe4f3;
-    }
+/* HERO */
 
-    .buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 
-    .btn {
-      display: inline-block;
-      padding: .9rem 1.4rem;
-      border-radius: 999px;
-      font-weight: bold;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: white;
-      border: 1px solid transparent;
-    }
+  background:
+  linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
+  url("media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp");
 
-    .btn-outline {
-      background: transparent;
-      border-color: rgba(255,255,255,.35);
-    }
+  background-size:cover;
+  background-position:center;
+}
 
-    section {
-      padding: 5rem 1.5rem;
-    }
+.hero-content{
+  max-width:900px;
+  padding:2rem;
+}
 
-    .container {
-      max-width: 1180px;
-      margin: auto;
-    }
+.hero-tag{
+  color:#82a8ff;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:.9rem;
+  margin-bottom:1rem;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
+.hero h1{
+  font-size:clamp(2.5rem,6vw,5rem);
+  line-height:1.1;
+  margin-bottom:1rem;
+}
 
-    .section-title h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: .75rem;
-    }
+.hero p{
+  font-size:1.2rem;
+  color:#d8e0ef;
+  margin-bottom:2rem;
+}
 
-    .section-title p {
-      color: var(--muted);
-      max-width: 700px;
-      margin: auto;
-    }
+.btn{
+  display:inline-block;
+  padding:14px 28px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  font-weight:bold;
+  margin:.5rem;
+}
 
-    .about {
-      background: var(--bg-soft);
-    }
+.btn-outline{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.3);
+}
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 2rem;
-      align-items: center;
-    }
+/* SECTIONS */
 
-    .about-card {
-      background: var(--card);
-      padding: 2rem;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-    }
+section{
+  padding:90px 0;
+}
 
-    .about-card h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
+.section-title{
+  text-align:center;
+  margin-bottom:3rem;
+}
 
-    .about-card p {
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
+.section-title h2{
+  font-size:2.5rem;
+  margin-bottom:.5rem;
+}
 
-    .studio-img {
-      width: 100%;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      box-shadow: 0 25px 60px rgba(0,0,0,.35);
-    }
+.section-title p{
+  color:var(--muted);
+}
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
+/* ABOUT */
 
-    .service-card {
-      background: var(--card);
-      padding: 2rem;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-    }
+.about{
+  background:var(--bg2);
+}
 
-    .service-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: .75rem;
-    }
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  align-items:center;
+}
 
-    .service-card ul {
-      list-style: none;
-      color: var(--muted);
-    }
+.about-text{
+  background:var(--card);
+  padding:2rem;
+  border-radius:20px;
+  border:1px solid var(--border);
+}
 
-    .service-card li {
-      margin-bottom: .5rem;
-    }
+.about-text h3{
+  margin-bottom:1rem;
+}
 
-    .service-card li::before {
-      content: "✓ ";
-      color: var(--accent);
-      font-weight: bold;
-    }
+.about-text p{
+  color:var(--muted);
+  margin-bottom:1rem;
+}
 
-    .tools {
-      background:
-        radial-gradient(circle at top left, rgba(79,140,255,.18), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(139,92,246,.18), transparent 35%),
-        var(--bg-soft);
-    }
+.about-image img{
+  width:100%;
+  border-radius:20px;
+  display:block;
+}
 
-    .tool-list {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: .75rem;
-    }
+/* SERVICES */
 
-    .tool-list span {
-      padding: .7rem 1rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,.07);
-      border: 1px solid var(--border);
-      color: #dce6f8;
-    }
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+}
 
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
+.service{
+  background:var(--card);
+  padding:2rem;
+  border-radius:20px;
+  border:1px solid var(--border);
+}
 
-    .portfolio-card {
-      min-height: 180px;
-      background: linear-gradient(145deg, #182235, #101725);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
+.service h3{
+  margin-bottom:1rem;
+}
 
-    .portfolio-card p {
-      color: var(--muted);
-    }
+.service ul{
+  list-style:none;
+}
 
-    .testimonial {
-      background: var(--bg-soft);
-    }
+.service li{
+  margin-bottom:.6rem;
+  color:var(--muted);
+}
 
-    .quote-box {
-      max-width: 850px;
-      margin: auto;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 2.5rem;
-      text-align: center;
-      font-size: 1.25rem;
-      color: #dce6f8;
-    }
+/* STUDIO */
 
-    .contact {
-      text-align: center;
-      background:
-        linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.82)),
-        <img src="media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.png" width="500"> center center / cover no-repeat;
-    }
+.studio{
+  background:var(--bg2);
+}
 
-    .contact h2 {
-      font-size: clamp(2rem, 4vw, 3.25rem);
-      margin-bottom: 1rem;
-    }
+.badges{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:1rem;
+}
 
-    .contact p {
-      color: #dbe4f3;
-      max-width: 680px;
-      margin: 0 auto 2rem;
-    }
+.badges span{
+  background:rgba(255,255,255,.08);
+  border:1px solid var(--border);
+  padding:.8rem 1rem;
+  border-radius:999px;
+}
 
-    footer {
-      padding: 2rem 1.5rem;
-      text-align: center;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      background: #080b11;
-      font-size: .9rem;
-    }
+/* PORTFOLIO */
 
-    @media (max-width: 850px) {
-      .nav-links {
-        display: none;
-      }
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+}
 
-      .about-grid,
-      .services-grid,
-      .portfolio-grid {
-        grid-template-columns: 1fr;
-      }
+.portfolio-item{
+  background:var(--card);
+  padding:2rem;
+  border-radius:20px;
+  border:1px solid var(--border);
+}
 
-      .hero-content {
-        padding: 2rem 1.25rem;
-      }
+/* CONTACT */
 
-      section {
-        padding: 4rem 1.25rem;
-      }
-    }
-  </style>
+.contact{
+  text-align:center;
+
+  background:
+  linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+  url("media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp");
+
+  background-size:cover;
+  background-position:center;
+}
+
+.contact h2{
+  font-size:3rem;
+  margin-bottom:1rem;
+}
+
+.contact p{
+  max-width:700px;
+  margin:auto auto 2rem;
+}
+
+/* FOOTER */
+
+footer{
+  padding:2rem;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .about-grid,
+  .services-grid,
+  .portfolio-grid{
+    grid-template-columns:1fr;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <nav>
-    <div class="nav-inner">
-      <div class="logo">Collins <span>Audio & Production</span></div>
-
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#studio">Studio</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-      </div>
+<nav>
+  <div class="container nav-wrap">
+    <div class="logo">
+      Collins <span>Audio & Production</span>
     </div>
-  </nav>
 
-  <header class="hero">
-    <div class="hero-content">
-      <div class="eyebrow">Sequencing • Recording • Production</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#studio">Studio</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
 
-      <h1>Professional Music Production for Worship, Artists & Creators</h1>
+<header class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-tag">
+      Sequencing • Recording • Production
+    </div>
+
+    <h1>
+      Professional Music Production for Worship Teams, Artists & Creators
+    </h1>
+
+    <p>
+      Custom MIDI sequencing, backing tracks, keyboard programming,
+      recording, editing, and mixing services designed to bring
+      your musical vision to life.
+    </p>
+
+    <a href="#services" class="btn">View Services</a>
+    <a href="#contact" class="btn btn-outline">Start a Project</a>
+
+  </div>
+
+</header>
+
+<section id="about" class="about">
+
+  <div class="container about-grid">
+
+    <div class="about-text">
+
+      <h3>Bringing Musical Ideas to Life</h3>
 
       <p>
-        Custom backing tracks, MIDI sequencing, keyboard programming,
-        recording, editing, and mixing designed to help bring your music
-        to life with clarity and excellence.
+        Collins Audio & Production specializes in custom MIDI sequencing,
+        backing tracks, recording, editing, keyboard programming,
+        and audio production.
       </p>
-
-      <div class="buttons">
-        <a href="#services" class="btn">View Services</a>
-        <a href="#contact" class="btn btn-outline">Start a Project</a>
-      </div>
-    </div>
-  </header>
-
-  <section id="about" class="about">
-    <div class="container about-grid">
-
-      <div class="about-card">
-        <h3>Bringing Musical Ideas to Life</h3>
-
-        <p>
-          Whether you need performance-ready backing tracks, MIDI sequencing,
-          worship arrangements, keyboard programming, or polished audio
-          production, Collins Audio & Production helps turn creative ideas
-          into usable, professional music.
-        </p>
-
-        <p>
-          Built from years of experience in music ministry, live performance,
-          recording, and digital production, this studio understands both the
-          musical and technical sides of the process.
-        </p>
-      </div>
-
-      <img
-        src="media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.png"
-        alt="Music production studio with keyboards, monitors, and recording equipment"
-        class="studio-img"
-      />
-
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Services</h2>
-        <p>
-          Flexible production support for churches, worship teams, solo artists,
-          musicians, and content creators.
-        </p>
-      </div>
-
-      <div class="services-grid">
-
-        <div class="service-card">
-          <h3>🎹 MIDI Sequencing</h3>
-          <ul>
-            <li>Custom backing tracks</li>
-            <li>Worship arrangements</li>
-            <li>Click tracks</li>
-            <li>Multi-track stems</li>
-            <li>Live performance prep</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <h3>🎙 Recording & Editing</h3>
-          <ul>
-            <li>Vocal recording</li>
-            <li>Audio cleanup</li>
-            <li>Track editing</li>
-            <li>Voice-over production</li>
-            <li>Podcast-style audio</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <h3>🎚 Mixing & Production</h3>
-          <ul>
-            <li>Song mixing</li>
-            <li>Instrument programming</li>
-            <li>Virtual instruments</li>
-            <li>Production polish</li>
-            <li>Mastering preparation</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="studio" class="tools">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Studio Workflow</h2>
-        <p>
-          A modern production space built for sequencing, recording,
-          keyboard programming, and remote collaboration.
-        </p>
-      </div>
-
-      <div class="tool-list">
-        <span>Cubase</span>
-        <span>Roland Fantom</span>
-        <span>MIDI Production</span>
-        <span>Virtual Instruments</span>
-        <span>Audio Editing</span>
-        <span>Mixing</span>
-        <span>Remote Collaboration</span>
-        <span>Worship Tracks</span>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="portfolio">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Recent Projects</h2>
-        <p>
-          Project samples, demos, and production examples can be added here.
-        </p>
-      </div>
-
-      <div class="portfolio-grid">
-
-        <div class="portfolio-card">
-          <h3>Worship Backing Tracks</h3>
-          <p>Custom arrangements for live worship settings.</p>
-        </div>
-
-        <div class="portfolio-card">
-          <h3>Keyboard Programming</h3>
-          <p>Layered sounds, pads, piano, synths, and performance patches.</p>
-        </div>
-
-        <div class="portfolio-card">
-          <h3>Recording Projects</h3>
-          <p>Vocals, instruments, editing, and final mix preparation.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="testimonial">
-    <div class="container">
-      <div class="quote-box">
-        “Professional sequencing and production that helps musicians move from
-        rough ideas to finished, performance-ready tracks.”
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <div class="container">
-
-      <h2>Ready to Start a Project?</h2>
 
       <p>
-        Let’s talk about your sequencing, recording, worship track, or music
-        production needs.
+        Whether you're a worship team, solo artist, content creator,
+        or church musician, every project is crafted with attention
+        to detail and musical excellence.
       </p>
 
-      <a href="mailto:your-email@example.com" class="btn">Contact Me</a>
+    </div>
+
+    <div class="about-image">
+      <img src="media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp" alt="Studio">
+    </div>
+
+  </div>
+
+</section>
+
+<section id="services">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Services</h2>
+      <p>Professional production support for your next project.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service">
+        <h3>🎹 MIDI Sequencing</h3>
+        <ul>
+          <li>Custom Backing Tracks</li>
+          <li>Click Tracks</li>
+          <li>Stems & Arrangements</li>
+          <li>Live Performance Prep</li>
+        </ul>
+      </div>
+
+      <div class="service">
+        <h3>🎙 Recording & Editing</h3>
+        <ul>
+          <li>Audio Cleanup</li>
+          <li>Vocal Editing</li>
+          <li>Voice Overs</li>
+          <li>Podcast Production</li>
+        </ul>
+      </div>
+
+      <div class="service">
+        <h3>🎚 Mixing & Production</h3>
+        <ul>
+          <li>Mixing</li>
+          <li>Virtual Instruments</li>
+          <li>Programming</li>
+          <li>Production Consulting</li>
+        </ul>
+      </div>
 
     </div>
-  </section>
 
-  <footer>
-    © 2026 Collins Audio & Production. All rights reserved.
-  </footer>
+  </div>
+
+</section>
+
+<section id="studio" class="studio">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Studio Workflow</h2>
+      <p>Built around modern production tools.</p>
+    </div>
+
+    <div class="badges">
+      <span>Cubase</span>
+      <span>Roland Fantom</span>
+      <span>MIDI Programming</span>
+      <span>Virtual Instruments</span>
+      <span>Recording</span>
+      <span>Mixing</span>
+      <span>Remote Collaboration</span>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="portfolio">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Portfolio</h2>
+      <p>Project examples coming soon.</p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item">
+        <h3>Worship Tracks</h3>
+      </div>
+
+      <div class="portfolio-item">
+        <h3>Keyboard Programming</h3>
+      </div>
+
+      <div class="portfolio-item">
+        <h3>Audio Production</h3>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contact" class="contact">
+
+  <div class="container">
+
+    <h2>Ready to Start a Project?</h2>
+
+    <p>
+      Let's discuss your recording, sequencing, production,
+      or worship track needs.
+    </p>
+
+    <a href="mailto:your@email.com" class="btn">
+      Contact Me
+    </a>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Collins Audio & Production
+</footer>
 
 </body>
 </html>
