@@ -139,6 +139,10 @@ nav{
   background:linear-gradient(135deg,var(--accent),var(--accent2));
   font-weight:bold;
   margin:.5rem;
+  border:none;
+  cursor:pointer;
+  color:white;
+  font-size:1rem;
 }
 
 .btn-outline{
@@ -317,6 +321,81 @@ section{
   color:#d8e0ef;
 }
 
+/* POPUP CONTACT FORM */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.78);
+  z-index:3000;
+  align-items:center;
+  justify-content:center;
+  padding:1rem;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-content{
+  width:min(600px,95%);
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:2rem;
+  position:relative;
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
+}
+
+.modal-content h2{
+  margin-bottom:.5rem;
+}
+
+.modal-content p{
+  color:var(--muted);
+  margin-bottom:1.5rem;
+}
+
+.modal-close{
+  position:absolute;
+  top:1rem;
+  right:1rem;
+  background:transparent;
+  color:white;
+  border:none;
+  font-size:2rem;
+  cursor:pointer;
+}
+
+#contactForm{
+  display:grid;
+  gap:1rem;
+}
+
+#contactForm input,
+#contactForm select,
+#contactForm textarea{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:#0b0f16;
+  color:white;
+  font-size:1rem;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+#contactForm input::placeholder,
+#contactForm textarea::placeholder{
+  color:#8894aa;
+}
+
+#formStatus{
+  margin-top:.5rem;
+  color:#d8e0ef;
+}
+
 /* FOOTER */
 
 footer{
@@ -364,7 +443,7 @@ footer{
       <a href="#services">Services</a>
       <a href="#studio">Studio</a>
       <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
+      <a href="#" onclick="openContactForm(); return false;">Contact</a>
     </div>
   </div>
 </nav>
@@ -386,7 +465,7 @@ footer{
     </p>
 
     <a href="#services" class="btn">View Services</a>
-    <a href="#contact" class="btn btn-outline">Start a Project</a>
+    <a href="#" class="btn btn-outline" onclick="openContactForm(); return false;">Start a Project</a>
   </div>
 </header>
 
@@ -515,7 +594,7 @@ footer{
       or worship track needs.
     </p>
 
-    <a href="mailto:your@email.com" class="btn">
+    <a href="#" class="btn" onclick="openContactForm(); return false;">
       Contact Me
     </a>
   </div>
@@ -524,6 +603,102 @@ footer{
 <footer>
   © 2026 MH CreativeWorks Audio & Production
 </footer>
+
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeContactForm()">×</button>
+
+    <h2>Start a Project</h2>
+    <p>Tell me a little about what you need.</p>
+
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+
+      <input type="email" name="email" placeholder="Your Email" required>
+
+      <input type="tel" name="phone" placeholder="Phone Number">
+
+      <select name="service" required>
+        <option value="">What do you need?</option>
+        <option value="MIDI Sequencing">MIDI Sequencing</option>
+        <option value="Backing Tracks">Backing Tracks</option>
+        <option value="Recording / Editing">Recording / Editing</option>
+        <option value="Mixing / Production">Mixing / Production</option>
+        <option value="Worship Tracks">Worship Tracks</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <textarea name="message" rows="6" placeholder="Project details or request" required></textarea>
+
+      <button type="submit" class="btn">Send Request</button>
+
+      <p id="formStatus"></p>
+    </form>
+  </div>
+</div>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxF6MMH3_t53SuX8man44Nzly8JCgbPS5TM4hFRD04dwOBS4hh5cMR-A94Hk82bVyCk8g/exec";
+
+function openContactForm(){
+  document.getElementById("contactModal").classList.add("show");
+}
+
+function closeContactForm(){
+  document.getElementById("contactModal").classList.remove("show");
+}
+
+document.getElementById("contactModal").addEventListener("click", function(e){
+  if(e.target === this){
+    closeContactForm();
+  }
+});
+
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
+    closeContactForm();
+  }
+});
+
+document.getElementById("contactForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const form = e.target;
+  const status = document.getElementById("formStatus");
+
+  status.textContent = "Sending...";
+
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    phone: form.phone.value,
+    service: form.service.value,
+    message: form.message.value
+  };
+
+  try{
+    await fetch(SCRIPT_URL, {
+      method:"POST",
+      mode:"no-cors",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(data)
+    });
+
+    status.textContent = "Thank you! Your request has been sent.";
+    form.reset();
+
+    setTimeout(function(){
+      closeContactForm();
+      status.textContent = "";
+    }, 2500);
+
+  }catch(error){
+    status.textContent = "Something went wrong. Please try again.";
+  }
+});
+</script>
 
 </body>
 </html>
