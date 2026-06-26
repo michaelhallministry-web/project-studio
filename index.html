@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MH CreativeWorks | Creative Music Production & Worship Resources</title>
-<meta name="description" content="MH CreativeWorks helps artists, churches, and creators develop songs, demos, worship resources, media music, audio edits, and creative productions.">
+<title>MH CreativeWorks | Composition & Music Production</title>
+<meta name="description" content="MH CreativeWorks provides original music composition, song demos, media scoring, audio editing, creative production, and worship resources.">
 
 <style>
 :root{
@@ -26,7 +26,6 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
-
 html{scroll-behavior:smooth;}
 
 body{
@@ -40,7 +39,6 @@ body{
 }
 
 body.modal-open{overflow:hidden;}
-
 a{text-decoration:none;color:inherit;}
 img{max-width:100%;display:block;}
 
@@ -136,13 +134,8 @@ img{max-width:100%;display:block;}
   text-transform:uppercase;
 }
 
-.nav-links a{
-  color:var(--soft);
-}
-
-.nav-links a:hover{
-  color:var(--accent);
-}
+.nav-links a{color:var(--soft);}
+.nav-links a:hover{color:var(--accent);}
 
 /* HERO */
 
@@ -255,10 +248,11 @@ section{padding:96px 0;}
   font-size:1.08rem;
 }
 
-/* ABOUT */
-
-.about{
-  background:linear-gradient(180deg, var(--bg), var(--bg2));
+.about,
+.process,
+.platforms,
+.why{
+  background:var(--bg2);
 }
 
 .about-grid{
@@ -269,7 +263,8 @@ section{padding:96px 0;}
 }
 
 .about-text,
-.card{
+.card,
+.featured-audio{
   background:
     linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025)),
     var(--card);
@@ -310,8 +305,6 @@ section{padding:96px 0;}
   height:100%;
   object-fit:cover;
 }
-
-/* GRIDS */
 
 .grid-3{
   display:grid;
@@ -366,13 +359,47 @@ section{padding:96px 0;}
   border:1px solid rgba(255,255,255,.13);
 }
 
-/* PLATFORMS */
+/* FEATURED AUDIO */
 
-.platforms,
-.process,
-.why{
-  background:var(--bg2);
+.listen{
+  background:
+    radial-gradient(circle at top left, rgba(79,140,255,.14), transparent 35rem),
+    radial-gradient(circle at bottom right, rgba(139,92,246,.15), transparent 35rem),
+    var(--bg);
 }
+
+.featured-audio{
+  max-width:900px;
+  margin:auto;
+  padding:2.5rem;
+  text-align:center;
+}
+
+.featured-audio h3{
+  font-size:2rem;
+  margin-bottom:.5rem;
+}
+
+.featured-audio p{
+  color:var(--muted);
+  margin-bottom:1.5rem;
+}
+
+.audio-meta{
+  color:var(--soft);
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:.8rem;
+  margin-bottom:1rem;
+}
+
+audio{
+  width:100%;
+  margin-top:1rem;
+}
+
+/* PLATFORMS */
 
 .platform-card{
   text-align:center;
@@ -562,197 +589,6 @@ footer{
   background:#05080e;
 }
 
-/* CHAT */
-
-.mh-chat-launcher{
-  position:fixed;
-  right:22px;
-  bottom:22px;
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.18);
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  box-shadow:0 18px 45px rgba(0,0,0,.42);
-  cursor:pointer;
-  z-index:2500;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:8px;
-}
-
-.mh-chat-launcher img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  border-radius:50%;
-}
-
-.mh-chat-widget{
-  position:fixed;
-  right:22px;
-  bottom:108px;
-  width:410px;
-  max-width:calc(100vw - 32px);
-  height:640px;
-  max-height:calc(100vh - 136px);
-  background:#0f1522;
-  border:1px solid var(--border2);
-  border-radius:24px;
-  box-shadow:0 24px 80px rgba(0,0,0,.60);
-  overflow:hidden;
-  z-index:2499;
-  display:none;
-  flex-direction:column;
-}
-
-.mh-chat-widget.open{display:flex;}
-
-.mh-chat-header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px 16px;
-  background:linear-gradient(135deg,#121826,#1c2740);
-  border-bottom:1px solid var(--border);
-}
-
-.mh-chat-header-logo{
-  width:46px;
-  height:46px;
-  border-radius:50%;
-  background:rgba(255,255,255,.08);
-  border:1px solid var(--border);
-  padding:5px;
-}
-
-.mh-chat-header-logo img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-
-.mh-chat-header-text{
-  flex:1;
-}
-
-.mh-chat-header-text h2{
-  font-size:1rem;
-}
-
-.mh-chat-header-text p{
-  color:var(--muted);
-  font-size:.78rem;
-}
-
-.mh-chat-close{
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.08);
-  color:white;
-  cursor:pointer;
-  font-size:1.2rem;
-}
-
-.mh-chat-body{
-  flex:1;
-  overflow-y:auto;
-  padding:16px;
-  background:#0b0f16;
-}
-
-.mh-message-row{
-  display:flex;
-  margin-bottom:12px;
-}
-
-.mh-message-row.bot{justify-content:flex-start;}
-.mh-message-row.user{justify-content:flex-end;}
-
-.mh-message-group{
-  max-width:86%;
-}
-
-.mh-bubble{
-  padding:12px 14px;
-  border-radius:18px;
-  font-size:.92rem;
-  line-height:1.45;
-  white-space:pre-wrap;
-}
-
-.mh-message-row.bot .mh-bubble{
-  background:#171f2e;
-  color:#eef3ff;
-  border:1px solid var(--border);
-  border-bottom-left-radius:6px;
-}
-
-.mh-message-row.user .mh-bubble{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:white;
-  border-bottom-right-radius:6px;
-}
-
-.mh-chat-action-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:8px;
-}
-
-.mh-chat-action,
-.mh-quick-btn{
-  border:1px solid rgba(255,255,255,.16);
-  background:rgba(255,255,255,.08);
-  color:white;
-  padding:8px 11px;
-  border-radius:999px;
-  font-size:.78rem;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.mh-quick-replies{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  padding:12px 14px;
-  border-top:1px solid var(--border);
-  background:#101725;
-}
-
-.mh-chat-composer{
-  display:flex;
-  gap:9px;
-  padding:12px;
-  background:#0f1522;
-  border-top:1px solid var(--border);
-}
-
-.mh-chat-composer input{
-  flex:1;
-  border:1px solid var(--border);
-  border-radius:999px;
-  background:#0b0f16;
-  color:white;
-  padding:12px 14px;
-  font-size:.92rem;
-}
-
-.mh-chat-composer button{
-  border:none;
-  border-radius:999px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:white;
-  font-weight:bold;
-  padding:0 16px;
-  cursor:pointer;
-}
-
 /* RESPONSIVE */
 
 @media(max-width:900px){
@@ -787,10 +623,6 @@ footer{
     font-size:clamp(2.25rem,10vw,3.5rem);
   }
 
-  .hero h1 br{
-    display:none;
-  }
-
   .about-grid,
   .grid-3,
   .studio-gallery{
@@ -815,21 +647,6 @@ footer{
   .btn{
     width:100%;
   }
-
-  .mh-chat-launcher{
-    right:14px;
-    bottom:14px;
-    width:64px;
-    height:64px;
-  }
-
-  .mh-chat-widget{
-    right:12px;
-    left:12px;
-    bottom:88px;
-    width:auto;
-    height:70vh;
-  }
 }
 </style>
 </head>
@@ -842,15 +659,15 @@ footer{
       <img src="media/MH.webp" alt="MH CreativeWorks logo">
       <span class="logo-text">
         <span class="logo-main">MH CreativeWorks</span>
-        <span class="logo-sub">Creative Music Production</span>
+        <span class="logo-sub">Composition • Production • Collaboration</span>
       </span>
     </a>
 
     <div class="nav-links">
       <a href="#">Home</a>
-      <a href="#solutions">Services</a>
+      <a href="#listen">Listen</a>
+      <a href="#services">Services</a>
       <a href="#platforms">Platforms</a>
-      <a href="#why">Why Work With Me</a>
       <a href="#process">Process</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#" onclick="openContactForm(); return false;">Contact</a>
@@ -860,43 +677,66 @@ footer{
 
 <header class="hero">
   <div class="hero-content">
-    <div class="hero-tag">Creative Music Production</div>
+    <div class="hero-tag">Composition • Production • Collaboration</div>
 
-    <h1>Bring Your Musical Ideas to Life</h1>
+    <h1>Music for Every Story</h1>
 
     <div class="hero-rule"></div>
 
     <p>
-      Whether you're writing your first song, producing music for worship,
-      creating media, or refining an existing recording, MH CreativeWorks helps
-      turn ideas into finished productions.
+      MH CreativeWorks creates original music, song demos, cinematic ideas,
+      worship resources, audio edits, and custom productions for artists,
+      churches, filmmakers, and media creators.
     </p>
 
     <div class="hero-actions">
-      <a href="#solutions" class="btn">Explore Services</a>
-      <a href="#" class="btn btn-outline" onclick="openContactForm(); return false;">Request a Conversation</a>
+      <a href="#listen" class="btn">Listen First</a>
+      <a href="#" class="btn btn-outline" onclick="openContactForm(); return false;">Start a Conversation</a>
     </div>
   </div>
 </header>
 
 <main>
 
+<section id="listen" class="listen">
+  <div class="container">
+    <div class="section-title">
+      <div class="section-kicker">Featured Production</div>
+      <h2>Hear the work.</h2>
+      <p>As the catalog grows, this section can feature original songs, cinematic cues, demos, and worship resources.</p>
+    </div>
+
+    <div class="featured-audio">
+      <div class="audio-meta">Featured Demo</div>
+      <h3>My Shepherd</h3>
+      <p>
+        An inspirational production inspired by Psalm 23. This featured track gives visitors
+        a quick way to hear the creative direction and production quality of MH CreativeWorks.
+      </p>
+
+      <audio controls preload="metadata">
+        <source src="media/audio/My_Shepherd.mp3" type="audio/mpeg">
+        Your browser does not support the audio player.
+      </audio>
+    </div>
+  </div>
+</section>
+
 <section id="about" class="about">
   <div class="container about-grid">
     <div class="about-text">
       <div class="section-kicker">About</div>
-      <h3>Creative production for artists, churches, ministries, and media creators.</h3>
+      <h3>Original music shaped around the story, purpose, and sound behind the idea.</h3>
 
       <p>
-        MH CreativeWorks helps develop music from concept to completion.
-        Whether you're starting with a lyric, melody, rough recording,
-        existing audio, or simply an idea, every project begins with a conversation.
+        MH CreativeWorks is a composition and production brand for artists,
+        writers, filmmakers, churches, and content creators.
       </p>
 
       <p>
-        Custom projects are shaped around your creative vision, while worship
-        resources are distributed through trusted platforms built for churches
-        and worship teams.
+        Whether you're starting with lyrics, a melody, a rough recording,
+        a visual scene, or simply a musical idea, the goal is to help shape it
+        into something clear, useful, and emotionally connected.
       </p>
     </div>
 
@@ -906,48 +746,48 @@ footer{
   </div>
 </section>
 
-<section id="solutions">
+<section id="services">
   <div class="container">
     <div class="section-title">
       <div class="section-kicker">Services</div>
-      <h2>Creative Services</h2>
-      <p>Focused support for songs, demos, worship resources, media, and audio projects.</p>
+      <h2>How I Can Help</h2>
+      <p>Creative support for original songs, media projects, audio edits, and music resources.</p>
     </div>
 
     <div class="grid-3">
       <div class="card">
         <div class="card-icon">♪</div>
         <h3>Original Song Development</h3>
-        <p>Turn a melody, lyric, rough recording, or song idea into a clear demo or production concept.</p>
+        <p>Have lyrics, a melody, or an original song idea? I can help shape it into a demo or production concept.</p>
         <ul>
           <li>Song demos</li>
+          <li>Music for lyrics</li>
           <li>Arrangement ideas</li>
           <li>Creative direction</li>
-          <li>Production shaping</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🎬</div>
+        <h3>Cinematic & Media Music</h3>
+        <p>Original instrumental music for film-style projects, videos, presentations, podcasts, and future sync opportunities.</p>
+        <ul>
+          <li>Instrumental cues</li>
+          <li>Film-style music</li>
+          <li>Podcast and video music</li>
+          <li>Media production support</li>
         </ul>
       </div>
 
       <div class="card">
         <div class="card-icon">✂</div>
         <h3>Audio Editing & Arrangement</h3>
-        <p>Refine existing recordings so they are cleaner, tighter, and ready for their intended use.</p>
+        <p>Refine existing recordings so they are cleaner, tighter, and ready for their intended purpose.</p>
         <ul>
           <li>Audio cleanup</li>
           <li>Cutting and splicing</li>
           <li>Song shortening</li>
           <li>Arrangement adjustments</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">◎</div>
-        <h3>Media Music & Collaboration</h3>
-        <p>Create or shape music for videos, film-style projects, presentations, and remote collaborations.</p>
-        <ul>
-          <li>Music for media</li>
-          <li>Remote collaboration</li>
-          <li>Creative consulting</li>
-          <li>Production support</li>
         </ul>
       </div>
     </div>
@@ -958,10 +798,10 @@ footer{
   <div class="container">
     <div class="section-title">
       <div class="section-kicker">Platforms</div>
-      <h2>Where You'll Find My Work</h2>
+      <h2>Where You’ll Find My Work</h2>
       <p>
-        MH CreativeWorks creates resources for trusted platforms where churches,
-        artists, and listeners already connect.
+        Custom production is handled directly through MH CreativeWorks.
+        Released resources and catalog material can live through trusted platforms.
       </p>
     </div>
 
@@ -974,8 +814,8 @@ footer{
         </a>
 
         <p>
-          Worship backing tracks, stems, and performance resources are distributed
-          through Loop Community for easy access, delivery, and licensing support.
+          Worship backing tracks and stems will be available through Loop Community,
+          giving churches a trusted place for access, delivery, and licensing support.
         </p>
 
         <a href="https://loopcommunity.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-top:1.4rem;">
@@ -984,68 +824,29 @@ footer{
       </div>
 
       <div class="card platform-card">
-        <h3>Streaming & Media</h3>
-        <div class="platform-placeholder">YouTube • Spotify • Apple Music</div>
-        <p>Future releases, demos, and media projects can be shared as the catalog grows.</p>
+        <h3>Film & Media Catalog</h3>
+        <div class="platform-placeholder">Film • Sync • Instrumental</div>
+        <p>
+          Instrumental tracks for film, media, and sync opportunities will be developed
+          as the MH CreativeWorks catalog grows.
+        </p>
       </div>
 
       <div class="card platform-card">
-        <h3>Church & Creator Tools</h3>
-        <div class="platform-placeholder">Planning • Presentation • Collaboration</div>
-        <p>Music can be prepared for worship planning, livestreams, videos, and creative projects.</p>
+        <h3>Custom Production</h3>
+        <div class="platform-placeholder">Songs • Demos • Ideas</div>
+        <p>
+          Have lyrics, a melody, or an original song idea? Custom production begins
+          with a conversation and is handled directly through MH CreativeWorks.
+        </p>
       </div>
     </div>
 
     <p class="platform-note">
-      MH CreativeWorks stays focused on creating music. Distribution, downloads,
-      licensing, and platform delivery are handled through trusted services built for that purpose.
+      MH CreativeWorks is not limited to one genre or one audience. Worship resources,
+      cinematic music, demos, and custom productions are different lanes within one
+      larger creative music brand.
     </p>
-  </div>
-</section>
-
-<section id="why" class="why">
-  <div class="container">
-    <div class="section-title">
-      <div class="section-kicker">Why Work With Me</div>
-      <h2>Creative partnership, not a template.</h2>
-      <p>Every project is shaped around the person, purpose, and sound behind the music.</p>
-    </div>
-
-    <div class="grid-3">
-      <div class="card">
-        <div class="card-icon">1</div>
-        <h3>Creative Collaboration</h3>
-        <p>Projects begin with a conversation about the direction, sound, and purpose of the music.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">2</div>
-        <h3>Personal Attention</h3>
-        <p>You work directly with Michael Hall from the first conversation through the finished result.</p>
-      </div>
-
-      <div class="card">
-        <div class="card-icon">3</div>
-        <h3>Purposeful Delivery</h3>
-        <p>The goal is music that is clear, useful, and ready for where it needs to go next.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="gallery">
-  <div class="container">
-    <div class="section-title">
-      <div class="section-kicker">Creative Space</div>
-      <h2>Built for focused production work.</h2>
-      <p>A personal creative space for developing demos, arrangements, edits, and music resources.</p>
-    </div>
-
-    <div class="studio-gallery">
-      <img src="media/481BDA2B-1490-49D7-B328-A87E01A8D4A2.webp" alt="Creative production workstation">
-      <img src="media/800B6A24-65DC-4EC9-8B54-37E121A6A3CD.webp" alt="Music production workspace">
-      <img src="media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp" alt="MH CreativeWorks studio">
-    </div>
   </div>
 </section>
 
@@ -1054,7 +855,7 @@ footer{
     <div class="section-title">
       <div class="section-kicker">Process</div>
       <h2>How Projects Begin</h2>
-      <p>Every custom project starts with a conversation about sound, direction, and purpose.</p>
+      <p>Every custom project starts with a conversation about sound, story, direction, and purpose.</p>
     </div>
 
     <div class="grid-3">
@@ -1067,14 +868,30 @@ footer{
       <div class="card">
         <div class="card-icon">2</div>
         <h3>Talk Through the Sound</h3>
-        <p>We’ll discuss genre, influences, mood, references, and what you want the finished idea to feel like.</p>
+        <p>We’ll discuss genre, mood, references, story, purpose, and what you want the finished piece to feel like.</p>
       </div>
 
       <div class="card">
         <div class="card-icon">3</div>
         <h3>Build the Production</h3>
-        <p>The project is developed through arranging, editing, creative production, and collaboration.</p>
+        <p>The project is developed through composition, arranging, editing, production, and collaboration.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="container">
+    <div class="section-title">
+      <div class="section-kicker">Creative Space</div>
+      <h2>Built for focused production work.</h2>
+      <p>A personal creative space for developing demos, instrumental music, arrangements, edits, and music resources.</p>
+    </div>
+
+    <div class="studio-gallery">
+      <img src="media/481BDA2B-1490-49D7-B328-A87E01A8D4A2.webp" alt="Creative production workstation">
+      <img src="media/800B6A24-65DC-4EC9-8B54-37E121A6A3CD.webp" alt="Music production workspace">
+      <img src="media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp" alt="MH CreativeWorks studio">
     </div>
   </div>
 </section>
@@ -1083,27 +900,27 @@ footer{
   <div class="container">
     <div class="section-title">
       <div class="section-kicker">Portfolio</div>
-      <h2>Creative work samples coming soon.</h2>
-      <p>Examples of demos, edits, arrangements, and worship resources will be added as the catalog grows.</p>
+      <h2>More work samples coming soon.</h2>
+      <p>Additional demos, cinematic cues, edits, arrangements, and worship resources will be added as the catalog grows.</p>
     </div>
 
     <div class="grid-3">
       <div class="card">
         <div class="card-icon">♪</div>
         <h3>Original Song Demos</h3>
-        <p>Developing rough ideas into clear, listenable production concepts.</p>
+        <p>Developing lyrics, melodies, and rough ideas into clear production concepts.</p>
       </div>
 
       <div class="card">
-        <div class="card-icon">✂</div>
-        <h3>Editing & Arrangement</h3>
-        <p>Refining existing tracks, shortening songs, arranging sections, and preparing audio for use.</p>
+        <div class="card-icon">🎬</div>
+        <h3>Cinematic Cues</h3>
+        <p>Instrumental music for film-style, media, and sync-oriented catalog work.</p>
       </div>
 
       <div class="card">
         <div class="card-icon">☁</div>
-        <h3>Platform Resources</h3>
-        <p>Worship backing tracks and stems distributed through trusted platforms like Loop Community.</p>
+        <h3>Worship Resources</h3>
+        <p>Backing tracks and stems distributed through trusted platforms like Loop Community.</p>
       </div>
     </div>
   </div>
@@ -1112,15 +929,15 @@ footer{
 <section id="contact" class="contact">
   <div class="container">
     <div class="section-kicker">Contact</div>
-    <h2>Ready to talk through a project?</h2>
+    <h2>Let’s talk about your project.</h2>
 
     <p>
       Send a project request, and I’ll follow up by email to schedule a conversation
-      about the sound, direction, and next step.
+      about your sound, story, direction, and next step.
     </p>
 
     <a href="#" class="btn" onclick="openContactForm(); return false;">
-      Request a Project Conversation
+      Start a Conversation
     </a>
   </div>
 </section>
@@ -1131,38 +948,6 @@ footer{
   © 2026 MH CreativeWorks
 </footer>
 
-<button class="mh-chat-launcher" id="mhChatLauncher" aria-label="Open MH CreativeWorks chat">
-  <img src="media/MH.webp" alt="MH CreativeWorks logo">
-</button>
-
-<div class="mh-chat-widget" id="mhChatWidget">
-  <div class="mh-chat-header">
-    <div class="mh-chat-header-logo">
-      <img src="media/MH.webp" alt="MH CreativeWorks logo">
-    </div>
-    <div class="mh-chat-header-text">
-      <h2>MH CreativeWorks</h2>
-      <p>Page-based assistant</p>
-    </div>
-    <button class="mh-chat-close" id="mhChatClose">×</button>
-  </div>
-
-  <div class="mh-chat-body" id="mhChatBody"></div>
-
-  <div class="mh-quick-replies">
-    <button class="mh-quick-btn" data-question="What services do you offer?">Services</button>
-    <button class="mh-quick-btn" data-question="I wrote a song. What is next?">I wrote a song</button>
-    <button class="mh-quick-btn" data-question="Can you help with worship music?">Worship music</button>
-    <button class="mh-quick-btn" data-question="Tell me about Loop Community.">Loop Community</button>
-    <button class="mh-quick-btn" data-question="I would like to start a project.">Start a project</button>
-  </div>
-
-  <div class="mh-chat-composer">
-    <input type="text" id="mhChatInput" placeholder="Ask about services or projects..." autocomplete="off">
-    <button id="mhChatSend" type="button">Send</button>
-  </div>
-</div>
-
 <div id="contactModal" class="modal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeContactForm()">×</button>
@@ -1170,7 +955,7 @@ footer{
     <h2>Project Conversation Request</h2>
     <p>
       Share the basics. I’ll follow up by email to schedule a conversation
-      about your project, sound, and creative direction.
+      about your project, sound, story, and creative direction.
     </p>
 
     <form id="contactForm">
@@ -1189,12 +974,11 @@ footer{
         <select name="projectType" required>
           <option value="">Choose one</option>
           <option value="Original Song Demo">Original Song Demo</option>
-          <option value="Music Arrangement">Music Arrangement</option>
+          <option value="Music for Lyrics">Music for Lyrics</option>
           <option value="Audio Editing">Audio Editing</option>
           <option value="Film / Media Music">Film / Media Music</option>
-          <option value="Remote Collaboration">Remote Collaboration</option>
-          <option value="Loop Community / Backing Track Question">Loop Community / Backing Track Question</option>
-          <option value="Creative Consultation">Creative Consultation</option>
+          <option value="Worship Resource Question">Worship Resource Question</option>
+          <option value="Creative Collaboration">Creative Collaboration</option>
           <option value="Other">Other</option>
         </select>
       </label>
@@ -1205,10 +989,10 @@ footer{
           <option value="">Choose one</option>
           <option value="I have an idea">I have an idea</option>
           <option value="I have lyrics">I have lyrics</option>
+          <option value="I have a melody">I have a melody</option>
           <option value="I have a rough recording">I have a rough recording</option>
-          <option value="I have a demo">I have a demo</option>
           <option value="I have existing audio that needs editing">I have existing audio that needs editing</option>
-          <option value="I need help shaping the direction">I need help shaping the direction</option>
+          <option value="I need music for a scene or media project">I need music for a scene or media project</option>
           <option value="Other">Other</option>
         </select>
       </label>
@@ -1218,7 +1002,7 @@ footer{
         <textarea
           name="soundDirection"
           rows="4"
-          placeholder="Describe the sound you hear in your head. You can mention artists, genres, songs, moods, or production styles."
+          placeholder="Describe the sound you hear in your head. You can mention artists, genres, moods, scenes, songs, or production styles."
           required></textarea>
       </label>
 
@@ -1243,7 +1027,7 @@ footer{
         </select>
       </label>
 
-      <button type="submit" class="btn">Request Conversation</button>
+      <button type="submit" class="btn">Send Request</button>
       <p id="formStatus"></p>
     </form>
   </div>
@@ -1313,166 +1097,6 @@ document.getElementById("contactForm").addEventListener("submit", async function
     status.textContent = "Something went wrong. Please try again.";
   }
 });
-
-/* CHAT */
-
-const mhChatLauncher = document.getElementById("mhChatLauncher");
-const mhChatWidget = document.getElementById("mhChatWidget");
-const mhChatClose = document.getElementById("mhChatClose");
-const mhChatBody = document.getElementById("mhChatBody");
-const mhChatInput = document.getElementById("mhChatInput");
-const mhChatSend = document.getElementById("mhChatSend");
-const mhQuickButtons = document.querySelectorAll(".mh-quick-btn");
-
-const mhChatAnswers = [
-  {
-    keywords:["services","offer","what do you do","creative services"],
-    text:"MH CreativeWorks helps with original song demos, audio editing, arrangement support, media music, worship resources, and creative collaboration."
-  },
-  {
-    keywords:["song","wrote a song","lyrics","melody","demo","original"],
-    text:"If you have a song idea, lyrics, melody, or rough recording, the next step is a project conversation. We’ll talk through the sound, style, direction, and what you want the song to become.",
-    action:"project"
-  },
-  {
-    keywords:["worship","backing track","tracks","stems","church"],
-    text:"MH CreativeWorks creates worship resources such as backing tracks and stems. These resources are distributed through Loop Community for platform access, delivery, and licensing support."
-  },
-  {
-    keywords:["loop","loop community","licensing"],
-    text:"Loop Community is the platform where MH CreativeWorks worship resources will be available. It provides access, downloads, and licensing-related support so MH CreativeWorks can focus on creating the music."
-  },
-  {
-    keywords:["start","project","contact","conversation","hire"],
-    text:"The best next step is to submit a Project Conversation Request. Share the basics, and I’ll follow up by email to schedule a conversation about your sound, direction, and next step.",
-    action:"project"
-  },
-  {
-    keywords:["editing","cut","splice","shorten","cleanup"],
-    text:"Yes. MH CreativeWorks can help refine existing audio through editing, cleanup, cutting, splicing, shortening songs, and arrangement adjustments."
-  },
-  {
-    keywords:["film","media","video","presentation"],
-    text:"Yes. MH CreativeWorks can help with music for media, video, film-style projects, presentations, and creative collaborations."
-  }
-];
-
-function mhAddChatMessage(content, sender = "bot", action = null){
-  const row = document.createElement("div");
-  row.className = `mh-message-row ${sender}`;
-
-  const group = document.createElement("div");
-  group.className = "mh-message-group";
-
-  const bubble = document.createElement("div");
-  bubble.className = "mh-bubble";
-  bubble.textContent = content;
-
-  group.appendChild(bubble);
-
-  if(action === "project"){
-    const actions = document.createElement("div");
-    actions.className = "mh-chat-action-row";
-
-    const button = document.createElement("button");
-    button.className = "mh-chat-action";
-    button.type = "button";
-    button.textContent = "Open Project Conversation Form";
-    button.addEventListener("click", openContactForm);
-
-    actions.appendChild(button);
-    group.appendChild(actions);
-  }
-
-  row.appendChild(group);
-  mhChatBody.appendChild(row);
-  mhChatBody.scrollTop = mhChatBody.scrollHeight;
-}
-
-function mhFindAnswer(question){
-  const clean = question.toLowerCase().trim();
-
-  for(const item of mhChatAnswers){
-    if(item.keywords.some(keyword => clean.includes(keyword))){
-      return item;
-    }
-  }
-
-  return null;
-}
-
-async function mhSendUnansweredQuestion(question){
-  try{
-    await fetch(SCRIPT_URL, {
-      method:"POST",
-      mode:"no-cors",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({
-        name:"Website Chat Visitor",
-        email:"not-provided@mhcreativeworks.local",
-        projectType:"Website Chat Question",
-        projectStage:"Question asked in chat",
-        soundDirection:"Not provided",
-        message:question,
-        timeline:"Not provided",
-        source:"MH CreativeWorks Website Chat"
-      })
-    });
-  }catch(error){
-    console.warn("Chat fallback could not be sent", error);
-  }
-}
-
-function mhHandleQuestion(question){
-  if(!question.trim()) return;
-
-  mhAddChatMessage(question, "user");
-
-  const answer = mhFindAnswer(question);
-
-  setTimeout(() => {
-    if(answer){
-      mhAddChatMessage(answer.text, "bot", answer.action || null);
-    }else{
-      mhSendUnansweredQuestion(question);
-      mhAddChatMessage("Thank you for the question. I do not want to guess beyond the information provided on this page, so your question has been forwarded for review. If this is about starting a project, you can also open the Project Conversation Form below.", "bot", "project");
-    }
-  }, 250);
-}
-
-function mhSendCurrentQuestion(){
-  const question = mhChatInput.value;
-  if(!question.trim()) return;
-  mhHandleQuestion(question);
-  mhChatInput.value = "";
-}
-
-mhChatLauncher.addEventListener("click", function(){
-  mhChatWidget.classList.toggle("open");
-  if(mhChatWidget.classList.contains("open")){
-    mhChatInput.focus();
-  }
-});
-
-mhChatClose.addEventListener("click", function(){
-  mhChatWidget.classList.remove("open");
-});
-
-mhChatSend.addEventListener("click", mhSendCurrentQuestion);
-
-mhChatInput.addEventListener("keydown", function(e){
-  if(e.key === "Enter"){
-    mhSendCurrentQuestion();
-  }
-});
-
-mhQuickButtons.forEach(button => {
-  button.addEventListener("click", function(){
-    mhHandleQuestion(button.getAttribute("data-question") || button.textContent);
-  });
-});
-
-mhAddChatMessage("Hi, I’m the MH CreativeWorks assistant. I can answer questions about services, worship resources, Loop Community, and project requests.", "bot");
 </script>
 
 </body>
