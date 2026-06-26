@@ -4,18 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MH CreativeWorks | Creative Music Production</title>
+<title>MH CreativeWorks | Creative Music Production & Worship Resources</title>
+<meta name="description" content="MH CreativeWorks provides music production, demos, sequencing, arranging, media music, worship backing tracks, and creative collaboration for artists, churches, and creators.">
 
 <style>
 :root{
-  --bg:#0b0f16;
-  --bg2:#121826;
-  --card:#171f2e;
-  --text:#f5f7fb;
-  --muted:#aab5c8;
+  --bg:#070a10;
+  --bg2:#0d1320;
+  --card:#111827;
+  --card2:#151f32;
+  --text:#f7f9ff;
+  --muted:#a9b4c8;
+  --soft:#d7e0f2;
   --accent:#4f8cff;
   --accent2:#8b5cf6;
-  --border:rgba(255,255,255,.10);
+  --cyan:#26d9ff;
+  --purple:#a855f7;
+  --border:rgba(255,255,255,.12);
+  --border2:rgba(255,255,255,.18);
+  --shadow:0 28px 90px rgba(0,0,0,.58);
+  --radius:26px;
 }
 
 *{
@@ -30,201 +38,319 @@ html{
 
 body{
   font-family:Arial, Helvetica, sans-serif;
-  background:var(--bg);
+  background:
+    radial-gradient(circle at top left, rgba(79,140,255,.12), transparent 34rem),
+    radial-gradient(circle at top right, rgba(139,92,246,.12), transparent 34rem),
+    var(--bg);
   color:var(--text);
   line-height:1.6;
 }
 
+body.modal-open{
+  overflow:hidden;
+}
+
 a{
-  text-decoration:none;
   color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+  display:block;
 }
 
 .container{
-  width:min(1200px,90%);
+  width:min(1320px,92%);
   margin:auto;
 }
 
-nav{
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.65rem;
+  min-height:56px;
+  padding:0 30px;
+  border-radius:999px;
+  border:1px solid transparent;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;
+  font-size:1rem;
+  font-weight:800;
+  letter-spacing:.02em;
+  cursor:pointer;
+  box-shadow:0 14px 34px rgba(79,140,255,.24);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 20px 44px rgba(79,140,255,.30);
+}
+
+.btn-outline{
+  background:rgba(255,255,255,.04);
+  border-color:rgba(255,255,255,.28);
+  box-shadow:none;
+}
+
+.btn-outline:hover{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.42);
+}
+
+/* ===== NAVIGATION ===== */
+.site-nav{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
+  inset:0 0 auto 0;
   z-index:1000;
-  background:rgba(11,15,22,.90);
-  backdrop-filter:blur(12px);
+  background:rgba(5,8,14,.88);
+  backdrop-filter:blur(18px);
   border-bottom:1px solid var(--border);
 }
 
 .nav-wrap{
+  min-height:86px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  padding:1rem 0;
+  justify-content:space-between;
+  gap:28px;
 }
 
 .logo{
   display:flex;
   align-items:center;
-  gap:.85rem;
-  font-weight:700;
+  gap:.95rem;
+  min-width:0;
 }
 
 .logo img{
-  width:54px;
-  height:54px;
+  width:58px;
+  height:58px;
   object-fit:contain;
-  display:block;
   flex:0 0 auto;
 }
 
 .logo-text{
   display:flex;
   flex-direction:column;
-  line-height:1.15;
+  line-height:1.1;
 }
 
 .logo-main{
   font-size:1.15rem;
-  color:var(--text);
+  font-weight:900;
+  letter-spacing:.22em;
+  text-transform:uppercase;
 }
 
 .logo-sub{
-  margin-top:.18rem;
-  font-size:.78rem;
-  color:var(--accent);
-  letter-spacing:.08em;
+  margin-top:.28rem;
+  color:var(--soft);
+  font-size:.74rem;
+  font-weight:800;
+  letter-spacing:.18em;
   text-transform:uppercase;
 }
 
 .nav-links{
   display:flex;
-  gap:1.5rem;
+  align-items:center;
+  gap:2rem;
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.15em;
+  text-transform:uppercase;
 }
 
 .nav-links a{
-  color:var(--muted);
+  color:var(--soft);
+  transition:color .2s ease;
 }
 
-.nav-links a:hover{
-  color:white;
+.nav-links a:hover,
+.nav-links a.active{
+  color:var(--accent);
 }
 
+/* ===== HERO ===== */
 .hero{
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:128px 0 72px;
   background:
-    linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.78)),
-    url("media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp");
-  background-size:cover;
-  background-position:center;
-  padding:6rem 1rem 4rem;
+    linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.78)),
+    url("media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp") center/cover no-repeat;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at left center, rgba(38,217,255,.32), transparent 26rem),
+    radial-gradient(circle at right center, rgba(168,85,247,.34), transparent 26rem),
+    linear-gradient(90deg, rgba(0,0,0,.58), transparent 24%, transparent 76%, rgba(0,0,0,.58));
+  z-index:-1;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.22);
+  z-index:-1;
 }
 
 .hero-content{
-  width:min(92vw,1200px);
-  max-width:1200px;
-  padding:3rem 4rem;
-  background:rgba(8,12,20,.55);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:24px;
-  backdrop-filter:blur(12px);
+  width:min(94vw,1540px);
+  margin:auto;
+  padding:4.2rem 5.25rem 4rem;
+  border-radius:32px;
+  border:1px solid rgba(255,255,255,.18);
+  background:
+    linear-gradient(135deg, rgba(10,14,24,.74), rgba(10,14,24,.58)),
+    radial-gradient(circle at left center, rgba(79,140,255,.18), transparent 32rem),
+    radial-gradient(circle at right center, rgba(139,92,246,.18), transparent 32rem);
+  backdrop-filter:blur(16px);
+  box-shadow:var(--shadow);
 }
 
 .hero-tag{
-  color:#82a8ff;
+  color:#83adff;
   text-transform:uppercase;
-  letter-spacing:2px;
+  letter-spacing:.26em;
   font-size:.9rem;
-  margin-bottom:1rem;
+  font-weight:900;
+  margin-bottom:1.3rem;
 }
 
 .hero h1{
-  font-size:clamp(2.8rem,5vw,4.5rem);
-  line-height:1.05;
-  max-width:1000px;
-  margin:0 auto 1.25rem;
+  max-width:1350px;
+  margin:0 auto 1.4rem;
+  font-size:clamp(3.25rem,5.3vw,6.3rem);
+  line-height:1.03;
+  letter-spacing:-.045em;
+  text-shadow:0 8px 36px rgba(0,0,0,.55);
 }
 
 .hero p{
-  font-size:1.2rem;
-  color:#d8e0ef;
-  max-width:850px;
-  margin:0 auto 2rem;
+  max-width:980px;
+  margin:0 auto 2.35rem;
+  color:#e2e8f7;
+  font-size:clamp(1rem,1.4vw,1.28rem);
+  font-weight:600;
 }
 
-.btn{
-  display:inline-block;
-  padding:14px 28px;
+.hero-rule{
+  width:82px;
+  height:3px;
   border-radius:999px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  font-weight:bold;
-  margin:.5rem;
-  border:none;
-  cursor:pointer;
-  color:white;
-  font-size:1rem;
+  margin:0 auto 1.65rem;
+  background:linear-gradient(90deg,var(--cyan),var(--purple));
 }
 
-.btn-outline{
-  background:transparent;
-  border:1px solid rgba(255,255,255,.3);
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:1rem;
 }
 
+/* ===== GENERAL SECTIONS ===== */
 section{
-  padding:90px 0;
+  padding:96px 0;
 }
 
 .section-title{
   text-align:center;
-  margin-bottom:3rem;
+  max-width:820px;
+  margin:0 auto 3.2rem;
+}
+
+.section-kicker{
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:.24em;
+  font-size:.8rem;
+  font-weight:900;
+  margin-bottom:.75rem;
 }
 
 .section-title h2{
-  font-size:2.5rem;
-  margin-bottom:.5rem;
+  font-size:clamp(2.25rem,4vw,3.5rem);
+  line-height:1.05;
+  letter-spacing:-.035em;
+  margin-bottom:.8rem;
 }
 
 .section-title p{
   color:var(--muted);
+  font-size:1.08rem;
 }
 
 .about{
-  background:var(--bg2);
+  background:linear-gradient(180deg, var(--bg), var(--bg2));
 }
 
 .about-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:2rem;
-  align-items:center;
+  align-items:stretch;
+}
+
+.about-text,
+.solution,
+.platform-card,
+.process-card,
+.portfolio-item{
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025)),
+    var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:0 18px 60px rgba(0,0,0,.28);
 }
 
 .about-text{
-  background:var(--card);
-  padding:2rem;
-  border-radius:20px;
-  border:1px solid var(--border);
+  padding:2.5rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
 .about-text h3{
-  margin-bottom:1rem;
-  font-size:1.8rem;
+  font-size:2rem;
+  line-height:1.1;
+  margin-bottom:1.1rem;
 }
 
 .about-text p{
   color:var(--muted);
   margin-bottom:1rem;
+  font-size:1.04rem;
+}
+
+.about-image{
+  min-height:420px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:0 18px 60px rgba(0,0,0,.32);
 }
 
 .about-image img{
   width:100%;
-  border-radius:20px;
-  display:block;
-  border:1px solid var(--border);
+  height:100%;
+  object-fit:cover;
 }
 
 .solutions-grid,
@@ -233,24 +359,45 @@ section{
 .portfolio-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:1.5rem;
+  gap:1.45rem;
 }
 
 .solution,
 .platform-card,
 .process-card,
 .portfolio-item{
-  background:var(--card);
   padding:2rem;
-  border-radius:20px;
-  border:1px solid var(--border);
+  transition:transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.solution:hover,
+.platform-card:hover,
+.process-card:hover,
+.portfolio-item:hover{
+  transform:translateY(-5px);
+  border-color:rgba(79,140,255,.35);
+}
+
+.card-icon{
+  width:56px;
+  height:56px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:1.35rem;
+  font-size:1.7rem;
+  color:#fff;
+  background:linear-gradient(135deg, rgba(79,140,255,.24), rgba(139,92,246,.24));
+  border:1px solid rgba(255,255,255,.13);
 }
 
 .solution h3,
 .platform-card h3,
 .process-card h3,
 .portfolio-item h3{
-  margin-bottom:1rem;
+  font-size:1.35rem;
+  margin-bottom:.75rem;
 }
 
 .solution p,
@@ -262,29 +409,31 @@ section{
 
 .solution ul{
   list-style:none;
-  margin-top:1rem;
+  margin-top:1.2rem;
 }
 
 .solution li{
-  margin-bottom:.6rem;
-  color:var(--muted);
+  color:var(--soft);
+  margin-bottom:.65rem;
+  padding-left:1.35rem;
+  position:relative;
 }
 
 .solution li::before{
-  content:"✓ ";
+  content:"✓";
+  position:absolute;
+  left:0;
   color:var(--accent);
-  font-weight:bold;
+  font-weight:900;
 }
 
-.platforms{
+.platforms,
+.process{
   background:var(--bg2);
 }
 
 .platform-card{
   text-align:center;
-}
-
-.platform-card.featured{
   position:relative;
   overflow:hidden;
 }
@@ -292,10 +441,10 @@ section{
 .platform-card.featured::before{
   content:"";
   position:absolute;
-  inset:0;
+  inset:-1px;
   background:
-    radial-gradient(circle at top, rgba(79,140,255,.18), transparent 40%),
-    radial-gradient(circle at bottom, rgba(139,92,246,.18), transparent 40%);
+    radial-gradient(circle at top, rgba(79,140,255,.20), transparent 45%),
+    radial-gradient(circle at bottom, rgba(139,92,246,.20), transparent 45%);
   pointer-events:none;
 }
 
@@ -305,7 +454,7 @@ section{
 }
 
 .platform-logo{
-  width:min(260px,80%);
+  width:min(260px,82%);
   max-height:120px;
   object-fit:contain;
   display:block;
@@ -317,85 +466,90 @@ section{
   display:flex;
   align-items:center;
   justify-content:center;
-  border:1px dashed rgba(255,255,255,.25);
-  border-radius:16px;
+  border:1px dashed rgba(255,255,255,.24);
+  border-radius:18px;
   color:#d8e0ef;
   margin:1.5rem auto;
   padding:1rem;
+  background:rgba(255,255,255,.035);
 }
 
 .platform-note{
-  max-width:820px;
-  margin:2rem auto 0;
+  max-width:850px;
+  margin:2.25rem auto 0;
   text-align:center;
   color:#d8e0ef;
+  font-size:1.04rem;
 }
 
 .studio{
   background:
-    radial-gradient(circle at top left, rgba(79,140,255,.16), transparent 35%),
-    radial-gradient(circle at bottom right, rgba(139,92,246,.16), transparent 35%),
+    radial-gradient(circle at top left, rgba(79,140,255,.14), transparent 35rem),
+    radial-gradient(circle at bottom right, rgba(139,92,246,.15), transparent 35rem),
     var(--bg);
-}
-
-.studio-gallery{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1.5rem;
-  margin-top:3rem;
-}
-
-.studio-gallery img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  border-radius:20px;
-  border:1px solid var(--border);
 }
 
 .badges{
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
-  gap:1rem;
+  gap:.8rem;
 }
 
 .badges span{
-  background:rgba(255,255,255,.08);
+  background:rgba(255,255,255,.07);
   border:1px solid var(--border);
-  padding:.8rem 1rem;
+  color:var(--soft);
+  padding:.85rem 1rem;
   border-radius:999px;
+  font-weight:800;
+  font-size:.92rem;
 }
 
-.process{
-  background:var(--bg2);
+.studio-gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.45rem;
+  margin-top:3rem;
+}
+
+.studio-gallery img{
+  width:100%;
+  height:290px;
+  object-fit:cover;
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+  box-shadow:0 18px 60px rgba(0,0,0,.28);
 }
 
 .contact{
   text-align:center;
   background:
-    linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.82)),
-    url("media/481BDA2B-1490-49D7-B328-A87E01A8D4A2.webp");
-  background-size:cover;
-  background-position:center;
+    linear-gradient(rgba(0,0,0,.80),rgba(0,0,0,.84)),
+    url("media/481BDA2B-1490-49D7-B328-A87E01A8D4A2.webp") center/cover no-repeat;
 }
 
 .contact h2{
-  font-size:3rem;
+  font-size:clamp(2.3rem,4vw,3.6rem);
+  line-height:1.05;
+  letter-spacing:-.035em;
   margin-bottom:1rem;
 }
 
 .contact p{
-  max-width:700px;
-  margin:auto auto 2rem;
+  max-width:760px;
+  margin:0 auto 2rem;
   color:#d8e0ef;
+  font-size:1.1rem;
 }
 
+/* ===== MODAL ===== */
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.78);
+  background:rgba(0,0,0,.80);
+  backdrop-filter:blur(8px);
   z-index:3000;
   align-items:center;
   justify-content:center;
@@ -407,19 +561,20 @@ section{
 }
 
 .modal-content{
-  width:min(680px,95%);
+  width:min(720px,95%);
   max-height:90vh;
   overflow-y:auto;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:24px;
-  padding:2rem;
+  background:linear-gradient(145deg,#121a2a,#0e1421);
+  border:1px solid var(--border2);
+  border-radius:28px;
+  padding:2.2rem;
   position:relative;
-  box-shadow:0 30px 80px rgba(0,0,0,.55);
+  box-shadow:0 30px 90px rgba(0,0,0,.62);
 }
 
 .modal-content h2{
   margin-bottom:.5rem;
+  font-size:2rem;
 }
 
 .modal-content p{
@@ -431,10 +586,13 @@ section{
   position:absolute;
   top:1rem;
   right:1rem;
-  background:transparent;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:rgba(255,255,255,.07);
   color:white;
-  border:none;
-  font-size:2rem;
+  border:1px solid var(--border);
+  font-size:1.65rem;
   cursor:pointer;
 }
 
@@ -446,50 +604,60 @@ section{
 #contactForm label{
   font-size:.95rem;
   color:#d8e0ef;
+  font-weight:700;
 }
 
 #contactForm input,
 #contactForm select,
 #contactForm textarea{
   width:100%;
+  margin-top:.35rem;
   padding:14px;
-  border-radius:12px;
+  border-radius:14px;
   border:1px solid var(--border);
-  background:#0b0f16;
+  background:#070a10;
   color:white;
   font-size:1rem;
   font-family:Arial, Helvetica, sans-serif;
+  outline:none;
+}
+
+#contactForm input:focus,
+#contactForm select:focus,
+#contactForm textarea:focus{
+  border-color:rgba(79,140,255,.62);
 }
 
 #contactForm input::placeholder,
 #contactForm textarea::placeholder{
-  color:#8894aa;
+  color:#7f8aa1;
 }
 
 #formStatus{
   margin-top:.5rem;
   color:#d8e0ef;
+  font-weight:700;
 }
 
 footer{
-  padding:2rem;
+  padding:2.2rem;
   text-align:center;
   color:var(--muted);
   border-top:1px solid var(--border);
+  background:#05080e;
 }
 
-
-/* ===== MH CREATIVEWORKS CHATBOT ===== */
+/* ===== CHATBOT ===== */
 .mh-chat-launcher{
   position:fixed;
   right:22px;
   bottom:22px;
-  width:66px;
-  height:66px;
+  width:70px;
+  height:70px;
   border-radius:50%;
-  border:1px solid var(--border);
+  border:1px solid rgba(255,255,255,.18);
   background:linear-gradient(135deg,var(--accent),var(--accent2));
-  box-shadow:0 18px 45px rgba(0,0,0,.38);
+  box-shadow:0 18px 45px rgba(0,0,0,.42);
   cursor:pointer;
   z-index:2500;
   display:flex;
@@ -508,15 +676,15 @@ footer{
 .mh-chat-widget{
   position:fixed;
   right:22px;
-  bottom:102px;
-  width:390px;
+  bottom:108px;
+  width:410px;
   max-width:calc(100vw - 32px);
-  height:620px;
-  max-height:calc(100vh - 130px);
+  height:640px;
+  max-height:calc(100vh - 136px);
   background:#0f1522;
-  border:1px solid var(--border);
+  border:1px solid var(--border2);
   border-radius:24px;
-  box-shadow:0 24px 70px rgba(0,0,0,.55);
+  box-shadow:0 24px 80px rgba(0,0,0,.60);
   overflow:hidden;
   z-index:2499;
   display:none;
@@ -537,8 +705,8 @@ footer{
 }
 
 .mh-chat-header-logo{
-  width:44px;
-  height:44px;
+  width:46px;
+  height:46px;
   border-radius:50%;
   background:rgba(255,255,255,.08);
   border:1px solid var(--border);
@@ -697,12 +865,92 @@ footer{
   cursor:pointer;
 }
 
+/* ===== RESPONSIVE ===== */
+@media(max-width:1100px){
+  .nav-links{
+    gap:1rem;
+    font-size:.75rem;
+  }
+
+  .hero-content{
+    padding:3.4rem 2.2rem;
+  }
+}
+
+@media(max-width:900px){
+  .nav-links{
+    display:none;
+  }
+
+  .nav-wrap{
+    min-height:78px;
+  }
+
+  .logo img{
+    width:50px;
+    height:50px;
+  }
+
+  .logo-main{
+    font-size:.95rem;
+    letter-spacing:.12em;
+  }
+
+  .logo-sub{
+    font-size:.64rem;
+  }
+
+  .hero{
+    padding:110px 0 56px;
+  }
+
+  .hero-content{
+    width:min(94vw,1200px);
+    padding:2.25rem 1.3rem;
+    border-radius:24px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.25rem,10vw,3.5rem);
+  }
+
+  .hero h1 br{
+    display:none;
+  }
+
+  .about-grid,
+  .solutions-grid,
+  .platform-grid,
+  .process-grid,
+  .portfolio-grid,
+  .studio-gallery{
+    grid-template-columns:1fr;
+  }
+
+  .about-image{
+    min-height:300px;
+  }
+
+  section{
+    padding:72px 0;
+  }
+}
+
 @media(max-width:600px){
+  .hero-actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .btn{
+    width:100%;
+  }
+
   .mh-chat-launcher{
     right:14px;
     bottom:14px;
-    width:62px;
-    height:62px;
+    width:64px;
+    height:64px;
   }
 
   .mh-chat-widget{
@@ -714,68 +962,28 @@ footer{
     max-width:none;
   }
 }
-
-@media(max-width:900px){
-  .about-grid,
-  .solutions-grid,
-  .platform-grid,
-  .process-grid,
-  .portfolio-grid,
-  .studio-gallery{
-    grid-template-columns:1fr;
-  }
-
-  .nav-links{
-    display:none;
-  }
-
-  .logo img{
-    width:46px;
-    height:46px;
-  }
-
-  .logo-main{
-    font-size:1rem;
-  }
-
-  .logo-sub{
-    font-size:.68rem;
-  }
-
-  .hero-content{
-    width:min(94vw,1200px);
-    padding:2rem 1.25rem;
-  }
-
-  .hero h1{
-    font-size:clamp(2.25rem,10vw,3.4rem);
-  }
-
-  .contact h2{
-    font-size:2.3rem;
-  }
-}
 </style>
 </head>
 
 <body>
 
-<nav>
+<nav class="site-nav">
   <div class="container nav-wrap">
     <a class="logo" href="#" aria-label="MH CreativeWorks Home">
       <img src="media/MH.webp" alt="MH CreativeWorks logo">
       <span class="logo-text">
         <span class="logo-main">MH CreativeWorks</span>
-        <span class="logo-sub">Creative Music Production</span>
+        <span class="logo-sub">Music Production & Resources</span>
       </span>
     </a>
 
-    <div class="nav-links">
-      <a href="#about">About</a>
+    <div class="nav-links" aria-label="Primary navigation">
+      <a class="active" href="#">Home</a>
       <a href="#solutions">Solutions</a>
       <a href="#platforms">Platforms</a>
       <a href="#studio">Studio</a>
       <a href="#process">Process</a>
+      <a href="#portfolio">Portfolio</a>
       <a href="#" onclick="openContactForm(); return false;">Contact</a>
     </div>
   </div>
@@ -783,252 +991,274 @@ footer{
 
 <header class="hero">
   <div class="hero-content">
-    <div class="hero-tag">
-      Creative Music Production
-    </div>
+    <div class="hero-tag">Creative Music Production</div>
 
     <h1>
       Music Production, Resources &<br>Creative Collaboration
     </h1>
 
+    <div class="hero-rule" aria-hidden="true"></div>
+
     <p>
-      MH CreativeWorks helps artists, churches, and creators develop musical ideas
-      through demos, sequencing, editing, arranging, media production, and platform-based worship resources.
+      MH CreativeWorks helps artists, churches, and creators develop musical ideas through demos,
+      sequencing, editing, arranging, media production, and platform-based worship resources.
     </p>
 
-    <a href="#solutions" class="btn">Explore Solutions</a>
-    <a href="#" class="btn btn-outline" onclick="openContactForm(); return false;">Request a Conversation</a>
+    <div class="hero-actions">
+      <a href="#solutions" class="btn">Explore Solutions</a>
+      <a href="#" class="btn btn-outline" onclick="openContactForm(); return false;">Request a Conversation</a>
+    </div>
   </div>
 </header>
 
-<section id="about" class="about">
-  <div class="container about-grid">
-    <div class="about-text">
-      <h3>A Creative Production Brand</h3>
-
-      <p>
-        MH CreativeWorks is built around two connected paths: custom creative
-        production and platform-based worship resources.
-      </p>
-
-      <p>
-        Custom projects begin with a conversation about sound, direction,
-        and purpose. Worship resources are made available through trusted
-        platforms built for churches, worship teams, and creators.
-      </p>
-    </div>
-
-    <div class="about-image">
-      <img src="media/58AB4FF2-8F54-41CA-AF99-316594C12DE0.webp" alt="MH CreativeWorks studio setup">
-    </div>
-  </div>
-</section>
-
-<section id="solutions">
-  <div class="container">
-    <div class="section-title">
-      <h2>Creative Solutions</h2>
-      <p>Custom production support for songs, demos, media, and ministry projects.</p>
-    </div>
-
-    <div class="solutions-grid">
-      <div class="solution">
-        <h3>Develop</h3>
-        <p>Turn a musical idea into a clear production concept.</p>
-        <ul>
-          <li>Original song demos</li>
-          <li>MIDI sequencing</li>
-          <li>Virtual instrument production</li>
-          <li>Keyboard programming</li>
-        </ul>
-      </div>
-
-      <div class="solution">
-        <h3>Refine</h3>
-        <p>Shape existing audio into something cleaner and more usable.</p>
-        <ul>
-          <li>Audio editing</li>
-          <li>Cutting and splicing tracks</li>
-          <li>Arrangement adjustments</li>
-          <li>Production cleanup</li>
-        </ul>
-      </div>
-
-      <div class="solution">
-        <h3>Collaborate</h3>
-        <p>Work together on music for media, ministry, and creative projects.</p>
-        <ul>
-          <li>Film-style music production</li>
-          <li>Media arranging</li>
-          <li>Remote studio collaboration</li>
-          <li>Creative consulting</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="platforms" class="platforms">
-  <div class="container">
-    <div class="section-title">
-      <h2>Platforms We Create For</h2>
-      <p>
-        MH CreativeWorks creates music and resources that can live on trusted platforms
-        where churches, artists, and listeners already connect.
-      </p>
-    </div>
-
-    <div class="platform-grid">
-      <div class="platform-card featured">
-        <h3>Worship Resources</h3>
-
-        <a href="https://loopcommunity.com" target="_blank">
-          <img src="media/loop.webp" alt="Loop Community" class="platform-logo">
-        </a>
+<main>
+  <section id="about" class="about">
+    <div class="container about-grid">
+      <div class="about-text">
+        <div class="section-kicker">About</div>
+        <h3>A creative production brand built for music, ministry, and media.</h3>
 
         <p>
-          Worship backing tracks, stems, and performance resources are distributed
-          through Loop Community for easy access, delivery, and licensing support.
+          MH CreativeWorks is built around two connected paths: custom creative
+          production and platform-based worship resources.
         </p>
 
-        <a href="https://loopcommunity.com" target="_blank" class="btn btn-outline">
-          Profile Coming Soon
-        </a>
+        <p>
+          Custom projects begin with a conversation about sound, direction,
+          and purpose. Worship resources are made available through trusted
+          platforms built for churches, worship teams, and creators.
+        </p>
       </div>
 
-      <div class="platform-card">
-        <h3>Streaming & Media</h3>
+      <div class="about-image">
+        <img src="media/58AB4FF2-8F54-41CA-AF99-316594C12DE0.webp" alt="MH CreativeWorks studio setup">
+      </div>
+    </div>
+  </section>
 
-        <div class="platform-placeholder">
-          YouTube • Spotify • Apple Music
+  <section id="solutions">
+    <div class="container">
+      <div class="section-title">
+        <div class="section-kicker">Solutions</div>
+        <h2>What We Do</h2>
+        <p>Professional production and creative services designed to bring your musical vision to life with excellence and purpose.</p>
+      </div>
+
+      <div class="solutions-grid">
+        <div class="solution">
+          <div class="card-icon">♫</div>
+          <h3>Develop</h3>
+          <p>Turn a musical idea into a clear production concept.</p>
+          <ul>
+            <li>Original song demos</li>
+            <li>MIDI sequencing</li>
+            <li>Virtual instrument production</li>
+            <li>Keyboard programming</li>
+          </ul>
         </div>
 
-        <p>
-          Future releases, demos, and media projects can be shared through
-          streaming and video platforms as the catalog grows.
-        </p>
-      </div>
-
-      <div class="platform-card">
-        <h3>Church & Creator Tools</h3>
-
-        <div class="platform-placeholder">
-          Planning • Presentation • Collaboration
+        <div class="solution">
+          <div class="card-icon">≋</div>
+          <h3>Refine</h3>
+          <p>Shape existing audio into something cleaner and more usable.</p>
+          <ul>
+            <li>Audio editing</li>
+            <li>Cutting and splicing tracks</li>
+            <li>Arrangement adjustments</li>
+            <li>Production cleanup</li>
+          </ul>
         </div>
 
+        <div class="solution">
+          <div class="card-icon">◎</div>
+          <h3>Collaborate</h3>
+          <p>Work together on music for media, ministry, and creative projects.</p>
+          <ul>
+            <li>Film-style music production</li>
+            <li>Media arranging</li>
+            <li>Remote studio collaboration</li>
+            <li>Creative consulting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="platforms" class="platforms">
+    <div class="container">
+      <div class="section-title">
+        <div class="section-kicker">Platforms</div>
+        <h2>Created for the places people already connect.</h2>
         <p>
-          Music and media can be prepared for use in worship planning,
-          presentations, livestreams, videos, and creative projects.
+          MH CreativeWorks creates music and resources that can live on trusted platforms
+          where churches, artists, and listeners already connect.
         </p>
       </div>
-    </div>
 
-    <p class="platform-note">
-      MH CreativeWorks stays focused on creating music. Distribution, downloads,
-      licensing, and platform delivery are handled through trusted services built for that purpose.
-    </p>
-  </div>
-</section>
+      <div class="platform-grid">
+        <div class="platform-card featured">
+          <div class="card-icon" style="margin-left:auto;margin-right:auto;">▶</div>
+          <h3>Worship Resources</h3>
 
-<section id="studio" class="studio">
-  <div class="container">
-    <div class="section-title">
-      <h2>Studio Workflow</h2>
-      <p>
-        Built around Cubase, Roland keyboards, virtual instruments, and modern
-        creative tools for flexible music production.
+          <a href="https://loopcommunity.com" target="_blank" rel="noopener noreferrer">
+            <img src="media/loop.webp" alt="Loop Community" class="platform-logo">
+          </a>
+
+          <p>
+            Worship backing tracks, stems, and performance resources are distributed
+            through Loop Community for easy access, delivery, and licensing support.
+          </p>
+
+          <a href="https://loopcommunity.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-top:1.4rem;">
+            Profile Coming Soon
+          </a>
+        </div>
+
+        <div class="platform-card">
+          <div class="card-icon" style="margin-left:auto;margin-right:auto;">▣</div>
+          <h3>Streaming & Media</h3>
+
+          <div class="platform-placeholder">
+            YouTube • Spotify • Apple Music
+          </div>
+
+          <p>
+            Future releases, demos, and media projects can be shared through
+            streaming and video platforms as the catalog grows.
+          </p>
+        </div>
+
+        <div class="platform-card">
+          <div class="card-icon" style="margin-left:auto;margin-right:auto;">◈</div>
+          <h3>Church & Creator Tools</h3>
+
+          <div class="platform-placeholder">
+            Planning • Presentation • Collaboration
+          </div>
+
+          <p>
+            Music and media can be prepared for use in worship planning,
+            presentations, livestreams, videos, and creative projects.
+          </p>
+        </div>
+      </div>
+
+      <p class="platform-note">
+        MH CreativeWorks stays focused on creating music. Distribution, downloads,
+        licensing, and platform delivery are handled through trusted services built for that purpose.
       </p>
     </div>
+  </section>
 
-    <div class="badges">
-      <span>Cubase</span>
-      <span>Roland Fantom-07</span>
-      <span>Roland FA-6</span>
-      <span>Virtual Instruments</span>
-      <span>MIDI Production</span>
-      <span>Suno Studio</span>
-      <span>Remote Collaboration</span>
-    </div>
-
-    <div class="studio-gallery">
-      <img src="media/481BDA2B-1490-49D7-B328-A87E01A8D4A2.webp" alt="Studio workstation">
-      <img src="media/800B6A24-65DC-4EC9-8B54-37E121A6A3CD.webp" alt="Keyboard and production setup">
-      <img src="media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp" alt="Music production studio">
-    </div>
-  </div>
-</section>
-
-<section id="process" class="process">
-  <div class="container">
-    <div class="section-title">
-      <h2>How Custom Projects Begin</h2>
-      <p>Every custom project starts with a conversation about sound, direction, and purpose.</p>
-    </div>
-
-    <div class="process-grid">
-      <div class="process-card">
-        <h3>1. Share the Idea</h3>
-        <p>Send a project request with where you are in the process and the direction you have in mind.</p>
+  <section id="studio" class="studio">
+    <div class="container">
+      <div class="section-title">
+        <div class="section-kicker">Studio</div>
+        <h2>Studio Workflow</h2>
+        <p>
+          Built around Cubase, Roland keyboards, virtual instruments, and modern
+          creative tools for flexible music production.
+        </p>
       </div>
 
-      <div class="process-card">
-        <h3>2. Talk Through the Sound</h3>
-        <p>We’ll discuss genre, influences, mood, artist references, and what you want the finished idea to feel like.</p>
+      <div class="badges">
+        <span>Cubase</span>
+        <span>Roland Fantom-07</span>
+        <span>Roland FA-6</span>
+        <span>Virtual Instruments</span>
+        <span>MIDI Production</span>
+        <span>Suno Studio</span>
+        <span>Remote Collaboration</span>
       </div>
 
-      <div class="process-card">
-        <h3>3. Build the Production</h3>
-        <p>The project is developed through sequencing, arranging, editing, virtual instruments, and creative production tools.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="portfolio">
-  <div class="container">
-    <div class="section-title">
-      <h2>Portfolio</h2>
-      <p>Examples of demos, edits, arrangements, and worship resources will be added soon.</p>
-    </div>
-
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <h3>Original Song Demos</h3>
-        <p>Developing rough ideas into clear, listenable production concepts.</p>
-      </div>
-
-      <div class="portfolio-item">
-        <h3>Editing & Arrangement</h3>
-        <p>Refining existing tracks, shortening songs, arranging sections, and preparing audio for use.</p>
-      </div>
-
-      <div class="portfolio-item">
-        <h3>Platform Resources</h3>
-        <p>Worship backing tracks and stems distributed through trusted platforms like Loop Community.</p>
+      <div class="studio-gallery">
+        <img src="media/481BDA2B-1490-49D7-B328-A87E01A8D4A2.webp" alt="Studio workstation">
+        <img src="media/800B6A24-65DC-4EC9-8B54-37E121A6A3CD.webp" alt="Keyboard and production setup">
+        <img src="media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp" alt="Music production studio">
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="contact" class="contact">
-  <div class="container">
-    <h2>Ready to Talk Through a Project?</h2>
+  <section id="process" class="process">
+    <div class="container">
+      <div class="section-title">
+        <div class="section-kicker">Process</div>
+        <h2>How Custom Projects Begin</h2>
+        <p>Every custom project starts with a conversation about sound, direction, and purpose.</p>
+      </div>
 
-    <p>
-      Send a project request, and I’ll follow up by email to schedule a conversation
-      about the sound, direction, and next step.
-    </p>
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="card-icon">1</div>
+          <h3>Share the Idea</h3>
+          <p>Send a project request with where you are in the process and the direction you have in mind.</p>
+        </div>
 
-    <a href="#" class="btn" onclick="openContactForm(); return false;">
-      Request a Project Conversation
-    </a>
-  </div>
-</section>
+        <div class="process-card">
+          <div class="card-icon">2</div>
+          <h3>Talk Through the Sound</h3>
+          <p>We’ll discuss genre, influences, mood, artist references, and what you want the finished idea to feel like.</p>
+        </div>
+
+        <div class="process-card">
+          <div class="card-icon">3</div>
+          <h3>Build the Production</h3>
+          <p>The project is developed through sequencing, arranging, editing, virtual instruments, and creative production tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-title">
+        <div class="section-kicker">Portfolio</div>
+        <h2>Creative work samples coming soon.</h2>
+        <p>Examples of demos, edits, arrangements, and worship resources will be added as the catalog grows.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="card-icon">♪</div>
+          <h3>Original Song Demos</h3>
+          <p>Developing rough ideas into clear, listenable production concepts.</p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="card-icon">✂</div>
+          <h3>Editing & Arrangement</h3>
+          <p>Refining existing tracks, shortening songs, arranging sections, and preparing audio for use.</p>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="card-icon">☁</div>
+          <h3>Platform Resources</h3>
+          <p>Worship backing tracks and stems distributed through trusted platforms like Loop Community.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-kicker">Contact</div>
+      <h2>Ready to talk through a project?</h2>
+
+      <p>
+        Send a project request, and I’ll follow up by email to schedule a conversation
+        about the sound, direction, and next step.
+      </p>
+
+      <a href="#" class="btn" onclick="openContactForm(); return false;">
+        Request a Project Conversation
+      </a>
+    </div>
+  </section>
+</main>
 
 <footer>
   © 2026 MH CreativeWorks
 </footer>
-
 
 <button class="mh-chat-launcher" id="mhChatLauncher" aria-label="Open MH CreativeWorks chat">
   <img src="media/MH.webp" alt="MH CreativeWorks logo">
@@ -1040,8 +1270,8 @@ footer{
       <img src="media/MH.webp" alt="MH CreativeWorks logo">
     </div>
     <div class="mh-chat-header-text">
-      <h2>MH CreativeWorks Assistant</h2>
-      <p>Answers based on this page</p>
+      <h2>MH CreativeWorks</h2>
+      <p>Page-based assistant</p>
     </div>
     <button class="mh-chat-close" id="mhChatClose" aria-label="Close chat">×</button>
   </div>
@@ -1064,7 +1294,7 @@ footer{
 
 <div id="contactModal" class="modal">
   <div class="modal-content">
-    <button class="modal-close" onclick="closeContactForm()">×</button>
+    <button class="modal-close" onclick="closeContactForm()" aria-label="Close project request form">×</button>
 
     <h2>Project Conversation Request</h2>
     <p>
@@ -1151,7 +1381,6 @@ footer{
 
 <script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxF6MMH3_t53SuX8man44Nzly8JCgbPS5TM4hFRD04dwOBS4hh5cMR-A94Hk82bVyCk8g/exec";
-
 
 const mhChatLauncher = document.getElementById("mhChatLauncher");
 const mhChatWidget = document.getElementById("mhChatWidget");
@@ -1340,10 +1569,12 @@ mhAddChatMessage("Hi, I’m the MH CreativeWorks assistant. I can answer questio
 
 function openContactForm(){
   document.getElementById("contactModal").classList.add("show");
+  document.body.classList.add("modal-open");
 }
 
 function closeContactForm(){
   document.getElementById("contactModal").classList.remove("show");
+  document.body.classList.remove("modal-open");
 }
 
 document.getElementById("contactModal").addEventListener("click", function(e){
@@ -1373,7 +1604,8 @@ document.getElementById("contactForm").addEventListener("submit", async function
     projectStage: form.projectStage.value,
     soundDirection: form.soundDirection.value,
     message: form.message.value,
-    timeline: form.timeline.value
+    timeline: form.timeline.value,
+    source:"MH CreativeWorks Project Conversation Form"
   };
 
   try{
@@ -1386,7 +1618,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
       body:JSON.stringify(data)
     });
 
-    status.textContent = "Thank you! Your request has been sent.";
+    status.textContent = "Thank you. Your request has been sent.";
     form.reset();
 
     setTimeout(function(){
