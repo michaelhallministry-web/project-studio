@@ -64,12 +64,37 @@ nav{
 }
 
 .logo{
-  font-size:1.2rem;
+  display:flex;
+  align-items:center;
+  gap:.85rem;
   font-weight:700;
 }
 
-.logo span{
+.logo img{
+  width:54px;
+  height:54px;
+  object-fit:contain;
+  display:block;
+  flex:0 0 auto;
+}
+
+.logo-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.15;
+}
+
+.logo-main{
+  font-size:1.15rem;
+  color:var(--text);
+}
+
+.logo-sub{
+  margin-top:.18rem;
+  font-size:.78rem;
   color:var(--accent);
+  letter-spacing:.08em;
+  text-transform:uppercase;
 }
 
 .nav-links{
@@ -464,6 +489,19 @@ footer{
     display:none;
   }
 
+  .logo img{
+    width:46px;
+    height:46px;
+  }
+
+  .logo-main{
+    font-size:1rem;
+  }
+
+  .logo-sub{
+    font-size:.68rem;
+  }
+
   .hero-content{
     padding:2rem 1.25rem;
   }
@@ -479,9 +517,13 @@ footer{
 
 <nav>
   <div class="container nav-wrap">
-    <div class="logo">
-      MH CreativeWorks <span>Creative Music Production</span>
-    </div>
+    <a class="logo" href="#" aria-label="MH CreativeWorks Home">
+      <img src="media/MH.webp" alt="MH CreativeWorks logo">
+      <span class="logo-text">
+        <span class="logo-main">MH CreativeWorks</span>
+        <span class="logo-sub">Creative Music Production</span>
+      </span>
+    </a>
 
     <div class="nav-links">
       <a href="#about">About</a>
@@ -517,6 +559,7 @@ footer{
 <section id="about" class="about">
   <div class="container about-grid">
     <div class="about-text">
+      <h3>A Creative Production Brand</h3>
 
       <p>
         MH CreativeWorks is built around two connected paths: custom creative
