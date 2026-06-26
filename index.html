@@ -45,8 +45,6 @@ a{
   margin:auto;
 }
 
-/* NAVIGATION */
-
 nav{
   position:fixed;
   top:0;
@@ -86,8 +84,6 @@ nav{
 .nav-links a:hover{
   color:white;
 }
-
-/* HERO */
 
 .hero{
   min-height:100vh;
@@ -150,8 +146,6 @@ nav{
   border:1px solid rgba(255,255,255,.3);
 }
 
-/* SECTIONS */
-
 section{
   padding:90px 0;
 }
@@ -169,8 +163,6 @@ section{
 .section-title p{
   color:var(--muted);
 }
-
-/* ABOUT */
 
 .about{
   background:var(--bg2);
@@ -207,8 +199,6 @@ section{
   border:1px solid var(--border);
 }
 
-/* SERVICES */
-
 .services-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -240,8 +230,6 @@ section{
   color:var(--accent);
   font-weight:bold;
 }
-
-/* STUDIO */
 
 .studio{
   background:
@@ -279,8 +267,6 @@ section{
   border-radius:999px;
 }
 
-/* PORTFOLIO */
-
 .portfolio-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -298,8 +284,6 @@ section{
   color:var(--muted);
   margin-top:.5rem;
 }
-
-/* CONTACT */
 
 .contact{
   text-align:center;
@@ -320,8 +304,6 @@ section{
   margin:auto auto 2rem;
   color:#d8e0ef;
 }
-
-/* POPUP CONTACT FORM */
 
 .modal{
   display:none;
@@ -396,16 +378,12 @@ section{
   color:#d8e0ef;
 }
 
-/* FOOTER */
-
 footer{
   padding:2rem;
   text-align:center;
   color:var(--muted);
   border-top:1px solid var(--border);
 }
-
-/* MOBILE */
 
 @media(max-width:900px){
   .about-grid,
@@ -609,14 +587,12 @@ footer{
     <button class="modal-close" onclick="closeContactForm()">×</button>
 
     <h2>Start a Project</h2>
-    <p>Tell me a little about what you need.</p>
+    <p>Send a project request by email. No phone number required.</p>
 
     <form id="contactForm">
       <input type="text" name="name" placeholder="Your Name" required>
 
       <input type="email" name="email" placeholder="Your Email" required>
-
-      <input type="tel" name="phone" placeholder="Phone Number">
 
       <select name="service" required>
         <option value="">What do you need?</option>
@@ -625,10 +601,25 @@ footer{
         <option value="Recording / Editing">Recording / Editing</option>
         <option value="Mixing / Production">Mixing / Production</option>
         <option value="Worship Tracks">Worship Tracks</option>
+        <option value="Keyboard Programming">Keyboard Programming</option>
+        <option value="Consultation">Consultation</option>
         <option value="Other">Other</option>
       </select>
 
-      <textarea name="message" rows="6" placeholder="Project details or request" required></textarea>
+      <select name="timeline">
+        <option value="">Project Timeline</option>
+        <option value="ASAP">ASAP</option>
+        <option value="Within 1 Week">Within 1 Week</option>
+        <option value="Within 2 Weeks">Within 2 Weeks</option>
+        <option value="This Month">This Month</option>
+        <option value="Flexible">Flexible</option>
+      </select>
+
+      <textarea
+        name="message"
+        rows="6"
+        placeholder="Tell me about your project. Include the song, style, timeline, and anything else you'd like me to know."
+        required></textarea>
 
       <button type="submit" class="btn">Send Request</button>
 
@@ -671,8 +662,8 @@ document.getElementById("contactForm").addEventListener("submit", async function
   const data = {
     name: form.name.value,
     email: form.email.value,
-    phone: form.phone.value,
     service: form.service.value,
+    timeline: form.timeline.value,
     message: form.message.value
   };
 
