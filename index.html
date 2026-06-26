@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MH CreativeWorks Audio & Production</title>
+<title>MH CreativeWorks | Creative Music Production</title>
 
 <style>
 :root{
@@ -231,11 +231,44 @@ section{
   font-weight:bold;
 }
 
+.resources{
+  background:var(--bg2);
+}
+
+.resource-box{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:2.5rem;
+  text-align:center;
+  max-width:900px;
+  margin:auto;
+}
+
+.resource-box h3{
+  font-size:2rem;
+  margin-bottom:1rem;
+}
+
+.resource-box p{
+  color:var(--muted);
+  margin-bottom:1.5rem;
+}
+
+.logo-placeholder{
+  display:inline-block;
+  padding:1rem 1.5rem;
+  border:1px dashed rgba(255,255,255,.35);
+  border-radius:14px;
+  color:#d8e0ef;
+  margin-bottom:1.5rem;
+}
+
 .studio{
   background:
     radial-gradient(circle at top left, rgba(79,140,255,.16), transparent 35%),
     radial-gradient(circle at bottom right, rgba(139,92,246,.16), transparent 35%),
-    var(--bg2);
+    var(--bg);
 }
 
 .studio-gallery{
@@ -265,6 +298,31 @@ section{
   border:1px solid var(--border);
   padding:.8rem 1rem;
   border-radius:999px;
+}
+
+.process{
+  background:var(--bg2);
+}
+
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+}
+
+.process-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:2rem;
+}
+
+.process-card h3{
+  margin-bottom:.75rem;
+}
+
+.process-card p{
+  color:var(--muted);
 }
 
 .portfolio-grid{
@@ -321,7 +379,9 @@ section{
 }
 
 .modal-content{
-  width:min(600px,95%);
+  width:min(680px,95%);
+  max-height:90vh;
+  overflow-y:auto;
   background:var(--card);
   border:1px solid var(--border);
   border-radius:24px;
@@ -353,6 +413,11 @@ section{
 #contactForm{
   display:grid;
   gap:1rem;
+}
+
+#contactForm label{
+  font-size:.95rem;
+  color:#d8e0ef;
 }
 
 #contactForm input,
@@ -388,6 +453,7 @@ footer{
 @media(max-width:900px){
   .about-grid,
   .services-grid,
+  .process-grid,
   .portfolio-grid,
   .studio-gallery{
     grid-template-columns:1fr;
@@ -413,14 +479,15 @@ footer{
 <nav>
   <div class="container nav-wrap">
     <div class="logo">
-      MH CreativeWorks <span>Audio & Production</span>
+      MH CreativeWorks <span>Creative Music Production</span>
     </div>
 
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#services">Services</a>
+      <a href="#resources">Tracks</a>
       <a href="#studio">Studio</a>
-      <a href="#portfolio">Portfolio</a>
+      <a href="#process">Process</a>
       <a href="#" onclick="openContactForm(); return false;">Contact</a>
     </div>
   </div>
@@ -429,39 +496,37 @@ footer{
 <header class="hero">
   <div class="hero-content">
     <div class="hero-tag">
-      Sequencing • Recording • Production
+      Creative Music Production
     </div>
 
     <h1>
-      Professional Music Production for Worship Teams, Artists & Creators
+      Bringing Musical Ideas to Life
     </h1>
 
     <p>
-      Custom MIDI sequencing, backing tracks, keyboard programming,
-      recording, editing, and mixing services designed to bring
-      your musical vision to life.
+      Demo production, MIDI sequencing, editing, arranging, film-style music,
+      and creative collaboration for artists, churches, and content creators.
     </p>
 
     <a href="#services" class="btn">View Services</a>
-    <a href="#" class="btn btn-outline" onclick="openContactForm(); return false;">Start a Project</a>
+    <a href="#" class="btn btn-outline" onclick="openContactForm(); return false;">Request a Conversation</a>
   </div>
 </header>
 
 <section id="about" class="about">
   <div class="container about-grid">
     <div class="about-text">
-      <h3>Bringing Musical Ideas to Life</h3>
+      <h3>Creativity Meets Production</h3>
 
       <p>
-        MH CreativeWorks Audio & Production specializes in custom MIDI sequencing,
-        backing tracks, recording, editing, keyboard programming,
-        and audio production.
+        MH CreativeWorks is a creative project studio focused on helping
+        musical ideas move from concept to production.
       </p>
 
       <p>
-        Whether you're a worship team, solo artist, content creator,
-        or church musician, every project is crafted with attention
-        to detail and musical excellence.
+        Whether you're shaping an original song, refining an arrangement,
+        creating a demo, editing existing audio, or building music for media,
+        the goal is simple: make the idea clear, musical, and ready for its next step.
       </p>
     </div>
 
@@ -474,40 +539,63 @@ footer{
 <section id="services">
   <div class="container">
     <div class="section-title">
-      <h2>Services</h2>
-      <p>Professional production support for your next project.</p>
+      <h2>Creative Services</h2>
+      <p>Production support for songs, demos, media, and ministry projects.</p>
     </div>
 
     <div class="services-grid">
       <div class="service">
-        <h3>🎹 MIDI Sequencing</h3>
+        <h3>🎹 Production & Sequencing</h3>
         <ul>
-          <li>Custom backing tracks</li>
-          <li>Click tracks</li>
-          <li>Stems and arrangements</li>
-          <li>Live performance preparation</li>
-        </ul>
-      </div>
-
-      <div class="service">
-        <h3>🎙 Recording & Editing</h3>
-        <ul>
-          <li>Audio cleanup</li>
-          <li>Vocal editing</li>
-          <li>Voice overs</li>
-          <li>Podcast-style production</li>
-        </ul>
-      </div>
-
-      <div class="service">
-        <h3>🎚 Mixing & Production</h3>
-        <ul>
-          <li>Mixing</li>
-          <li>Virtual instruments</li>
+          <li>MIDI sequencing</li>
           <li>Keyboard programming</li>
-          <li>Production consulting</li>
+          <li>Virtual instrument production</li>
+          <li>Song demo development</li>
         </ul>
       </div>
+
+      <div class="service">
+        <h3>✂️ Editing & Arrangement</h3>
+        <ul>
+          <li>Audio editing</li>
+          <li>Cutting and splicing tracks</li>
+          <li>Song arrangement support</li>
+          <li>Production cleanup</li>
+        </ul>
+      </div>
+
+      <div class="service">
+        <h3>🎬 Media & Collaboration</h3>
+        <ul>
+          <li>Film-style music production</li>
+          <li>Media arranging</li>
+          <li>Remote collaboration</li>
+          <li>Creative production consulting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="resources" class="resources">
+  <div class="container">
+    <div class="resource-box">
+      <h3>Backing Tracks & Worship Resources</h3>
+
+      <p>
+        Backing tracks, stems, and worship performance resources will be
+        available through my Loop Community creator profile.
+      </p>
+
+      <div class="logo-placeholder">
+        Loop Community logo coming soon
+      </div>
+
+      <br>
+
+      <a href="#" class="btn btn-outline">
+        Loop Community Profile Coming Soon
+      </a>
     </div>
   </div>
 </section>
@@ -516,16 +604,19 @@ footer{
   <div class="container">
     <div class="section-title">
       <h2>Studio Workflow</h2>
-      <p>Built around modern production tools for clean, flexible, creative work.</p>
+      <p>
+        Built around Cubase, Roland keyboards, virtual instruments, and modern
+        creative tools for flexible music production.
+      </p>
     </div>
 
     <div class="badges">
       <span>Cubase</span>
-      <span>Roland Fantom</span>
-      <span>MIDI Programming</span>
+      <span>Roland Fantom-07</span>
+      <span>Roland FA-6</span>
       <span>Virtual Instruments</span>
-      <span>Recording</span>
-      <span>Mixing</span>
+      <span>MIDI Production</span>
+      <span>Suno Studio</span>
       <span>Remote Collaboration</span>
     </div>
 
@@ -537,27 +628,53 @@ footer{
   </div>
 </section>
 
+<section id="process" class="process">
+  <div class="container">
+    <div class="section-title">
+      <h2>How Projects Begin</h2>
+      <p>Every project starts with a conversation about the sound, direction, and purpose of the music.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-card">
+        <h3>1. Share the Idea</h3>
+        <p>Send a short project request with the type of music, where you are in the process, and the direction you have in mind.</p>
+      </div>
+
+      <div class="process-card">
+        <h3>2. Creative Conversation</h3>
+        <p>We’ll talk through the sound, style, influences, genre, and goal of the project before production begins.</p>
+      </div>
+
+      <div class="process-card">
+        <h3>3. Build the Production</h3>
+        <p>The project is developed through sequencing, arranging, editing, virtual instruments, and creative production tools.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="portfolio">
   <div class="container">
     <div class="section-title">
       <h2>Portfolio</h2>
-      <p>Project examples coming soon.</p>
+      <p>Examples of demos, arrangements, edits, and creative production work will be added soon.</p>
     </div>
 
     <div class="portfolio-grid">
       <div class="portfolio-item">
-        <h3>Worship Tracks</h3>
-        <p>Custom tracks for churches, praise teams, and live worship settings.</p>
+        <h3>Original Song Demos</h3>
+        <p>Developing rough ideas into clear, listenable production concepts.</p>
       </div>
 
       <div class="portfolio-item">
-        <h3>Keyboard Programming</h3>
-        <p>Layered piano, pads, synths, strings, and performance-ready patches.</p>
+        <h3>Editing & Arrangement</h3>
+        <p>Refining existing tracks, shortening songs, arranging sections, and preparing audio for use.</p>
       </div>
 
       <div class="portfolio-item">
-        <h3>Audio Production</h3>
-        <p>Recording, editing, cleanup, arrangement support, and mix preparation.</p>
+        <h3>Media Production</h3>
+        <p>Music and creative audio support for video, film-style projects, and digital media.</p>
       </div>
     </div>
   </div>
@@ -565,63 +682,104 @@ footer{
 
 <section id="contact" class="contact">
   <div class="container">
-    <h2>Ready to Start a Project?</h2>
+    <h2>Ready to Talk Through a Project?</h2>
 
     <p>
-      Let's discuss your recording, sequencing, production,
-      or worship track needs.
+      Tell me what you're working on, and I’ll follow up by email to schedule
+      a conversation about the sound and direction.
     </p>
 
     <a href="#" class="btn" onclick="openContactForm(); return false;">
-      Contact Me
+      Request a Project Conversation
     </a>
   </div>
 </section>
 
 <footer>
-  © 2026 MH CreativeWorks Audio & Production
+  © 2026 MH CreativeWorks
 </footer>
 
 <div id="contactModal" class="modal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeContactForm()">×</button>
 
-    <h2>Start a Project</h2>
-    <p>Send a project request by email. No phone number required.</p>
+    <h2>Project Conversation Request</h2>
+    <p>
+      Share the basics. I’ll follow up by email to schedule a conversation
+      about your project, sound, and creative direction.
+    </p>
 
     <form id="contactForm">
-      <input type="text" name="name" placeholder="Your Name" required>
+      <label>
+        Your Name
+        <input type="text" name="name" placeholder="Your Name" required>
+      </label>
 
-      <input type="email" name="email" placeholder="Your Email" required>
+      <label>
+        Your Email
+        <input type="email" name="email" placeholder="Your Email" required>
+      </label>
 
-      <select name="service" required>
-        <option value="">What do you need?</option>
-        <option value="MIDI Sequencing">MIDI Sequencing</option>
-        <option value="Backing Tracks">Backing Tracks</option>
-        <option value="Recording / Editing">Recording / Editing</option>
-        <option value="Mixing / Production">Mixing / Production</option>
-        <option value="Worship Tracks">Worship Tracks</option>
-        <option value="Keyboard Programming">Keyboard Programming</option>
-        <option value="Consultation">Consultation</option>
-        <option value="Other">Other</option>
-      </select>
+      <label>
+        What kind of project is this?
+        <select name="projectType" required>
+          <option value="">Choose one</option>
+          <option value="Original Song Demo">Original Song Demo</option>
+          <option value="Music Arrangement">Music Arrangement</option>
+          <option value="Audio Editing">Audio Editing</option>
+          <option value="Film / Media Music">Film / Media Music</option>
+          <option value="Remote Collaboration">Remote Collaboration</option>
+          <option value="Worship / Backing Track Question">Worship / Backing Track Question</option>
+          <option value="Creative Consultation">Creative Consultation</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
 
-      <select name="timeline">
-        <option value="">Project Timeline</option>
-        <option value="ASAP">ASAP</option>
-        <option value="Within 1 Week">Within 1 Week</option>
-        <option value="Within 2 Weeks">Within 2 Weeks</option>
-        <option value="This Month">This Month</option>
-        <option value="Flexible">Flexible</option>
-      </select>
+      <label>
+        Where are you in the process?
+        <select name="projectStage" required>
+          <option value="">Choose one</option>
+          <option value="I have an idea">I have an idea</option>
+          <option value="I have lyrics">I have lyrics</option>
+          <option value="I have a rough recording">I have a rough recording</option>
+          <option value="I have a demo">I have a demo</option>
+          <option value="I have existing audio that needs editing">I have existing audio that needs editing</option>
+          <option value="I need help shaping the direction">I need help shaping the direction</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
 
-      <textarea
-        name="message"
-        rows="6"
-        placeholder="Tell me about your project. Include the song, style, timeline, and anything else you'd like me to know."
-        required></textarea>
+      <label>
+        Sound or style direction
+        <textarea
+          name="soundDirection"
+          rows="4"
+          placeholder="Describe the sound you hear in your head. You can mention artists, genres, songs, moods, or production styles."
+          required></textarea>
+      </label>
 
-      <button type="submit" class="btn">Send Request</button>
+      <label>
+        Project details
+        <textarea
+          name="message"
+          rows="5"
+          placeholder="Tell me anything else helpful: song title, purpose, timeline, where this will be used, or what you hope to create."
+          required></textarea>
+      </label>
+
+      <label>
+        Timeline
+        <select name="timeline">
+          <option value="">Project Timeline</option>
+          <option value="ASAP">ASAP</option>
+          <option value="Within 1 Week">Within 1 Week</option>
+          <option value="Within 2 Weeks">Within 2 Weeks</option>
+          <option value="This Month">This Month</option>
+          <option value="Flexible">Flexible</option>
+        </select>
+      </label>
+
+      <button type="submit" class="btn">Request Conversation</button>
 
       <p id="formStatus"></p>
     </form>
@@ -662,9 +820,11 @@ document.getElementById("contactForm").addEventListener("submit", async function
   const data = {
     name: form.name.value,
     email: form.email.value,
-    service: form.service.value,
-    timeline: form.timeline.value,
-    message: form.message.value
+    projectType: form.projectType.value,
+    projectStage: form.projectStage.value,
+    soundDirection: form.soundDirection.value,
+    message: form.message.value,
+    timeline: form.timeline.value
   };
 
   try{
