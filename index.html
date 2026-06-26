@@ -475,6 +475,243 @@ footer{
   border-top:1px solid var(--border);
 }
 
+
+/* ===== MH CREATIVEWORKS CHATBOT ===== */
+.mh-chat-launcher{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:66px;
+  height:66px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  box-shadow:0 18px 45px rgba(0,0,0,.38);
+  cursor:pointer;
+  z-index:2500;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px;
+}
+
+.mh-chat-launcher img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  border-radius:50%;
+}
+
+.mh-chat-widget{
+  position:fixed;
+  right:22px;
+  bottom:102px;
+  width:390px;
+  max-width:calc(100vw - 32px);
+  height:620px;
+  max-height:calc(100vh - 130px);
+  background:#0f1522;
+  border:1px solid var(--border);
+  border-radius:24px;
+  box-shadow:0 24px 70px rgba(0,0,0,.55);
+  overflow:hidden;
+  z-index:2499;
+  display:none;
+  flex-direction:column;
+}
+
+.mh-chat-widget.open{
+  display:flex;
+}
+
+.mh-chat-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  background:linear-gradient(135deg,#121826,#1c2740);
+  border-bottom:1px solid var(--border);
+}
+
+.mh-chat-header-logo{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  border:1px solid var(--border);
+  padding:5px;
+  flex:0 0 auto;
+}
+
+.mh-chat-header-logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.mh-chat-header-text{
+  flex:1;
+  min-width:0;
+}
+
+.mh-chat-header-text h2{
+  font-size:1rem;
+  line-height:1.2;
+}
+
+.mh-chat-header-text p{
+  color:var(--muted);
+  font-size:.78rem;
+  margin-top:2px;
+}
+
+.mh-chat-close{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.08);
+  color:white;
+  cursor:pointer;
+  font-size:1.2rem;
+}
+
+.mh-chat-body{
+  flex:1;
+  overflow-y:auto;
+  padding:16px;
+  background:
+    radial-gradient(circle at top left, rgba(79,140,255,.10), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(139,92,246,.10), transparent 35%),
+    #0b0f16;
+}
+
+.mh-message-row{
+  display:flex;
+  margin-bottom:12px;
+}
+
+.mh-message-row.bot{ justify-content:flex-start; }
+.mh-message-row.user{ justify-content:flex-end; }
+
+.mh-message-group{
+  max-width:86%;
+}
+
+.mh-bubble{
+  padding:12px 14px;
+  border-radius:18px;
+  font-size:.92rem;
+  line-height:1.45;
+  white-space:pre-wrap;
+}
+
+.mh-message-row.bot .mh-bubble{
+  background:#171f2e;
+  color:#eef3ff;
+  border:1px solid var(--border);
+  border-bottom-left-radius:6px;
+}
+
+.mh-message-row.user .mh-bubble{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;
+  border-bottom-right-radius:6px;
+}
+
+.mh-chat-action-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:8px;
+}
+
+.mh-chat-action{
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.08);
+  color:white;
+  padding:8px 11px;
+  border-radius:999px;
+  font-size:.78rem;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.mh-chat-action:hover{
+  background:rgba(255,255,255,.14);
+}
+
+.mh-quick-replies{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:12px 14px;
+  border-top:1px solid var(--border);
+  background:#101725;
+}
+
+.mh-quick-btn{
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.06);
+  color:#d8e0ef;
+  padding:8px 10px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:.78rem;
+}
+
+.mh-quick-btn:hover{
+  color:white;
+  background:rgba(255,255,255,.12);
+}
+
+.mh-chat-composer{
+  display:flex;
+  gap:9px;
+  padding:12px;
+  background:#0f1522;
+  border-top:1px solid var(--border);
+}
+
+.mh-chat-composer input{
+  flex:1;
+  min-width:0;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#0b0f16;
+  color:white;
+  padding:12px 14px;
+  font-size:.92rem;
+}
+
+.mh-chat-composer button{
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;
+  font-weight:bold;
+  padding:0 16px;
+  cursor:pointer;
+}
+
+@media(max-width:600px){
+  .mh-chat-launcher{
+    right:14px;
+    bottom:14px;
+    width:62px;
+    height:62px;
+  }
+
+  .mh-chat-widget{
+    right:12px;
+    left:12px;
+    bottom:88px;
+    width:auto;
+    height:70vh;
+    max-width:none;
+  }
+}
+
 @media(max-width:900px){
   .about-grid,
   .solutions-grid,
@@ -784,6 +1021,39 @@ footer{
   © 2026 MH CreativeWorks
 </footer>
 
+
+<button class="mh-chat-launcher" id="mhChatLauncher" aria-label="Open MH CreativeWorks chat">
+  <img src="media/MH.webp" alt="MH CreativeWorks logo">
+</button>
+
+<div class="mh-chat-widget" id="mhChatWidget" aria-label="MH CreativeWorks chat assistant">
+  <div class="mh-chat-header">
+    <div class="mh-chat-header-logo">
+      <img src="media/MH.webp" alt="MH CreativeWorks logo">
+    </div>
+    <div class="mh-chat-header-text">
+      <h2>MH CreativeWorks Assistant</h2>
+      <p>Answers based on this page</p>
+    </div>
+    <button class="mh-chat-close" id="mhChatClose" aria-label="Close chat">×</button>
+  </div>
+
+  <div class="mh-chat-body" id="mhChatBody"></div>
+
+  <div class="mh-quick-replies">
+    <button class="mh-quick-btn" data-question="What does MH CreativeWorks do?">What do you do?</button>
+    <button class="mh-quick-btn" data-question="What custom projects can you help with?">Custom projects</button>
+    <button class="mh-quick-btn" data-question="Do you create worship backing tracks?">Worship tracks</button>
+    <button class="mh-quick-btn" data-question="What is your studio workflow?">Studio workflow</button>
+    <button class="mh-quick-btn" data-question="How do I request a project?">Request project</button>
+  </div>
+
+  <div class="mh-chat-composer">
+    <input type="text" id="mhChatInput" placeholder="Ask about services, workflow, projects..." autocomplete="off">
+    <button id="mhChatSend" type="button">Send</button>
+  </div>
+</div>
+
 <div id="contactModal" class="modal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeContactForm()">×</button>
@@ -873,6 +1143,192 @@ footer{
 
 <script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxF6MMH3_t53SuX8man44Nzly8JCgbPS5TM4hFRD04dwOBS4hh5cMR-A94Hk82bVyCk8g/exec";
+
+
+const mhChatLauncher = document.getElementById("mhChatLauncher");
+const mhChatWidget = document.getElementById("mhChatWidget");
+const mhChatClose = document.getElementById("mhChatClose");
+const mhChatBody = document.getElementById("mhChatBody");
+const mhChatInput = document.getElementById("mhChatInput");
+const mhChatSend = document.getElementById("mhChatSend");
+const mhQuickButtons = document.querySelectorAll(".mh-quick-btn");
+
+const mhChatAnswers = [
+  {
+    keywords:["what do you do","about","mh creativeworks","creativeworks","creative production","music production","brand"],
+    text:"MH CreativeWorks helps artists, churches, and creators develop musical ideas through demos, sequencing, editing, arranging, media production, and platform-based worship resources. The brand is built around custom creative production and worship resources created for trusted platforms."
+  },
+  {
+    keywords:["custom","project","projects","conversation","request","hire","start","begin"],
+    text:"Custom projects begin with a conversation about sound, direction, and purpose. You can share the type of project, where you are in the process, the style you hear, and any helpful details. From there, MH CreativeWorks follows up by email to discuss the next step.",
+    action:"project"
+  },
+  {
+    keywords:["develop","demo","song demo","original song","midi sequencing","sequencing","keyboard programming","virtual instrument"],
+    text:"The Develop path is for turning a musical idea into a clear production concept. This can include original song demos, MIDI sequencing, virtual instrument production, and keyboard programming."
+  },
+  {
+    keywords:["refine","editing","audio editing","cutting","splicing","cleanup","arrangement adjustments","existing audio"],
+    text:"The Refine path focuses on shaping existing audio into something cleaner and more usable. That can include audio editing, cutting and splicing tracks, arrangement adjustments, and production cleanup."
+  },
+  {
+    keywords:["collaborate","collaboration","remote","film","media","consulting","creative consulting"],
+    text:"The Collaborate path supports music for media, ministry, and creative projects. This can include film-style music production, media arranging, remote studio collaboration, and creative consulting."
+  },
+  {
+    keywords:["worship","backing tracks","stems","loop","loop community","tracks","platform","licensing"],
+    text:"MH CreativeWorks creates worship backing tracks, stems, and performance resources for distribution through Loop Community. This keeps the focus on creating music while the platform supports access, delivery, and licensing-related infrastructure."
+  },
+  {
+    keywords:["streaming","youtube","spotify","apple music","media releases","future releases"],
+    text:"Future releases, demos, and media projects can be shared through streaming and video platforms such as YouTube, Spotify, and Apple Music as the catalog grows."
+  },
+  {
+    keywords:["church tools","creator tools","planning","presentation","livestream","presentations"],
+    text:"Music and media can be prepared for use in worship planning, presentations, livestreams, videos, and other creative projects."
+  },
+  {
+    keywords:["studio","workflow","cubase","roland","fantom","fa-6","suno","remote collaboration","virtual instruments"],
+    text:"The studio workflow is built around Cubase, Roland keyboards, virtual instruments, MIDI production, Suno Studio, and remote collaboration tools. The goal is a flexible production setup for demos, arrangements, backing tracks, and creative media work."
+  },
+  {
+    keywords:["portfolio","examples","samples","work examples"],
+    text:"The portfolio section is being prepared for examples of demos, edits, arrangements, and worship resources. Planned categories include original song demos, editing and arrangement work, and platform resources."
+  },
+  {
+    keywords:["timeline","asap","week","month","how long","deadline"],
+    text:"Project timelines can vary by scope. The project request form lets you choose ASAP, within one week, within two weeks, this month, or flexible so the conversation can begin with realistic expectations.",
+    action:"project"
+  },
+  {
+    keywords:["contact","email","message","reach","talk","form"],
+    text:"The best way to begin is to submit a Project Conversation Request. Share the basics, and MH CreativeWorks will follow up by email to schedule a conversation about your project, sound, and creative direction.",
+    action:"project"
+  }
+];
+
+function mhAddChatMessage(content, sender = "bot", action = null){
+  const row = document.createElement("div");
+  row.className = `mh-message-row ${sender}`;
+
+  const group = document.createElement("div");
+  group.className = "mh-message-group";
+
+  const bubble = document.createElement("div");
+  bubble.className = "mh-bubble";
+  bubble.textContent = content;
+
+  group.appendChild(bubble);
+
+  if(action === "project"){
+    const actions = document.createElement("div");
+    actions.className = "mh-chat-action-row";
+
+    const button = document.createElement("button");
+    button.className = "mh-chat-action";
+    button.type = "button";
+    button.textContent = "Open Project Conversation Form";
+    button.addEventListener("click", openContactForm);
+
+    actions.appendChild(button);
+    group.appendChild(actions);
+  }
+
+  row.appendChild(group);
+  mhChatBody.appendChild(row);
+  mhChatBody.scrollTop = mhChatBody.scrollHeight;
+}
+
+function mhNormalize(text){
+  return text.toLowerCase().trim();
+}
+
+function mhFindAnswer(question){
+  const clean = mhNormalize(question);
+
+  for(const item of mhChatAnswers){
+    if(item.keywords.some(keyword => clean.includes(keyword))){
+      return item;
+    }
+  }
+
+  return null;
+}
+
+async function mhSendUnansweredQuestion(question){
+  try{
+    await fetch(SCRIPT_URL, {
+      method:"POST",
+      mode:"no-cors",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        name:"Website Chat Visitor",
+        email:"not-provided@mhcreativeworks.local",
+        projectType:"Website Chat Question",
+        projectStage:"Question asked in chat",
+        soundDirection:"Not provided",
+        message:question,
+        timeline:"Not provided",
+        source:"MH CreativeWorks Website Chat"
+      })
+    });
+  }catch(error){
+    console.warn("MH chat fallback could not be sent", error);
+  }
+}
+
+function mhHandleQuestion(question){
+  if(!question.trim()) return;
+
+  mhAddChatMessage(question, "user");
+
+  const answer = mhFindAnswer(question);
+
+  setTimeout(() => {
+    if(answer){
+      mhAddChatMessage(answer.text, "bot", answer.action || null);
+    }else{
+      mhSendUnansweredQuestion(question);
+      mhAddChatMessage("Thank you for the question. I do not want to guess beyond the information provided on this page, so your question has been forwarded for review. Please allow time for a personal reply. If this is about starting a project, you can also open the Project Conversation Form below.", "bot", "project");
+    }
+  }, 250);
+}
+
+function mhSendCurrentQuestion(){
+  const question = mhChatInput.value;
+  if(!question.trim()) return;
+  mhHandleQuestion(question);
+  mhChatInput.value = "";
+}
+
+mhChatLauncher.addEventListener("click", function(){
+  mhChatWidget.classList.toggle("open");
+  if(mhChatWidget.classList.contains("open")){
+    mhChatInput.focus();
+  }
+});
+
+mhChatClose.addEventListener("click", function(){
+  mhChatWidget.classList.remove("open");
+});
+
+mhChatSend.addEventListener("click", mhSendCurrentQuestion);
+
+mhChatInput.addEventListener("keydown", function(e){
+  if(e.key === "Enter"){
+    mhSendCurrentQuestion();
+  }
+});
+
+mhQuickButtons.forEach(button => {
+  button.addEventListener("click", function(){
+    mhHandleQuestion(button.getAttribute("data-question") || button.textContent);
+  });
+});
+
+mhAddChatMessage("Hi, I’m the MH CreativeWorks assistant. I can answer questions based on this page about services, worship resources, studio workflow, platforms, and project requests.", "bot");
 
 function openContactForm(){
   document.getElementById("contactModal").classList.add("show");
