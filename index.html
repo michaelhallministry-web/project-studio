@@ -4,15 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MH CreativeWorks | Creative Music Production & Worship Resources</title>
-<meta name="description" content="MH CreativeWorks provides music production, demos, sequencing, arranging, media music, worship backing tracks, and creative collaboration for artists, churches, and creators.">
+<title>MH CreativeWorks | Composition & Music Production</title>
+<meta name="description" content="MH CreativeWorks provides original music composition, song demos, media scoring, audio editing, creative production, and worship resources.">
 
 <style>
 :root{
   --bg:#070a10;
   --bg2:#0d1320;
   --card:#111827;
-  --card2:#151f32;
   --text:#f7f9ff;
   --muted:#a9b4c8;
   --soft:#d7e0f2;
@@ -26,15 +25,8 @@
   --radius:26px;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
 body{
   font-family:Arial, Helvetica, sans-serif;
@@ -46,19 +38,9 @@ body{
   line-height:1.6;
 }
 
-body.modal-open{
-  overflow:hidden;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-img{
-  max-width:100%;
-  display:block;
-}
+body.modal-open{overflow:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
 
 .container{
   width:min(1320px,92%);
@@ -69,7 +51,6 @@ img{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:.65rem;
   min-height:56px;
   padding:0 30px;
   border-radius:999px;
@@ -78,15 +59,8 @@ img{
   color:#fff;
   font-size:1rem;
   font-weight:800;
-  letter-spacing:.02em;
   cursor:pointer;
   box-shadow:0 14px 34px rgba(79,140,255,.24);
-  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 20px 44px rgba(79,140,255,.30);
 }
 
 .btn-outline{
@@ -95,15 +69,13 @@ img{
   box-shadow:none;
 }
 
-.btn-outline:hover{
-  background:rgba(255,255,255,.08);
-  border-color:rgba(255,255,255,.42);
-}
+/* NAV */
 
-/* ===== NAVIGATION ===== */
 .site-nav{
   position:fixed;
-  inset:0 0 auto 0;
+  top:0;
+  left:0;
+  width:100%;
   z-index:1000;
   background:rgba(5,8,14,.88);
   backdrop-filter:blur(18px);
@@ -122,14 +94,12 @@ img{
   display:flex;
   align-items:center;
   gap:.95rem;
-  min-width:0;
 }
 
 .logo img{
   width:58px;
   height:58px;
   object-fit:contain;
-  flex:0 0 auto;
 }
 
 .logo-text{
@@ -164,45 +134,31 @@ img{
   text-transform:uppercase;
 }
 
-.nav-links a{
-  color:var(--soft);
-  transition:color .2s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active{
-  color:var(--accent);
-}
+.nav-links a{color:var(--soft);}
+.nav-links a:hover{color:var(--accent);}
 
 .mobile-menu-btn{
   display:none;
   width:46px;
   height:46px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.22);
-  background:rgba(255,255,255,.07);
-  color:white;
-  cursor:pointer;
   align-items:center;
   justify-content:center;
-  flex-direction:column;
-  gap:5px;
-  flex:0 0 auto;
-}
-
-.mobile-menu-btn span{
-  display:block;
-  width:22px;
-  height:2px;
-  border-radius:999px;
-  background:white;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.24);
+  background:rgba(255,255,255,.06);
+  color:white;
+  font-size:1.65rem;
+  line-height:1;
+  cursor:pointer;
 }
 
 .mobile-menu-btn:hover{
-  background:rgba(255,255,255,.12);
+  background:rgba(255,255,255,.10);
 }
 
-/* ===== HERO ===== */
+
+/* HERO */
+
 .hero{
   min-height:100vh;
   display:flex;
@@ -210,8 +166,6 @@ img{
   justify-content:center;
   text-align:center;
   position:relative;
-  isolation:isolate;
-  overflow:hidden;
   padding:128px 0 72px;
   background:
     linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.78)),
@@ -226,20 +180,11 @@ img{
     radial-gradient(circle at left center, rgba(38,217,255,.32), transparent 26rem),
     radial-gradient(circle at right center, rgba(168,85,247,.34), transparent 26rem),
     linear-gradient(90deg, rgba(0,0,0,.58), transparent 24%, transparent 76%, rgba(0,0,0,.58));
-  z-index:-1;
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.22);
-  z-index:-1;
 }
 
 .hero-content{
+  position:relative;
   width:min(96vw,1680px);
-  margin:auto;
   padding:4.5rem 5.75rem 4.25rem;
   border-radius:32px;
   border:1px solid rgba(255,255,255,.18);
@@ -261,24 +206,11 @@ img{
 }
 
 .hero h1{
-  max-width:1500px;
+  max-width:1450px;
   margin:0 auto 1.9rem;
   font-size:clamp(3.15rem,4.9vw,5.6rem);
   line-height:1.12;
   letter-spacing:-.028em;
-  text-shadow:0 8px 36px rgba(0,0,0,.55);
-}
-
-.hero p{
-  display:block;
-  max-width:1050px;
-  margin:0 auto 3rem;
-  color:#e2e8f7;
-  font-size:clamp(1.05rem,1.25vw,1.32rem);
-  line-height:1.75;
-  font-weight:600;
-  letter-spacing:0;
-  text-wrap:balance;
 }
 
 .hero-rule{
@@ -289,6 +221,15 @@ img{
   background:linear-gradient(90deg,var(--cyan),var(--purple));
 }
 
+.hero p{
+  max-width:1050px;
+  margin:0 auto 3rem;
+  color:#e2e8f7;
+  font-size:clamp(1.05rem,1.25vw,1.32rem);
+  line-height:1.75;
+  font-weight:600;
+}
+
 .hero-actions{
   display:flex;
   flex-wrap:wrap;
@@ -296,14 +237,13 @@ img{
   gap:1rem;
 }
 
-/* ===== GENERAL SECTIONS ===== */
-section{
-  padding:96px 0;
-}
+/* SECTIONS */
+
+section{padding:96px 0;}
 
 .section-title{
   text-align:center;
-  max-width:820px;
+  max-width:850px;
   margin:0 auto 3.2rem;
 }
 
@@ -328,8 +268,11 @@ section{
   font-size:1.08rem;
 }
 
-.about{
-  background:linear-gradient(180deg, var(--bg), var(--bg2));
+.about,
+.process,
+.platforms,
+.why{
+  background:var(--bg2);
 }
 
 .about-grid{
@@ -340,10 +283,8 @@ section{
 }
 
 .about-text,
-.solution,
-.platform-card,
-.process-card,
-.portfolio-item{
+.card,
+.featured-audio{
   background:
     linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025)),
     var(--card);
@@ -385,29 +326,43 @@ section{
   object-fit:cover;
 }
 
-.solutions-grid,
-.platform-grid,
-.process-grid,
-.portfolio-grid{
+.grid-3{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:1.45rem;
 }
 
-.solution,
-.platform-card,
-.process-card,
-.portfolio-item{
+.card{
   padding:2rem;
-  transition:transform .2s ease, border-color .2s ease, background .2s ease;
 }
 
-.solution:hover,
-.platform-card:hover,
-.process-card:hover,
-.portfolio-item:hover{
-  transform:translateY(-5px);
-  border-color:rgba(79,140,255,.35);
+.card h3{
+  font-size:1.35rem;
+  margin-bottom:.75rem;
+}
+
+.card p{
+  color:var(--muted);
+}
+
+.card ul{
+  list-style:none;
+  margin-top:1.2rem;
+}
+
+.card li{
+  color:var(--soft);
+  margin-bottom:.65rem;
+  padding-left:1.35rem;
+  position:relative;
+}
+
+.card li::before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  color:var(--accent);
+  font-weight:900;
 }
 
 .card-icon{
@@ -424,45 +379,47 @@ section{
   border:1px solid rgba(255,255,255,.13);
 }
 
-.solution h3,
-.platform-card h3,
-.process-card h3,
-.portfolio-item h3{
-  font-size:1.35rem;
-  margin-bottom:.75rem;
+/* FEATURED AUDIO */
+
+.listen{
+  background:
+    radial-gradient(circle at top left, rgba(79,140,255,.14), transparent 35rem),
+    radial-gradient(circle at bottom right, rgba(139,92,246,.15), transparent 35rem),
+    var(--bg);
 }
 
-.solution p,
-.platform-card p,
-.process-card p,
-.portfolio-item p{
+.featured-audio{
+  max-width:900px;
+  margin:auto;
+  padding:2.5rem;
+  text-align:center;
+}
+
+.featured-audio h3{
+  font-size:2rem;
+  margin-bottom:.5rem;
+}
+
+.featured-audio p{
   color:var(--muted);
+  margin-bottom:1.5rem;
 }
 
-.solution ul{
-  list-style:none;
-  margin-top:1.2rem;
-}
-
-.solution li{
+.audio-meta{
   color:var(--soft);
-  margin-bottom:.65rem;
-  padding-left:1.35rem;
-  position:relative;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:.8rem;
+  margin-bottom:1rem;
 }
 
-.solution li::before{
-  content:"✓";
-  position:absolute;
-  left:0;
-  color:var(--accent);
-  font-weight:900;
+audio{
+  width:100%;
+  margin-top:1rem;
 }
 
-.platforms,
-.process{
-  background:var(--bg2);
-}
+/* PLATFORMS */
 
 .platform-card{
   text-align:center;
@@ -514,35 +471,19 @@ section{
   font-size:1.04rem;
 }
 
-.studio{
+/* GALLERY */
+
+.gallery{
   background:
     radial-gradient(circle at top left, rgba(79,140,255,.14), transparent 35rem),
     radial-gradient(circle at bottom right, rgba(139,92,246,.15), transparent 35rem),
     var(--bg);
 }
 
-.badges{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:.8rem;
-}
-
-.badges span{
-  background:rgba(255,255,255,.07);
-  border:1px solid var(--border);
-  color:var(--soft);
-  padding:.85rem 1rem;
-  border-radius:999px;
-  font-weight:800;
-  font-size:.92rem;
-}
-
 .studio-gallery{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:1.45rem;
-  margin-top:3rem;
 }
 
 .studio-gallery img{
@@ -553,6 +494,8 @@ section{
   border:1px solid var(--border);
   box-shadow:0 18px 60px rgba(0,0,0,.28);
 }
+
+/* CONTACT */
 
 .contact{
   text-align:center;
@@ -575,7 +518,8 @@ section{
   font-size:1.1rem;
 }
 
-/* ===== MODAL ===== */
+/* MODAL */
+
 .modal{
   display:none;
   position:fixed;
@@ -588,9 +532,7 @@ section{
   padding:1rem;
 }
 
-.modal.show{
-  display:flex;
-}
+.modal.show{display:flex;}
 
 .modal-content{
   width:min(720px,95%);
@@ -651,18 +593,6 @@ section{
   color:white;
   font-size:1rem;
   font-family:Arial, Helvetica, sans-serif;
-  outline:none;
-}
-
-#contactForm input:focus,
-#contactForm select:focus,
-#contactForm textarea:focus{
-  border-color:rgba(79,140,255,.62);
-}
-
-#contactForm input::placeholder,
-#contactForm textarea::placeholder{
-  color:#7f8aa1;
 }
 
 #formStatus{
@@ -897,58 +827,49 @@ footer{
   cursor:pointer;
 }
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:1100px){
-  .nav-links{
-    gap:1rem;
-    font-size:.75rem;
-  }
 
-  .hero-content{
-    padding:3.4rem 2.2rem;
-  }
-}
+/* RESPONSIVE */
 
 @media(max-width:900px){
+  .nav-wrap{
+    min-height:78px;
+    position:relative;
+  }
+
   .mobile-menu-btn{
-    display:flex;
+    display:inline-flex;
+    flex-shrink:0;
   }
 
   .nav-links{
+    display:none;
     position:absolute;
     top:100%;
     left:0;
     right:0;
-    display:none;
+    width:100%;
+    padding:1rem;
+    margin-top:0;
     flex-direction:column;
     align-items:stretch;
-    gap:0;
-    padding:.65rem 1rem 1rem;
-    background:rgba(5,8,14,.97);
-    border-bottom:1px solid var(--border);
-    box-shadow:0 24px 60px rgba(0,0,0,.45);
+    gap:.35rem;
+    background:rgba(5,8,14,.98);
+    border:1px solid var(--border);
+    border-top:none;
+    border-radius:0 0 22px 22px;
+    box-shadow:0 22px 60px rgba(0,0,0,.45);
   }
 
-  .nav-links.open{
+  .nav-links.show{
     display:flex;
   }
 
   .nav-links a{
     display:block;
     padding:1rem;
-    border-radius:14px;
     text-align:center;
-    border:1px solid transparent;
-  }
-
-  .nav-links a:hover,
-  .nav-links a.active{
-    background:rgba(255,255,255,.07);
-    border-color:rgba(255,255,255,.10);
-  }
-
-  .nav-wrap{
-    min-height:78px;
+    border-radius:14px;
+    background:rgba(255,255,255,.04);
   }
 
   .logo img{
@@ -970,7 +891,6 @@ footer{
   }
 
   .hero-content{
-    width:min(94vw,1200px);
     padding:2.25rem 1.3rem;
     border-radius:24px;
   }
@@ -979,15 +899,8 @@ footer{
     font-size:clamp(2.25rem,10vw,3.5rem);
   }
 
-  .hero h1 br{
-    display:none;
-  }
-
   .about-grid,
-  .solutions-grid,
-  .platform-grid,
-  .process-grid,
-  .portfolio-grid,
+  .grid-3,
   .studio-gallery{
     grid-template-columns:1fr;
   }
@@ -1010,7 +923,10 @@ footer{
   .btn{
     width:100%;
   }
+}
 
+
+@media(max-width:600px){
   .mh-chat-launcher{
     right:14px;
     bottom:14px;
@@ -1027,6 +943,7 @@ footer{
     max-width:none;
   }
 }
+
 </style>
 </head>
 
@@ -1038,21 +955,17 @@ footer{
       <img src="media/MH.webp" alt="MH CreativeWorks logo">
       <span class="logo-text">
         <span class="logo-main">MH CreativeWorks</span>
-        <span class="logo-sub">Music Production & Resources</span>
+        <span class="logo-sub">Composition • Production • Collaboration</span>
       </span>
     </a>
 
-    <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open navigation menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <button class="mobile-menu-btn" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileMenu()">☰</button>
 
-    <div class="nav-links" id="navLinks" aria-label="Primary navigation">
-      <a class="active" href="#">Home</a>
-      <a href="#solutions">Solutions</a>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#listen">Listen</a>
+      <a href="#services">Services</a>
       <a href="#platforms">Platforms</a>
-      <a href="#studio">Studio</a>
       <a href="#process">Process</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#" onclick="openContactForm(); return false;">Contact</a>
@@ -1062,269 +975,271 @@ footer{
 
 <header class="hero">
   <div class="hero-content">
-    <div class="hero-tag">Creative Music Production</div>
+    <div class="hero-tag">Composition • Production • Collaboration</div>
 
-    <h1>
-      Music Production, Resources &<br>Creative Collaboration
-    </h1>
+    <h1>Music for Every Story</h1>
 
-    <div class="hero-rule" aria-hidden="true"></div>
+    <div class="hero-rule"></div>
 
     <p>
-      MH CreativeWorks helps artists, churches, and creators develop musical ideas through demos,
-      sequencing, editing, arranging, media production, and platform-based worship resources.
+      MH CreativeWorks creates original music, song demos, cinematic ideas,
+      worship resources, audio edits, and custom productions for artists,
+      churches, filmmakers, and media creators.
     </p>
 
     <div class="hero-actions">
-      <a href="#solutions" class="btn">Explore Solutions</a>
-      <a href="#" class="btn btn-outline" onclick="openContactForm(); return false;">Request a Conversation</a>
+      <a href="#listen" class="btn">Listen First</a>
+      <a href="#" class="btn btn-outline" onclick="openContactForm(); return false;">Start a Conversation</a>
     </div>
   </div>
 </header>
 
 <main>
-  <section id="about" class="about">
-    <div class="container about-grid">
-      <div class="about-text">
-        <div class="section-kicker">About</div>
-        <h3>A creative production brand built for music, ministry, and media.</h3>
 
-        <p>
-          MH CreativeWorks is built around two connected paths: custom creative
-          production and platform-based worship resources.
-        </p>
-
-        <p>
-          Custom projects begin with a conversation about sound, direction,
-          and purpose. Worship resources are made available through trusted
-          platforms built for churches, worship teams, and creators.
-        </p>
-      </div>
-
-      <div class="about-image">
-        <img src="media/58AB4FF2-8F54-41CA-AF99-316594C12DE0.webp" alt="MH CreativeWorks studio setup">
-      </div>
+<section id="listen" class="listen">
+  <div class="container">
+    <div class="section-title">
+      <div class="section-kicker">Featured Production</div>
+      <h2>Hear the work.</h2>
+      <p>As the catalog grows, this section can feature original songs, cinematic cues, demos, and worship resources.</p>
     </div>
-  </section>
 
-  <section id="solutions">
-    <div class="container">
-      <div class="section-title">
-        <div class="section-kicker">Solutions</div>
-        <h2>What We Do</h2>
-        <p>Professional production and creative services designed to bring your musical vision to life with excellence and purpose.</p>
-      </div>
-
-      <div class="solutions-grid">
-        <div class="solution">
-          <div class="card-icon">♫</div>
-          <h3>Develop</h3>
-          <p>Turn a musical idea into a clear production concept.</p>
-          <ul>
-            <li>Original song demos</li>
-            <li>MIDI sequencing</li>
-            <li>Virtual instrument production</li>
-            <li>Keyboard programming</li>
-          </ul>
-        </div>
-
-        <div class="solution">
-          <div class="card-icon">≋</div>
-          <h3>Refine</h3>
-          <p>Shape existing audio into something cleaner and more usable.</p>
-          <ul>
-            <li>Audio editing</li>
-            <li>Cutting and splicing tracks</li>
-            <li>Arrangement adjustments</li>
-            <li>Production cleanup</li>
-          </ul>
-        </div>
-
-        <div class="solution">
-          <div class="card-icon">◎</div>
-          <h3>Collaborate</h3>
-          <p>Work together on music for media, ministry, and creative projects.</p>
-          <ul>
-            <li>Film-style music production</li>
-            <li>Media arranging</li>
-            <li>Remote studio collaboration</li>
-            <li>Creative consulting</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="platforms" class="platforms">
-    <div class="container">
-      <div class="section-title">
-        <div class="section-kicker">Platforms</div>
-        <h2>Created for the places people already connect.</h2>
-        <p>
-          MH CreativeWorks creates music and resources that can live on trusted platforms
-          where churches, artists, and listeners already connect.
-        </p>
-      </div>
-
-      <div class="platform-grid">
-        <div class="platform-card featured">
-          <div class="card-icon" style="margin-left:auto;margin-right:auto;">▶</div>
-          <h3>Worship Resources</h3>
-
-          <a href="https://loopcommunity.com" target="_blank" rel="noopener noreferrer">
-            <img src="media/loop.webp" alt="Loop Community" class="platform-logo">
-          </a>
-
-          <p>
-            Worship backing tracks, stems, and performance resources are distributed
-            through Loop Community for easy access, delivery, and licensing support.
-          </p>
-
-          <a href="https://loopcommunity.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-top:1.4rem;">
-            Profile Coming Soon
-          </a>
-        </div>
-
-        <div class="platform-card">
-          <div class="card-icon" style="margin-left:auto;margin-right:auto;">▣</div>
-          <h3>Streaming & Media</h3>
-
-          <div class="platform-placeholder">
-            YouTube • Spotify • Apple Music
-          </div>
-
-          <p>
-            Future releases, demos, and media projects can be shared through
-            streaming and video platforms as the catalog grows.
-          </p>
-        </div>
-
-        <div class="platform-card">
-          <div class="card-icon" style="margin-left:auto;margin-right:auto;">◈</div>
-          <h3>Church & Creator Tools</h3>
-
-          <div class="platform-placeholder">
-            Planning • Presentation • Collaboration
-          </div>
-
-          <p>
-            Music and media can be prepared for use in worship planning,
-            presentations, livestreams, videos, and creative projects.
-          </p>
-        </div>
-      </div>
-
-      <p class="platform-note">
-        MH CreativeWorks stays focused on creating music. Distribution, downloads,
-        licensing, and platform delivery are handled through trusted services built for that purpose.
+    <div class="featured-audio">
+      <div class="audio-meta">Featured Demo</div>
+      <h3>My Shepherd</h3>
+      <p>
+        An inspirational production inspired by Psalm 23. This featured track gives visitors
+        a quick way to hear the creative direction and production quality of MH CreativeWorks.
       </p>
+
+      <audio controls preload="metadata">
+        <source src="media/audio/My_Shepherd.mp3" type="audio/mpeg">
+        Your browser does not support the audio player.
+      </audio>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="studio" class="studio">
-    <div class="container">
-      <div class="section-title">
-        <div class="section-kicker">Studio</div>
-        <h2>Studio Workflow</h2>
-        <p>
-          Built around Cubase, Roland keyboards, virtual instruments, and modern
-          creative tools for flexible music production.
-        </p>
-      </div>
-
-      <div class="badges">
-        <span>Cubase</span>
-        <span>Roland Fantom-07</span>
-        <span>Roland FA-6</span>
-        <span>Virtual Instruments</span>
-        <span>MIDI Production</span>
-        <span>Suno Studio</span>
-        <span>Remote Collaboration</span>
-      </div>
-
-      <div class="studio-gallery">
-        <img src="media/481BDA2B-1490-49D7-B328-A87E01A8D4A2.webp" alt="Studio workstation">
-        <img src="media/800B6A24-65DC-4EC9-8B54-37E121A6A3CD.webp" alt="Keyboard and production setup">
-        <img src="media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp" alt="Music production studio">
-      </div>
-    </div>
-  </section>
-
-  <section id="process" class="process">
-    <div class="container">
-      <div class="section-title">
-        <div class="section-kicker">Process</div>
-        <h2>How Custom Projects Begin</h2>
-        <p>Every custom project starts with a conversation about sound, direction, and purpose.</p>
-      </div>
-
-      <div class="process-grid">
-        <div class="process-card">
-          <div class="card-icon">1</div>
-          <h3>Share the Idea</h3>
-          <p>Send a project request with where you are in the process and the direction you have in mind.</p>
-        </div>
-
-        <div class="process-card">
-          <div class="card-icon">2</div>
-          <h3>Talk Through the Sound</h3>
-          <p>We’ll discuss genre, influences, mood, artist references, and what you want the finished idea to feel like.</p>
-        </div>
-
-        <div class="process-card">
-          <div class="card-icon">3</div>
-          <h3>Build the Production</h3>
-          <p>The project is developed through sequencing, arranging, editing, virtual instruments, and creative production tools.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="portfolio">
-    <div class="container">
-      <div class="section-title">
-        <div class="section-kicker">Portfolio</div>
-        <h2>Creative work samples coming soon.</h2>
-        <p>Examples of demos, edits, arrangements, and worship resources will be added as the catalog grows.</p>
-      </div>
-
-      <div class="portfolio-grid">
-        <div class="portfolio-item">
-          <div class="card-icon">♪</div>
-          <h3>Original Song Demos</h3>
-          <p>Developing rough ideas into clear, listenable production concepts.</p>
-        </div>
-
-        <div class="portfolio-item">
-          <div class="card-icon">✂</div>
-          <h3>Editing & Arrangement</h3>
-          <p>Refining existing tracks, shortening songs, arranging sections, and preparing audio for use.</p>
-        </div>
-
-        <div class="portfolio-item">
-          <div class="card-icon">☁</div>
-          <h3>Platform Resources</h3>
-          <p>Worship backing tracks and stems distributed through trusted platforms like Loop Community.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-kicker">Contact</div>
-      <h2>Ready to talk through a project?</h2>
+<section id="about" class="about">
+  <div class="container about-grid">
+    <div class="about-text">
+      <div class="section-kicker">About</div>
+      <h3>Original music shaped around the story, purpose, and sound behind the idea.</h3>
 
       <p>
-        Send a project request, and I’ll follow up by email to schedule a conversation
-        about the sound, direction, and next step.
+        MH CreativeWorks is a composition and production brand for artists,
+        writers, filmmakers, churches, and content creators.
       </p>
 
-      <a href="#" class="btn" onclick="openContactForm(); return false;">
-        Request a Project Conversation
-      </a>
+      <p>
+        Whether you're starting with lyrics, a melody, a rough recording,
+        a visual scene, or simply a musical idea, the goal is to help shape it
+        into something clear, useful, and emotionally connected.
+      </p>
     </div>
-  </section>
+
+    <div class="about-image">
+      <img src="media/58AB4FF2-8F54-41CA-AF99-316594C12DE0.webp" alt="MH CreativeWorks creative studio">
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-title">
+      <div class="section-kicker">Services</div>
+      <h2>How I Can Help</h2>
+      <p>Creative support for original songs, media projects, audio edits, and music resources.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">♪</div>
+        <h3>Original Song Development</h3>
+        <p>Have lyrics, a melody, or an original song idea? I can help shape it into a demo or production concept.</p>
+        <ul>
+          <li>Song demos</li>
+          <li>Music for lyrics</li>
+          <li>Arrangement ideas</li>
+          <li>Creative direction</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🎬</div>
+        <h3>Cinematic & Media Music</h3>
+        <p>Original instrumental music for film-style projects, videos, presentations, podcasts, and future sync opportunities.</p>
+        <ul>
+          <li>Instrumental cues</li>
+          <li>Film-style music</li>
+          <li>Podcast and video music</li>
+          <li>Media production support</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">✂</div>
+        <h3>Audio Editing & Arrangement</h3>
+        <p>Refine existing recordings so they are cleaner, tighter, and ready for their intended purpose.</p>
+        <ul>
+          <li>Audio cleanup</li>
+          <li>Cutting and splicing</li>
+          <li>Song shortening</li>
+          <li>Arrangement adjustments</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="platforms" class="platforms">
+  <div class="container">
+    <div class="section-title">
+      <div class="section-kicker">Platforms</div>
+      <h2>Where You’ll Find My Work</h2>
+      <p>
+        Custom production is handled directly through MH CreativeWorks.
+        Released resources and catalog material can live through trusted platforms.
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card platform-card featured">
+        <h3>Worship Resources</h3>
+
+        <a href="https://loopcommunity.com" target="_blank" rel="noopener noreferrer">
+          <img src="media/loop.webp" alt="Loop Community" class="platform-logo">
+        </a>
+
+        <p>
+          Worship backing tracks and stems will be available through Loop Community,
+          giving churches a trusted place for access, delivery, and licensing support.
+        </p>
+
+        <a href="https://loopcommunity.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-top:1.4rem;">
+          Profile Coming Soon
+        </a>
+      </div>
+
+      <div class="card platform-card">
+        <h3>Film & Media Catalog</h3>
+        <div class="platform-placeholder">Film • Sync • Instrumental</div>
+        <p>
+          Instrumental tracks for film, media, and sync opportunities will be developed
+          as the MH CreativeWorks catalog grows.
+        </p>
+      </div>
+
+      <div class="card platform-card">
+        <h3>Custom Production</h3>
+        <div class="platform-placeholder">Songs • Demos • Ideas</div>
+        <p>
+          Have lyrics, a melody, or an original song idea? Custom production begins
+          with a conversation and is handled directly through MH CreativeWorks.
+        </p>
+      </div>
+    </div>
+
+    <p class="platform-note">
+      MH CreativeWorks is not limited to one genre or one audience. Worship resources,
+      cinematic music, demos, and custom productions are different lanes within one
+      larger creative music brand.
+    </p>
+  </div>
+</section>
+
+<section id="process" class="process">
+  <div class="container">
+    <div class="section-title">
+      <div class="section-kicker">Process</div>
+      <h2>How Projects Begin</h2>
+      <p>Every custom project starts with a conversation about sound, story, direction, and purpose.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">1</div>
+        <h3>Share the Idea</h3>
+        <p>Send a project request with where you are in the process and the direction you have in mind.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">2</div>
+        <h3>Talk Through the Sound</h3>
+        <p>We’ll discuss genre, mood, references, story, purpose, and what you want the finished piece to feel like.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">3</div>
+        <h3>Build the Production</h3>
+        <p>The project is developed through composition, arranging, editing, production, and collaboration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="container">
+    <div class="section-title">
+      <div class="section-kicker">Creative Space</div>
+      <h2>Built for focused production work.</h2>
+      <p>A personal creative space for developing demos, instrumental music, arrangements, edits, and music resources.</p>
+    </div>
+
+    <div class="studio-gallery">
+      <img src="media/481BDA2B-1490-49D7-B328-A87E01A8D4A2.webp" alt="Creative production workstation">
+      <img src="media/800B6A24-65DC-4EC9-8B54-37E121A6A3CD.webp" alt="Music production workspace">
+      <img src="media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp" alt="MH CreativeWorks studio">
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="section-title">
+      <div class="section-kicker">Portfolio</div>
+      <h2>More work samples coming soon.</h2>
+      <p>Additional demos, cinematic cues, edits, arrangements, and worship resources will be added as the catalog grows.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">♪</div>
+        <h3>Original Song Demos</h3>
+        <p>Developing lyrics, melodies, and rough ideas into clear production concepts.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🎬</div>
+        <h3>Cinematic Cues</h3>
+        <p>Instrumental music for film-style, media, and sync-oriented catalog work.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">☁</div>
+        <h3>Worship Resources</h3>
+        <p>Backing tracks and stems distributed through trusted platforms like Loop Community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-kicker">Contact</div>
+    <h2>Let’s talk about your project.</h2>
+
+    <p>
+      Send a project request, and I’ll follow up by email to schedule a conversation
+      about your sound, story, direction, and next step.
+    </p>
+
+    <a href="#" class="btn" onclick="openContactForm(); return false;">
+      Start a Conversation
+    </a>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -1363,14 +1278,15 @@ footer{
   </div>
 </div>
 
+
 <div id="contactModal" class="modal">
   <div class="modal-content">
-    <button class="modal-close" onclick="closeContactForm()" aria-label="Close project request form">×</button>
+    <button class="modal-close" onclick="closeContactForm()">×</button>
 
     <h2>Project Conversation Request</h2>
     <p>
       Share the basics. I’ll follow up by email to schedule a conversation
-      about your project, sound, and creative direction.
+      about your project, sound, story, and creative direction.
     </p>
 
     <form id="contactForm">
@@ -1389,12 +1305,11 @@ footer{
         <select name="projectType" required>
           <option value="">Choose one</option>
           <option value="Original Song Demo">Original Song Demo</option>
-          <option value="Music Arrangement">Music Arrangement</option>
+          <option value="Music for Lyrics">Music for Lyrics</option>
           <option value="Audio Editing">Audio Editing</option>
           <option value="Film / Media Music">Film / Media Music</option>
-          <option value="Remote Collaboration">Remote Collaboration</option>
-          <option value="Loop Community / Backing Track Question">Loop Community / Backing Track Question</option>
-          <option value="Creative Consultation">Creative Consultation</option>
+          <option value="Worship Resource Question">Worship Resource Question</option>
+          <option value="Creative Collaboration">Creative Collaboration</option>
           <option value="Other">Other</option>
         </select>
       </label>
@@ -1405,10 +1320,10 @@ footer{
           <option value="">Choose one</option>
           <option value="I have an idea">I have an idea</option>
           <option value="I have lyrics">I have lyrics</option>
+          <option value="I have a melody">I have a melody</option>
           <option value="I have a rough recording">I have a rough recording</option>
-          <option value="I have a demo">I have a demo</option>
           <option value="I have existing audio that needs editing">I have existing audio that needs editing</option>
-          <option value="I need help shaping the direction">I need help shaping the direction</option>
+          <option value="I need music for a scene or media project">I need music for a scene or media project</option>
           <option value="Other">Other</option>
         </select>
       </label>
@@ -1418,7 +1333,7 @@ footer{
         <textarea
           name="soundDirection"
           rows="4"
-          placeholder="Describe the sound you hear in your head. You can mention artists, genres, songs, moods, or production styles."
+          placeholder="Describe the sound you hear in your head. You can mention artists, genres, moods, scenes, songs, or production styles."
           required></textarea>
       </label>
 
@@ -1443,8 +1358,7 @@ footer{
         </select>
       </label>
 
-      <button type="submit" class="btn">Request Conversation</button>
-
+      <button type="submit" class="btn">Send Request</button>
       <p id="formStatus"></p>
     </form>
   </div>
@@ -1452,25 +1366,6 @@ footer{
 
 <script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxF6MMH3_t53SuX8man44Nzly8JCgbPS5TM4hFRD04dwOBS4hh5cMR-A94Hk82bVyCk8g/exec";
-
-const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-const navLinks = document.getElementById("navLinks");
-
-if(mobileMenuBtn && navLinks){
-  mobileMenuBtn.addEventListener("click", function(){
-    const isOpen = navLinks.classList.toggle("open");
-    mobileMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    mobileMenuBtn.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
-  });
-
-  navLinks.querySelectorAll("a").forEach(function(link){
-    link.addEventListener("click", function(){
-      navLinks.classList.remove("open");
-      mobileMenuBtn.setAttribute("aria-expanded", "false");
-      mobileMenuBtn.setAttribute("aria-label", "Open navigation menu");
-    });
-  });
-}
 
 const mhChatLauncher = document.getElementById("mhChatLauncher");
 const mhChatWidget = document.getElementById("mhChatWidget");
@@ -1482,54 +1377,54 @@ const mhQuickButtons = document.querySelectorAll(".mh-quick-btn");
 
 const mhChatAnswers = [
   {
-    keywords:["what do you do","about","mh creativeworks","creativeworks","creative production","music production","brand"],
-    text:"MH CreativeWorks helps artists, churches, and creators develop musical ideas through demos, sequencing, editing, arranging, media production, and platform-based worship resources. The brand is built around custom creative production and worship resources created for trusted platforms."
+    keywords:["what do you do","about","mh creativeworks","creativeworks","composition","production","collaboration","music for every story","brand"],
+    text:"MH CreativeWorks creates original music, song demos, cinematic ideas, worship resources, audio edits, and custom productions for artists, churches, filmmakers, and media creators. The focus is composition, production, and collaboration built around the story and purpose behind the music."
   },
   {
     keywords:["custom","project","projects","conversation","request","hire","start","begin"],
-    text:"Custom projects begin with a conversation about sound, direction, and purpose. You can share the type of project, where you are in the process, the style you hear, and any helpful details. From there, MH CreativeWorks follows up by email to discuss the next step.",
+    text:"Custom projects begin with a conversation about sound, story, direction, and purpose. You can share the type of project, where you are in the process, the style you hear, and any helpful details. From there, MH CreativeWorks follows up by email to discuss the next step.",
     action:"project"
   },
   {
-    keywords:["develop","demo","song demo","original song","midi sequencing","sequencing","keyboard programming","virtual instrument"],
-    text:"The Develop path is for turning a musical idea into a clear production concept. This can include original song demos, MIDI sequencing, virtual instrument production, and keyboard programming."
+    keywords:["my shepherd","featured demo","listen","audio","hear","song"],
+    text:"The featured demo is My Shepherd, an inspirational production inspired by Psalm 23. It gives visitors a quick way to hear the creative direction and production quality of MH CreativeWorks."
   },
   {
-    keywords:["refine","editing","audio editing","cutting","splicing","cleanup","arrangement adjustments","existing audio"],
-    text:"The Refine path focuses on shaping existing audio into something cleaner and more usable. That can include audio editing, cutting and splicing tracks, arrangement adjustments, and production cleanup."
+    keywords:["original song","song demo","lyrics","melody","music for lyrics","demo","develop"],
+    text:"Original Song Development is for lyrics, melodies, rough recordings, or song ideas that need to become a clearer demo or production concept. This can include music for lyrics, arrangement ideas, demo building, and creative direction."
   },
   {
-    keywords:["collaborate","collaboration","remote","film","media","consulting","creative consulting"],
-    text:"The Collaborate path supports music for media, ministry, and creative projects. This can include film-style music production, media arranging, remote studio collaboration, and creative consulting."
+    keywords:["cinematic","film","media","sync","instrumental","podcast","video","scene"],
+    text:"Cinematic and media music includes original instrumental music for film-style projects, videos, presentations, podcasts, and future sync opportunities."
+  },
+  {
+    keywords:["audio editing","editing","arrangement","cutting","splicing","cleanup","shortening","existing audio","refine"],
+    text:"Audio Editing and Arrangement helps refine existing recordings so they are cleaner, tighter, and ready for their intended purpose. This can include audio cleanup, cutting and splicing, song shortening, and arrangement adjustments."
   },
   {
     keywords:["worship","backing tracks","stems","loop","loop community","tracks","platform","licensing"],
-    text:"MH CreativeWorks creates worship backing tracks, stems, and performance resources for distribution through Loop Community. This keeps the focus on creating music while the platform supports access, delivery, and licensing-related infrastructure."
+    text:"Worship resources are one lane of MH CreativeWorks. Backing tracks and stems can be prepared for platforms such as Loop Community, giving churches a trusted place for access, delivery, and licensing-related support."
   },
   {
-    keywords:["streaming","youtube","spotify","apple music","media releases","future releases"],
-    text:"Future releases, demos, and media projects can be shared through streaming and video platforms such as YouTube, Spotify, and Apple Music as the catalog grows."
+    keywords:["studio","workflow","cubase","roland","fantom","fa-6","suno","remote collaboration","virtual instruments","midi"],
+    text:"The studio workflow is built around Cubase, Roland keyboards, virtual instruments, MIDI production, Suno Studio, and remote collaboration tools. The goal is a flexible setup for demos, arrangements, backing tracks, cinematic ideas, and creative media work."
   },
   {
-    keywords:["church tools","creator tools","planning","presentation","livestream","presentations"],
-    text:"Music and media can be prepared for use in worship planning, presentations, livestreams, videos, and other creative projects."
+    keywords:["platforms","youtube","spotify","apple music","film catalog","media catalog","custom production"],
+    text:"MH CreativeWorks is not limited to one genre or one audience. Worship resources, cinematic music, demos, media catalog work, and custom productions are different lanes within one larger creative music brand."
   },
   {
-    keywords:["studio","workflow","cubase","roland","fantom","fa-6","suno","remote collaboration","virtual instruments"],
-    text:"The studio workflow is built around Cubase, Roland keyboards, virtual instruments, MIDI production, Suno Studio, and remote collaboration tools. The goal is a flexible production setup for demos, arrangements, backing tracks, and creative media work."
-  },
-  {
-    keywords:["portfolio","examples","samples","work examples"],
-    text:"The portfolio section is being prepared for examples of demos, edits, arrangements, and worship resources. Planned categories include original song demos, editing and arrangement work, and platform resources."
+    keywords:["portfolio","examples","samples","work examples","catalog"],
+    text:"The portfolio section is being prepared for additional demos, cinematic cues, edits, arrangements, and worship resources as the catalog grows."
   },
   {
     keywords:["timeline","asap","week","month","how long","deadline"],
-    text:"Project timelines can vary by scope. The project request form lets you choose ASAP, within one week, within two weeks, this month, or flexible so the conversation can begin with realistic expectations.",
+    text:"Project timelines vary by scope. The project request form lets you choose ASAP, within one week, within two weeks, this month, or flexible so the conversation can begin with realistic expectations.",
     action:"project"
   },
   {
     keywords:["contact","email","message","reach","talk","form"],
-    text:"The best way to begin is to submit a Project Conversation Request. Share the basics, and MH CreativeWorks will follow up by email to schedule a conversation about your project, sound, and creative direction.",
+    text:"The best way to begin is to submit a Project Conversation Request. Share the basics, and MH CreativeWorks will follow up by email to schedule a conversation about your project, sound, story, and creative direction.",
     action:"project"
   }
 ];
@@ -1655,7 +1550,31 @@ mhQuickButtons.forEach(button => {
   });
 });
 
-mhAddChatMessage("Hi, I’m the MH CreativeWorks assistant. I can answer questions based on this page about services, worship resources, studio workflow, platforms, and project requests.", "bot");
+mhAddChatMessage("Hi, I’m the MH CreativeWorks assistant. I can answer questions based on this page about composition, production, collaboration, featured audio, worship resources, studio workflow, and project requests.", "bot");
+
+
+
+function toggleMobileMenu(){
+  const navLinks = document.querySelector(".nav-links");
+  const menuButton = document.querySelector(".mobile-menu-btn");
+  const isOpen = navLinks.classList.toggle("show");
+
+  menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  menuButton.innerHTML = isOpen ? "×" : "☰";
+}
+
+function closeMobileMenu(){
+  const navLinks = document.querySelector(".nav-links");
+  const menuButton = document.querySelector(".mobile-menu-btn");
+
+  navLinks.classList.remove("show");
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.innerHTML = "☰";
+}
+
+document.querySelectorAll(".nav-links a").forEach(function(link){
+  link.addEventListener("click", closeMobileMenu);
+});
 
 function openContactForm(){
   document.getElementById("contactModal").classList.add("show");
@@ -1676,6 +1595,7 @@ document.getElementById("contactModal").addEventListener("click", function(e){
 document.addEventListener("keydown", function(e){
   if(e.key === "Escape"){
     closeContactForm();
+    closeMobileMenu();
   }
 });
 
@@ -1702,9 +1622,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
     await fetch(SCRIPT_URL, {
       method:"POST",
       mode:"no-cors",
-      headers:{
-        "Content-Type":"application/json"
-      },
+      headers:{"Content-Type":"application/json"},
       body:JSON.stringify(data)
     });
 
