@@ -1268,12 +1268,12 @@ footer{
     <button class="mh-quick-btn" data-question="What does MH CreativeWorks do?">What do you do?</button>
     <button class="mh-quick-btn" data-question="What custom projects can you help with?">Custom projects</button>
     <button class="mh-quick-btn" data-question="Do you create worship backing tracks?">Worship tracks</button>
-    <button class="mh-quick-btn" data-question="What is your studio workflow?">Studio workflow</button>
+    <button class="mh-quick-btn" data-question="What is your production approach?">Production approach</button>
     <button class="mh-quick-btn" data-question="How do I request a project?">Request project</button>
   </div>
 
   <div class="mh-chat-composer">
-    <input type="text" id="mhChatInput" placeholder="Ask about services, workflow, projects..." autocomplete="off">
+    <input type="text" id="mhChatInput" placeholder="Ask about services, sound, projects..." autocomplete="off">
     <button id="mhChatSend" type="button">Send</button>
   </div>
 </div>
@@ -1406,8 +1406,8 @@ const mhChatAnswers = [
     text:"Worship resources are one lane of MH CreativeWorks. Backing tracks and stems can be prepared for platforms such as Loop Community, giving churches a trusted place for access, delivery, and licensing-related support."
   },
   {
-    keywords:["studio","workflow","cubase","roland","fantom","fa-6","suno","remote collaboration","virtual instruments","midi"],
-    text:"The studio workflow is built around Cubase, Roland keyboards, virtual instruments, MIDI production, Suno Studio, and remote collaboration tools. The goal is a flexible setup for demos, arrangements, backing tracks, cinematic ideas, and creative media work."
+    keywords:["production approach","approach","studio","workflow","sound","creative process","process","remote collaboration"],
+    text:"The production approach is centered on the song, story, and purpose first. Instead of focusing on a gear list, MH CreativeWorks focuses on shaping ideas into usable productions through composition, arrangement, editing, collaboration, and creative direction."
   },
   {
     keywords:["platforms","youtube","spotify","apple music","film catalog","media catalog","custom production"],
@@ -1550,7 +1550,7 @@ mhQuickButtons.forEach(button => {
   });
 });
 
-mhAddChatMessage("Hi, I’m the MH CreativeWorks assistant. I can answer questions about composition, production, collaboration, featured audio, worship resources, studio workflow, and project requests.", "bot");
+mhAddChatMessage("Hi, I’m the MH CreativeWorks assistant. I can answer questions about composition, production, collaboration, featured audio, worship resources, the creative process, and project requests.", "bot");
 
 
 
