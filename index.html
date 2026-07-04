@@ -1294,7 +1294,7 @@ footer{
 
   <div class="mh-chat-reply-email">
     <label for="mhChatEmail">Email for personal reply</label>
-    <input type="email" id="mhChatEmail" placeholder="Optional — only needed if your question needs follow-up" autocomplete="email">
+    <input type="email" id="mhChatEmail" placeholder="Required only for questions outside the website scope" autocomplete="email">
   </div>
 
   <div class="mh-chat-composer">
@@ -1400,6 +1400,7 @@ const mhChatInput = document.getElementById("mhChatInput");
 const mhChatEmail = document.getElementById("mhChatEmail");
 const mhChatSend = document.getElementById("mhChatSend");
 const mhQuickButtons = document.querySelectorAll(".mh-quick-btn");
+let mhPendingQuestion = "";
 
 const mhChatAnswers = [
   {
@@ -1491,6 +1492,20 @@ function mhAddChatMessage(content, sender = "bot", action = null){
     group.appendChild(actions);
   }
 
+  if(action === "email"){
+    const actions = document.createElement("div");
+    actions.className = "mh-chat-action-row";
+
+    const button = document.createElement("button");
+    button.className = "mh-chat-action";
+    button.type = "button";
+    button.textContent = "Send Question With Email";
+    button.addEventListener("click", mhSubmitPendingQuestion);
+
+    actions.appendChild(button);
+    group.appendChild(actions);
+  }
+
   row.appendChild(group);
   mhChatBody.appendChild(row);
   mhChatBody.scrollTop = mhChatBody.scrollHeight;
@@ -1521,9 +1536,7 @@ function mhFindAnswer(question){
   return null;
 }
 
-async function mhSendUnansweredQuestion(question){
-  const replyEmail = mhGetReplyEmail();
-
+async function mhSendUnansweredQuestion(question, replyEmail){
   try{
     await fetch(SCRIPT_URL, {
       method:"POST",
@@ -1533,18 +1546,37 @@ async function mhSendUnansweredQuestion(question){
       },
       body:JSON.stringify({
         name:"Website Chat Visitor",
-        email: replyEmail || "not-provided@mhcreativeworks.local",
+        email: replyEmail,
         projectType:"Website Chat Question",
         projectStage:"Question asked in chat",
         soundDirection:"Not provided",
         message:question,
         timeline:"Not provided",
-        source: replyEmail ? "MH CreativeWorks Website Chat - Reply Email Provided" : "MH CreativeWorks Website Chat - No Reply Email Provided"
+        source:"MH CreativeWorks Website Chat - Reply Email Provided"
       })
     });
   }catch(error){
     console.warn("MH chat fallback could not be sent", error);
   }
+}
+
+function mhSubmitPendingQuestion(){
+  const replyEmail = mhGetReplyEmail();
+
+  if(!mhPendingQuestion){
+    mhAddChatMessage("There is no pending question to send. Type your question and I’ll help from there.", "bot");
+    return;
+  }
+
+  if(!replyEmail){
+    mhAddChatMessage("Please enter a valid email address first, then tap Send Question With Email again.", "bot");
+    mhChatEmail.focus();
+    return;
+  }
+
+  mhSendUnansweredQuestion(mhPendingQuestion, replyEmail);
+  mhAddChatMessage("Thank you. Your question has been forwarded for review, and a personal reply can be sent to the email address you provided.", "bot");
+  mhPendingQuestion = "";
 }
 
 function mhHandleQuestion(question){
@@ -1559,13 +1591,16 @@ function mhHandleQuestion(question){
       mhAddChatMessage(answer.text, "bot", answer.action || null);
     }else{
       const replyEmail = mhGetReplyEmail();
-      mhSendUnansweredQuestion(question);
 
-      if(replyEmail){
-        mhAddChatMessage("Thank you for the question. I do not want to guess beyond the information provided on this page, so your question has been forwarded for review. A reply can be sent to the email address you provided. If this is about starting a project, you can also open the Project Conversation Form below.", "bot", "project");
-      }else{
-        mhAddChatMessage("Thank you for the question. I do not want to guess beyond the information provided on this page, so your question has been forwarded for review. No reply email was provided. If you would like a personal reply, enter your email in the reply field and send your question again, or open the Project Conversation Form below.", "bot", "project");
+      if(!replyEmail){
+        mhPendingQuestion = question;
+        mhAddChatMessage("I do not want to guess beyond the information provided on this page. I can forward your question for review, but I need an email address first so someone can reply personally. Enter your email in the reply field, then tap the button below.", "bot", "email");
+        mhChatEmail.focus();
+        return;
       }
+
+      mhSendUnansweredQuestion(question, replyEmail);
+      mhAddChatMessage("Thank you for the question. I do not want to guess beyond the information provided on this page, so your question has been forwarded for review. A personal reply can be sent to the email address you provided.", "bot");
     }
   }, 250);
 }
