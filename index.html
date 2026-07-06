@@ -1404,7 +1404,7 @@ let mhPendingQuestion = "";
 
 const mhChatAnswers = [
   {
-    keywords:["What do you do","about","Track Lab","Track Lab","composition","production","collaboration","music for every story","brand"],
+    keywords:["what do you do","what does track lab do","tell me about track lab","about track lab","who are you","what is track lab","track lab","composition","music production","collaboration","music for every story","brand"],
     text:"Track Lab creates original music, song demos, cinematic ideas, worship resources, audio edits, and custom productions for artists, churches, filmmakers, and media creators. The focus is composition, production, and collaboration built around the story and purpose behind the music."
   },
   {
@@ -1526,14 +1526,32 @@ function mhGetReplyEmail(){
 
 function mhFindAnswer(question){
   const clean = mhNormalize(question);
+  let bestMatch = null;
+  let bestScore = 0;
 
   for(const item of mhChatAnswers){
-    if(item.keywords.some(keyword => clean.includes(keyword))){
-      return item;
+    for(const keyword of item.keywords){
+      const cleanKeyword = mhNormalize(keyword);
+
+      if(!cleanKeyword) continue;
+
+      if(clean === cleanKeyword){
+        const score = cleanKeyword.length + 1000;
+        if(score > bestScore){
+          bestScore = score;
+          bestMatch = item;
+        }
+      }else if(clean.includes(cleanKeyword)){
+        const score = cleanKeyword.length;
+        if(score > bestScore){
+          bestScore = score;
+          bestMatch = item;
+        }
+      }
     }
   }
 
-  return null;
+  return bestMatch;
 }
 
 async function mhSendUnansweredQuestion(question, replyEmail){
