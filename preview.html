@@ -1163,6 +1163,11 @@ section{padding:100px 0}.section-title{text-align:left;max-width:1050px;margin:0
 .studio-lightbox-prev,.studio-lightbox-next{flex:0 0 42px;height:55px;font-size:34px}
 .studio-lightbox button:focus-visible{outline:3px solid #8fd4ff;outline-offset:3px}
 @media(max-width:700px){.studio-gallery{grid-template-columns:repeat(4,minmax(180px,1fr))!important;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}.studio-photo{scroll-snap-align:start}.studio-lightbox{padding:65px 10px 45px;gap:5px}.studio-lightbox-prev,.studio-lightbox-next{flex-basis:32px}.studio-lightbox figure img{max-height:calc(100dvh - 145px)}}
+
+/* Biography portrait: intentionally sized as a portrait, not a full-bleed banner */
+.portfolio-split .about-image{min-height:0;display:flex;align-items:center;justify-content:center;padding:36px clamp(20px,4vw,70px);background:#0c121b;overflow:hidden}
+.portfolio-split .about-image img{display:block;width:auto;max-width:100%;height:auto;max-height:440px;aspect-ratio:auto;object-fit:contain;border-radius:3px;box-shadow:0 14px 45px rgba(0,0,0,.35)}
+@media(max-width:900px){.portfolio-split .about-image{min-height:0;padding:30px 20px}.portfolio-split .about-image img{max-height:380px}}
 </style>
 
 <!-- Ahrefs Web Analytics -->
