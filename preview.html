@@ -1146,6 +1146,23 @@ section{padding:100px 0}.section-title{text-align:left;max-width:1050px;margin:0
 @media(min-width:1200px){.hero h1{font-size:clamp(3.5rem,5.3vw,5.6rem)}}
 @media(max-width:900px){.hero{height:auto;min-height:620px}.portfolio-collab{grid-template-columns:1fr}.portfolio-collab-image{min-height:380px}.portfolio-collab-copy{padding:55px 6vw}}
 @media(max-width:560px){.hero{min-height:620px;padding:120px 6vw 65px}.hero h1{font-size:clamp(2.35rem,9vw,3.5rem)}.portfolio-band{grid-template-columns:38px 1fr;gap:12px}.portfolio-symbol{display:none}.hero-actions .btn{width:100%}}
+
+/* Studio photo strip and accessible lightbox */
+.studio-gallery{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important}
+.studio-photo{appearance:none;display:block;padding:0;margin:0;border:0;background:#080b11;cursor:zoom-in;overflow:hidden;min-width:0;aspect-ratio:16/10}
+.studio-gallery .studio-photo img{display:block;width:100%;height:100%;object-fit:cover;border:0;border-radius:0;box-shadow:none;transition:transform .2s ease}
+.studio-photo:hover img{transform:scale(1.035)}.studio-photo:focus-visible{outline:3px solid #8fd4ff;outline-offset:3px}
+.studio-gallery-hint{color:#aebbc9;font-size:.85rem;margin-top:12px}
+.studio-lightbox[hidden]{display:none!important}
+.studio-lightbox{position:fixed;z-index:100000;inset:0;display:flex;align-items:center;justify-content:center;gap:16px;padding:55px 65px;background:rgba(0,0,0,.94)}
+.studio-lightbox figure{margin:0;min-width:0;max-width:min(1200px,100%);max-height:100%;display:flex;flex-direction:column;align-items:center;gap:12px}
+.studio-lightbox figure img{max-width:100%;max-height:calc(100dvh - 145px);object-fit:contain;display:block}
+.studio-lightbox figcaption{color:#dce6f0;text-align:center;font-size:.9rem}
+.studio-lightbox button{color:white;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);border-radius:3px;cursor:pointer}
+.studio-lightbox-close{position:absolute;right:24px;top:18px;font-size:30px;width:45px;height:45px}
+.studio-lightbox-prev,.studio-lightbox-next{flex:0 0 42px;height:55px;font-size:34px}
+.studio-lightbox button:focus-visible{outline:3px solid #8fd4ff;outline-offset:3px}
+@media(max-width:700px){.studio-gallery{grid-template-columns:repeat(4,minmax(180px,1fr))!important;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}.studio-photo{scroll-snap-align:start}.studio-lightbox{padding:65px 10px 45px;gap:5px}.studio-lightbox-prev,.studio-lightbox-next{flex-basis:32px}.studio-lightbox figure img{max-height:calc(100dvh - 145px)}}
 </style>
 
 <!-- Ahrefs Web Analytics -->
@@ -1193,9 +1210,10 @@ section{padding:100px 0}.section-title{text-align:left;max-width:1050px;margin:0
 <a class="btn" href="#" onclick="openContactForm(); return false;">Discuss a Collaboration</a>
 </div></section>
 <section class="gallery" id="studio"><div class="container"><div class="section-title"><div class="section-kicker">04 / THE WORKSPACE</div><h2>Inside TrackLab</h2><p>A real, working music production space. Cubase Pro anchors a flexible environment for composing, arranging, tracking, and developing new sounds.</p></div>
-<div class="studio-gallery"><img alt="TrackLab production workstation" src="media/58AB4FF2-8F54-41CA-AF99-316594C12DE0.webp"/><img alt="TrackLab studio keyboard and production setup" src="media/800B6A24-65DC-4EC9-8B54-37E121A6A3CD.webp"/><img alt="TrackLab music workspace" src="media/5041B005-33E2-4AC0-8729-725DB26CA426.webp"/><img alt="TrackLab recording studio equipment" src="media/ABDABCE2-2403-465C-A6AE-552888983B03.webp"/></div></div></section>
+<div class="studio-gallery" aria-label="TrackLab studio photo gallery"><button type="button" class="studio-photo" aria-label="Enlarge TrackLab production workstation"><img alt="TrackLab production workstation" loading="lazy" src="media/58AB4FF2-8F54-41CA-AF99-316594C12DE0.webp"/></button><button type="button" class="studio-photo" aria-label="Enlarge TrackLab keyboard and production setup"><img alt="TrackLab studio keyboard and production setup" loading="lazy" src="media/800B6A24-65DC-4EC9-8B54-37E121A6A3CD.webp"/></button><button type="button" class="studio-photo" aria-label="Enlarge TrackLab music workspace"><img alt="TrackLab music workspace" loading="lazy" src="media/5041B005-33E2-4AC0-8729-725DB26CA426.webp"/></button><button type="button" class="studio-photo" aria-label="Enlarge TrackLab recording equipment"><img alt="TrackLab recording studio equipment" loading="lazy" src="media/ABDABCE2-2403-465C-A6AE-552888983B03.webp"/></button></div><p class="studio-gallery-hint">Select any photo to view it larger.</p></div></section>
 <section class="contact" id="contact"><div class="container"><div class="section-kicker">05 / GET IN TOUCH</div><h2>Have a project in mind?</h2><p>Whether you're looking for a keyboardist, a production collaborator, an original composition, or simply want to connect with another musician, I'd enjoy hearing about it.</p><a class="btn" href="#" onclick="openContactForm(); return false;">Start a Conversation</a></div></section>
 </main>
+<div class="studio-lightbox" id="studioLightbox" role="dialog" aria-modal="true" aria-label="Expanded studio photograph" hidden><button class="studio-lightbox-close" type="button" aria-label="Close enlarged photograph">×</button><button class="studio-lightbox-prev" type="button" aria-label="Previous photograph">‹</button><figure><img id="studioLightboxImage" alt=""/><figcaption id="studioLightboxCaption"></figcaption></figure><button class="studio-lightbox-next" type="button" aria-label="Next photograph">›</button></div>
 <footer>
   © 2026 TrackLab.studio • Michael Hall | Music · Production · Collaboration
 </footer>
@@ -1633,6 +1651,22 @@ document.getElementById("contactForm").addEventListener("submit", async function
     status.textContent = "Something went wrong. Please try again.";
   }
 });
+
+(function(){
+ const box=document.getElementById("studioLightbox");
+ const photos=Array.from(document.querySelectorAll(".studio-gallery .studio-photo"));
+ const image=document.getElementById("studioLightboxImage");
+ const caption=document.getElementById("studioLightboxCaption");
+ let current=0,previousFocus=null;
+ function show(i){current=(i+photos.length)%photos.length;const original=photos[current].querySelector("img");image.src=original.currentSrc||original.src;image.alt=original.alt;caption.textContent=original.alt;}
+ function close(){box.hidden=true;document.body.style.overflow="";if(previousFocus)previousFocus.focus();}
+ photos.forEach((photo,i)=>photo.addEventListener("click",()=>{previousFocus=document.activeElement;show(i);box.hidden=false;document.body.style.overflow="hidden";box.querySelector(".studio-lightbox-close").focus();}));
+ box.querySelector(".studio-lightbox-close").addEventListener("click",close);
+ box.querySelector(".studio-lightbox-prev").addEventListener("click",()=>show(current-1));
+ box.querySelector(".studio-lightbox-next").addEventListener("click",()=>show(current+1));
+ box.addEventListener("click",e=>{if(e.target===box)close();});
+ document.addEventListener("keydown",e=>{if(box.hidden)return;if(e.key==="Escape"){close();}else if(e.key==="ArrowLeft"){show(current-1);}else if(e.key==="ArrowRight"){show(current+1);}else if(e.key==="Tab"){const controls=Array.from(box.querySelectorAll("button"));const idx=controls.indexOf(document.activeElement);if(e.shiftKey&&idx===0){e.preventDefault();controls[controls.length-1].focus();}else if(!e.shiftKey&&idx===controls.length-1){e.preventDefault();controls[0].focus();}}});
+})();
 </script>
 </body>
 </html>
