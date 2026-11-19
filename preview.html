@@ -1209,33 +1209,33 @@ section{padding:100px 0}.section-title{text-align:left;max-width:1050px;margin:0
 </div>
 <div class="mh-chat-header-text">
 <h2>TrackLab Assistant</h2>
-<p>Ask about instrumental cues, catalog direction, composer style, or starting a conversation.</p>
+<p>Ask about Michael Hall, music production, remote recording, or collaboration.</p>
 </div>
 <button aria-label="Close chat" class="mh-chat-close" id="mhChatClose">×</button>
 </div>
 <div class="mh-chat-body" id="mhChatBody"></div>
 <div class="mh-quick-replies">
-<button class="mh-quick-btn" data-question="What does TrackLab do?">What do you do?</button>
-<button class="mh-quick-btn" data-question="What is the catalog direction?">Catalog</button>
-<button class="mh-quick-btn" data-question="What styles do you compose?">Musical style</button>
-<button class="mh-quick-btn" data-question="Do you write custom music?">Custom composition</button>
-<button class="mh-quick-btn" data-question="How do I start a project?">Start a project</button>
+<button class="mh-quick-btn" data-question="Who is Michael Hall?">About Michael</button>
+<button class="mh-quick-btn" data-question="Can you collaborate remotely?">Remote recording</button>
+<button class="mh-quick-btn" data-question="What production work do you do?">Production</button>
+<button class="mh-quick-btn" data-question="What collaboration services are available?">Collaboration</button>
+<button class="mh-quick-btn" data-question="How do I get in touch?">Get in touch</button>
 </div>
 <div class="mh-chat-reply-email">
 <label for="mhChatEmail">Email for personal reply</label>
 <input autocomplete="email" id="mhChatEmail" placeholder="Enter email, then tap Send" type="email"/>
 </div>
 <div class="mh-chat-composer">
-<input autocomplete="off" id="mhChatInput" placeholder="Ask me about instrumental cues, catalog direction, composer style, or contacting TrackLab." type="text"/>
+<input autocomplete="off" id="mhChatInput" placeholder="Ask about my background, composition, production, or collaboration." type="text"/>
 <button id="mhChatSend" type="button">Send</button>
 </div>
 </div>
 <div class="modal" id="contactModal">
 <div class="modal-content">
 <button class="modal-close" onclick="closeContactForm()">×</button>
-<h2>TrackLab Conversation Request</h2>
+<h2>Connect with TrackLab Studio</h2>
 <p>
-      Share the basics. I’ll follow up by email to discuss TrackLab, catalog direction, sound, story, and creative direction.
+      Tell me a little about your project or collaboration idea. I’ll follow up by email to discuss what you have in mind.
     </p>
 <form id="contactForm">
 <label>
@@ -1250,12 +1250,12 @@ section{padding:100px 0}.section-title{text-align:left;max-width:1050px;margin:0
         What kind of project is this?
         <select name="projectType" required="">
 <option value="">Choose one</option>
-<option value="TAXI / Catalog Question">TAXI / Catalog Question</option>
+<option value="Remote Recording">Remote Recording</option>
 <option value="Custom Composition">Custom Composition</option>
-<option value="Film / Media Music">Film / Media Music</option>
-<option value="Podcast / YouTube Music">Podcast / YouTube Music</option>
-<option value="Retail / Background Music">Retail / Background Music</option>
-<option value="Music Library / Publisher Inquiry">Music Library / Publisher Inquiry</option>
+<option value="Keyboard / MIDI Session">Keyboard / MIDI Session</option>
+<option value="Arranging / Music Production">Arranging / Music Production</option>
+<option value="Studio / Producer Collaboration">Studio / Producer Collaboration</option>
+<option value="Original Instrumental Composition">Original Instrumental Composition</option>
 <option value="Other">Other</option>
 </select>
 </label>
@@ -1263,22 +1263,22 @@ section{padding:100px 0}.section-title{text-align:left;max-width:1050px;margin:0
         Where are you in the process?
         <select name="projectStage" required="">
 <option value="">Choose one</option>
-<option value="I have a question about the catalog">I have a question about the catalog</option>
-<option value="I need custom music for a scene">I need custom music for a scene</option>
-<option value="I need music for a podcast or video">I need music for a podcast or video</option>
-<option value="I need background music for a public space">I need background music for a public space</option>
-<option value="I am a library or publisher looking for catalog music">I am a library or publisher looking for catalog music</option>
+<option value="I would like to discuss a remote session">I would like to discuss a remote session</option>
+<option value="I need keyboard or MIDI parts">I need keyboard or MIDI parts</option>
+<option value="I need arranging or production help">I need arranging or production help</option>
+<option value="I am exploring a creative collaboration">I am exploring a creative collaboration</option>
+<option value="I have an original music inquiry">I have an original music inquiry</option>
 <option value="I am exploring options">I am exploring options</option>
 <option value="Other">Other</option>
 </select>
 </label>
 <label>
-        Sound or style direction
-        <textarea name="soundDirection" placeholder="Describe the mood, style, scene, references, or emotional direction you need." required="" rows="4"></textarea>
+        Musical direction (if applicable)
+        <textarea name="soundDirection" placeholder="Describe your musical style, references, or the sound you have in mind." required="" rows="4"></textarea>
 </label>
 <label>
         Project details
-        <textarea name="message" placeholder="Tell me anything else helpful: project title, TAXI listing, publisher direction, deadline, catalog question, or custom composition details." required="" rows="5"></textarea>
+        <textarea name="message" placeholder="Tell me about your project, recording needs, preferred workflow, or collaboration idea." required="" rows="5"></textarea>
 </label>
 <label>
         Timeline
@@ -1310,43 +1310,19 @@ const mhQuickButtons = document.querySelectorAll(".mh-quick-btn");
 let mhPendingQuestion = "";
 
 const mhChatAnswers = [
-  {
-    keywords:["what do you do","what does tracklab do","tell me about tracklab","about tracklab","who are you","what is tracklab","tracklab","composer","composition","catalog direction","where stories find their sound"],
-    text:"TrackLab is the creative studio of composer Michael Hall, creating original instrumental music, cinematic soundscapes, and production cues for film, television, documentaries, podcasts, advertising, retail environments, and visual media."
-  },
-  {
-    keywords:["catalog","taxi","publisher","music library","placements","available","submission","profile"],
-    text:"TrackLab is currently focused on building a composer showcase and instrumental catalog for TAXI submissions, publisher review, and future music library opportunities. The website does not offer direct catalog; future profile links can be added as the catalog develops.",
-    action:"project"
-  },
-  {
-    keywords:["custom","custom composition","commission","score","project","projects","scene","film score","brief","hire","start","begin"],
-    text:"Custom composition begins with a conversation about the story, mood, pacing, references, and emotional direction of the project. From there, original music can be shaped around the scene, campaign, or production brief.",
-    action:"project"
-  },
-  {
-    keywords:["styles","style","compose","cinematic","piano","ambient","soundscapes","instrumental","orchestral","reflective","hopeful","emotional"],
-    text:"TrackLab focuses on cinematic piano, emotional underscore, ambient soundscapes, hopeful instrumental cues, reflective themes, and production music designed to support visual storytelling."
-  },
-  {
-    keywords:["anthem at first light","paper lantern room","echoes of the unsaid","shifting echoes","marble fingers","featured cue"],
-    text:"Those featured cues represent the current TrackLab direction: cinematic instrumentals, reflective themes, atmosphere, and story-focused production music."
-  },
-  {
-    keywords:["creative process","process","workflow","approach","production approach","sound","references","emotion","story"],
-    text:`Every composition begins with story. The process starts by identifying mood, purpose, audience, pacing, and emotional direction. Then the music is shaped through melody, harmony, rhythm, texture, and atmosphere so it supports the visual moment.`,
-    action:"project"
-  },
-  {
-    keywords:["timeline","asap","week","month","how long","deadline"],
-    text:"Project timelines vary by scope. The request form includes timeline options so the conversation can begin with realistic expectations.",
-    action:"project"
-  },
-  {
-    keywords:["contact","email","message","reach","talk","form","inquiry"],
-    text:"The best way to begin is to submit a TrackLab conversation request. Share the basics, and TrackLab will follow up by email about the catalog, sound, story, and next step.",
-    action:"project"
-  }
+  {keywords:["who is michael hall","about michael","your background","biography","bio","touring","musical experience","who are you"],text:"Michael Hall is a keyboardist, composer, and music producer with a background in live performance, including touring as a keyboardist in the 1990s, and years of arranging and leading music. TrackLab Studio brings his experience in performance, composition, and production into one creative workspace."},
+  {keywords:["what does tracklab do","what do you do","about tracklab","tracklab studio","what is tracklab"],text:"TrackLab Studio is Michael Hall's personal music portfolio and creative studio, centered on original composition, arranging, music production, keyboard and MIDI work, and collaboration with artists and recording studios."},
+  {keywords:["remote recording","remote session","record remotely","collaborate remotely","vst connect","cubase","recording online"],text:"TrackLab Studio uses Cubase Pro and can explore remote recording and session collaboration. We can discuss keyboard parts, file exchange, and suitable remote workflows; technical compatibility, availability, and deliverables are confirmed before a project begins.",action:"project"},
+  {keywords:["keyboard","midi","synthesizer","piano parts","session player","session keyboardist"],text:"Michael's background is rooted in keyboards and performance. Potential contributions include piano and synthesizer parts, MIDI programming, musical textures, and arrangement support. Share your track or project idea to discuss the fit.",action:"project"},
+  {keywords:["production work","music production","arranging","arrangement","producer","mixing","what can you produce"],text:"TrackLab Studio develops original instrumental compositions and arrangements, with keyboard-based production, MIDI instruments, and creative collaboration. For a specific recording, production, or mixing request, the best next step is a conversation about the scope and workflow.",action:"project"},
+  {keywords:["collaboration services","collaboration","collaborate","work together","studio partnership","other studios"],text:"TrackLab Studio welcomes conversations with musicians, artists, producers, studios, and media creators about original composition, keyboard sessions, arrangements, and production collaboration. Each project is discussed individually.",action:"project"},
+  {keywords:["composition","original music","custom music","commission","instrumental","soundtrack","score"],text:"Michael composes original instrumental music and develops musical ideas for a variety of creative contexts. Tell me about your project, intended mood, and musical direction to start a conversation.",action:"project"},
+  {keywords:["musical style","music styles","genres","style of music","what styles"],text:"TrackLab Studio isn't limited to one genre. Michael's work draws on a background in keyboards, live performance, arranging, and instrumental production. Musical style is discussed around the needs of each collaboration."},
+  {keywords:["catalog","taxi","publisher","licensing","music library"],text:"Michael is developing a separate music catalog. This website is his professional portfolio, not a direct licensing storefront. For catalog or publisher-specific inquiries, please use the contact form.",action:"project"},
+  {keywords:["creative process","production approach","workflow","your process","how do you work"],text:"The process starts with a conversation about the music, goals, style, references, instrumentation, and delivery needs. From there, the arrangement, composition, or session workflow can be planned together.",action:"project"},
+  {keywords:["price","pricing","rates","cost","budget","quote"],text:"Rates depend on the work involved, session format, and deliverables. I don't want to give you an inaccurate figure. Please share your project details through the contact form so Michael can follow up.",action:"project"},
+  {keywords:["timeline","deadline","how long","availability","schedule"],text:"Timing and availability depend on the scope of the project. The contact form lets you share your preferred timeline so Michael can follow up with realistic expectations.",action:"project"},
+  {keywords:["get in touch","contact","email","message","reach michael","start a project","inquiry"],text:"You can contact Michael through the TrackLab Studio conversation form. Share what you're working on and a reply email, and he'll have the details needed to follow up.",action:"project"}
 ];
 
 function mhAddChatMessage(content, sender = "bot", action = null){
@@ -1477,10 +1453,10 @@ function mhSubmitPendingQuestion(){
   }
 
   mhSendUnansweredQuestion(mhPendingQuestion, replyEmail);
-  mhAddChatMessage("Thank you. Your question has been sent for review. A personal reply can be sent to the email address you provided.", "bot");
+  mhAddChatMessage("Thank you. Your question has been submitted for review. If it does not arrive, please use the contact form to follow up.", "bot");
 
   mhPendingQuestion = "";
-  mhChatInput.placeholder = "Ask me about instrumental cues, catalog direction, composer style, or contacting TrackLab.";
+  mhChatInput.placeholder = "Ask about my background, composition, production, or collaboration.";
   mhChatSend.textContent = "Send";
 }
 
@@ -1567,7 +1543,7 @@ mhQuickButtons.forEach(button => {
   });
 });
 
-mhAddChatMessage("Hi, I’m the TrackLab assistant. I can answer questions about instrumental cues, catalog direction, composer style, featured audio, and TrackLab conversation requests. If a question is outside the website information, I’ll ask for an email before sending it for review.", "bot");
+mhAddChatMessage("Welcome to TrackLab Studio. I can help with Michael’s background, composition, production, keyboard and MIDI work, and studio collaboration. If your question needs a personal reply, I’ll ask for your email before forwarding it.", "bot");
 
 
 
@@ -1645,7 +1621,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
       body:JSON.stringify(data)
     });
 
-    status.textContent = "Thank you. Your request has been sent.";
+    status.textContent = "Your request was submitted. If you do not receive a reply, please try again or use another contact method.";
     form.reset();
 
     setTimeout(function(){
