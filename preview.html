@@ -1175,6 +1175,12 @@ section{padding:100px 0}.section-title{text-align:left;max-width:1050px;margin:0
 .portfolio-split .about-image{min-height:0;padding:24px clamp(24px,3vw,48px) 24px 0;display:flex;align-items:center;justify-content:flex-start;background:#0c121b}
 .portfolio-split .about-image img{width:100%;max-width:540px;height:auto;max-height:650px;object-fit:cover;object-position:center;border-radius:20px;box-shadow:0 14px 42px rgba(0,0,0,.28)}
 @media(max-width:900px){.portfolio-split .about-grid{grid-template-columns:1fr}.portfolio-split .about-text{padding:48px 6vw 24px}.portfolio-split .about-image{justify-content:center;padding:8px 6vw 48px}.portfolio-split .about-image img{width:min(100%,460px);max-height:560px;border-radius:18px}}
+
+/* Lower portrait within biography panel so the full head has breathing room */
+@media(min-width:901px){
+ .portfolio-split .about-image{padding-top:78px;padding-bottom:28px;align-items:center}
+ .portfolio-split .about-image img{max-height:590px;object-fit:contain;object-position:center center}
+}
 </style>
 
 <!-- Ahrefs Web Analytics -->
