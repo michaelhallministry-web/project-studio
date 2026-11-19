@@ -1168,6 +1168,13 @@ section{padding:100px 0}.section-title{text-align:left;max-width:1050px;margin:0
 .portfolio-split .about-image{min-height:0;display:flex;align-items:center;justify-content:center;padding:36px clamp(20px,4vw,70px);background:#0c121b;overflow:hidden}
 .portfolio-split .about-image img{display:block;width:auto;max-width:100%;height:auto;max-height:440px;aspect-ratio:auto;object-fit:contain;border-radius:3px;box-shadow:0 14px 45px rgba(0,0,0,.35)}
 @media(max-width:900px){.portfolio-split .about-image{min-height:0;padding:30px 20px}.portfolio-split .about-image img{max-height:380px}}
+
+/* About portrait: closer to biography, larger, softly rounded */
+.portfolio-split .about-grid{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:0;align-items:stretch}
+.portfolio-split .about-text{padding:clamp(38px,5vw,76px) clamp(24px,3vw,48px) clamp(38px,5vw,76px) clamp(32px,6vw,90px)}
+.portfolio-split .about-image{min-height:0;padding:24px clamp(24px,3vw,48px) 24px 0;display:flex;align-items:center;justify-content:flex-start;background:#0c121b}
+.portfolio-split .about-image img{width:100%;max-width:540px;height:auto;max-height:650px;object-fit:cover;object-position:center;border-radius:20px;box-shadow:0 14px 42px rgba(0,0,0,.28)}
+@media(max-width:900px){.portfolio-split .about-grid{grid-template-columns:1fr}.portfolio-split .about-text{padding:48px 6vw 24px}.portfolio-split .about-image{justify-content:center;padding:8px 6vw 48px}.portfolio-split .about-image img{width:min(100%,460px);max-height:560px;border-radius:18px}}
 </style>
 
 <!-- Ahrefs Web Analytics -->
