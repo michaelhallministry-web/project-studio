@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PREVIEW | TrackLab.studio | Cinematic Instrumental Music &amp; Production Cues</title>
+<meta content="TrackLab.studio is the creative home of composer Michael Hall, featuring original instrumental music, cinematic soundscapes, and production cues for visual storytelling." name="description"/>
+<style>
+:root{
+  --bg:#070a10;
+  --bg2:#0d1320;
+  --card:#111827;
+  --text:#f7f9ff;
+  --muted:#a9b4c8;
+  --soft:#d7e0f2;
+  --accent:#4f8cff;
+  --accent2:#8b5cf6;
+  --cyan:#26d9ff;
+  --purple:#a855f7;
+  --border:rgba(255,255,255,.12);
+  --border2:rgba(255,255,255,.18);
+  --shadow:0 28px 90px rgba(0,0,0,.58);
+  --radius:26px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(79,140,255,.12), transparent 34rem),
+    radial-gradient(circle at top right, rgba(139,92,246,.12), transparent 34rem),
+    var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+body.modal-open{overflow:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+.container{
+  width:min(1320px,92%);
+  margin:auto;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:56px;
+  padding:0 30px;
+  border-radius:999px;
+  border:1px solid transparent;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;
+  font-size:1rem;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 14px 34px rgba(79,140,255,.24);
+}
+
+.btn-outline{
+  background:rgba(255,255,255,.04);
+  border-color:rgba(255,255,255,.28);
+  box-shadow:none;
+}
+
+/* NAV */
+
+.site-nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(5,8,14,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav-wrap{
+  min-height:86px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:.95rem;
+}
+
+.logo img{
+  width:58px;
+  height:58px;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+.logo-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+
+.logo-main{
+  font-size:1.15rem;
+  font-weight:900;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+
+.logo-sub{
+  margin-top:.28rem;
+  color:var(--soft);
+  font-size:.74rem;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:2rem;
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+.nav-links a{color:var(--soft);}
+.nav-links a:hover{color:var(--accent);}
+
+.mobile-menu-btn{
+  display:none;
+  width:46px;
+  height:46px;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.24);
+  background:rgba(255,255,255,.06);
+  color:white;
+  font-size:1.65rem;
+  line-height:1;
+  cursor:pointer;
+}
+
+.mobile-menu-btn:hover{
+  background:rgba(255,255,255,.10);
+}
+
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  padding:128px 0 72px;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.78)),
+    url("media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp") center/cover no-repeat;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at left center, rgba(38,217,255,.32), transparent 26rem),
+    radial-gradient(circle at right center, rgba(168,85,247,.34), transparent 26rem),
+    linear-gradient(90deg, rgba(0,0,0,.58), transparent 24%, transparent 76%, rgba(0,0,0,.58));
+}
+
+.hero-content{
+  position:relative;
+  width:min(96vw,1680px);
+  padding:4.5rem 5.75rem 4.25rem;
+  border-radius:32px;
+  border:1px solid rgba(255,255,255,.18);
+  background:
+    linear-gradient(135deg, rgba(10,14,24,.74), rgba(10,14,24,.58)),
+    radial-gradient(circle at left center, rgba(79,140,255,.18), transparent 32rem),
+    radial-gradient(circle at right center, rgba(139,92,246,.18), transparent 32rem);
+  backdrop-filter:blur(16px);
+  box-shadow:var(--shadow);
+}
+
+.hero-tag{
+  color:#83adff;
+  text-transform:uppercase;
+  letter-spacing:.26em;
+  font-size:.9rem;
+  font-weight:900;
+  margin-bottom:1.3rem;
+}
+
+.hero h1{
+  max-width:1450px;
+  margin:0 auto 1.9rem;
+  font-size:clamp(3.15rem,4.9vw,5.6rem);
+  line-height:1.12;
+  letter-spacing:-.028em;
+}
+
+.hero-rule{
+  width:82px;
+  height:3px;
+  border-radius:999px;
+  margin:0 auto 1.85rem;
+  background:linear-gradient(90deg,var(--cyan),var(--purple));
+}
+
+.hero p{
+  max-width:1050px;
+  margin:0 auto 3rem;
+  color:#e2e8f7;
+  font-size:clamp(1.05rem,1.25vw,1.32rem);
+  line-height:1.75;
+  font-weight:600;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:1rem;
+}
+
+/* SECTIONS */
+
+section{padding:96px 0;}
+
+.section-title{
+  text-align:center;
+  max-width:850px;
+  margin:0 auto 3.2rem;
+}
+
+.section-kicker{
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:.24em;
+  font-size:.8rem;
+  font-weight:900;
+  margin-bottom:.75rem;
+}
+
+.section-title h2{
+  font-size:clamp(2.25rem,4vw,3.5rem);
+  line-height:1.05;
+  letter-spacing:-.035em;
+  margin-bottom:.8rem;
+}
+
+.section-title p{
+  color:var(--muted);
+  font-size:1.08rem;
+}
+
+.about,
+.process,
+.platforms,
+.why{
+  background:var(--bg2);
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  align-items:stretch;
+}
+
+.about-text,
+.card,
+.featured-audio{
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025)),
+    var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:0 18px 60px rgba(0,0,0,.28);
+}
+
+.about-text{
+  padding:2.5rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.about-text h3{
+  font-size:2rem;
+  line-height:1.1;
+  margin-bottom:1.1rem;
+}
+
+.about-text p{
+  color:var(--muted);
+  margin-bottom:1rem;
+  font-size:1.04rem;
+}
+
+.about-image{
+  min-height:420px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:0 18px 60px rgba(0,0,0,.32);
+}
+
+.about-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.45rem;
+}
+
+.card{
+  padding:2rem;
+}
+
+.card h3{
+  font-size:1.35rem;
+  margin-bottom:.75rem;
+}
+
+.card p{
+  color:var(--muted);
+}
+
+.card ul{
+  list-style:none;
+  margin-top:1.2rem;
+}
+
+.card li{
+  color:var(--soft);
+  margin-bottom:.65rem;
+  padding-left:1.35rem;
+  position:relative;
+}
+
+.card li::before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  color:var(--accent);
+  font-weight:900;
+}
+
+.card-icon{
+  width:56px;
+  height:56px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:1.35rem;
+  font-size:1.7rem;
+  color:#fff;
+  background:linear-gradient(135deg, rgba(79,140,255,.24), rgba(139,92,246,.24));
+  border:1px solid rgba(255,255,255,.13);
+}
+
+/* FEATURED AUDIO */
+
+.listen{
+  background:
+    radial-gradient(circle at top left, rgba(79,140,255,.14), transparent 35rem),
+    radial-gradient(circle at bottom right, rgba(139,92,246,.15), transparent 35rem),
+    var(--bg);
+}
+
+.featured-audio{
+  max-width:900px;
+  margin:auto;
+  padding:2.5rem;
+  text-align:center;
+}
+
+.featured-audio h3{
+  font-size:2rem;
+  margin-bottom:.5rem;
+}
+
+.featured-audio p{
+  color:var(--muted);
+  margin-bottom:1.5rem;
+}
+
+.audio-meta{
+  color:var(--soft);
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:.8rem;
+  margin-bottom:1rem;
+}
+
+audio{
+  width:100%;
+  margin-top:1rem;
+}
+
+/* PLATFORMS */
+
+.platform-card{
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.platform-card.featured::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(circle at top, rgba(79,140,255,.20), transparent 45%),
+    radial-gradient(circle at bottom, rgba(139,92,246,.20), transparent 45%);
+  pointer-events:none;
+}
+
+.platform-card > *{
+  position:relative;
+  z-index:1;
+}
+
+.platform-logo{
+  width:min(260px,82%);
+  max-height:120px;
+  object-fit:contain;
+  display:block;
+  margin:1.5rem auto;
+}
+
+.platform-placeholder{
+  min-height:120px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px dashed rgba(255,255,255,.24);
+  border-radius:18px;
+  color:#d8e0ef;
+  margin:1.5rem auto;
+  padding:1rem;
+  background:rgba(255,255,255,.035);
+}
+
+.platform-note{
+  max-width:850px;
+  margin:2.25rem auto 0;
+  text-align:center;
+  color:#d8e0ef;
+  font-size:1.04rem;
+}
+
+/* GALLERY */
+
+.gallery{
+  background:
+    radial-gradient(circle at top left, rgba(79,140,255,.14), transparent 35rem),
+    radial-gradient(circle at bottom right, rgba(139,92,246,.15), transparent 35rem),
+    var(--bg);
+}
+
+.studio-gallery{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.45rem;
+}
+
+.studio-gallery img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+  box-shadow:0 18px 60px rgba(0,0,0,.28);
+}
+
+
+.music-catalog{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.45rem;
+}
+
+.track-card{
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025)),
+    var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:0 18px 60px rgba(0,0,0,.28);
+  padding:1.6rem;
+}
+
+.track-card.featured-track{
+  grid-column:1 / -1;
+  padding:2.2rem;
+  background:
+    radial-gradient(circle at top left, rgba(79,140,255,.18), transparent 34rem),
+    radial-gradient(circle at bottom right, rgba(139,92,246,.18), transparent 34rem),
+    linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.025)),
+    var(--card);
+}
+
+.track-top{
+  display:flex;
+  gap:1.1rem;
+  align-items:center;
+  margin-bottom:1rem;
+}
+
+.track-art{
+  width:74px;
+  height:74px;
+  border-radius:20px;
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+  color:#fff;
+  background:
+    radial-gradient(circle at top left, rgba(38,217,255,.42), transparent 55%),
+    linear-gradient(135deg,var(--accent),var(--accent2));
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 14px 34px rgba(79,140,255,.18);
+}
+
+.track-info{
+  flex:1;
+  min-width:0;
+}
+
+.track-info h3{
+  font-size:1.28rem;
+  line-height:1.2;
+  margin-bottom:.25rem;
+}
+
+.track-info p{
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+.track-card audio{
+  width:100%;
+  display:block;
+  min-height:54px;
+  margin-top:.9rem;
+}
+
+.track-link{
+  display:inline-flex;
+  margin-top:.9rem;
+  color:#dce7ff;
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.track-link:hover{
+  color:var(--accent);
+}
+
+@media(max-width:900px){
+  .music-catalog{
+    grid-template-columns:1fr;
+  }
+
+  .track-card.featured-track{
+    grid-column:auto;
+  }
+}
+
+
+/* CONTACT */
+
+.contact{
+  text-align:center;
+  background:
+    linear-gradient(rgba(0,0,0,.80),rgba(0,0,0,.84)),
+    url("media/481BDA2B-1490-49D7-B328-A87E01A8D4A2.webp") center/cover no-repeat;
+}
+
+.contact h2{
+  font-size:clamp(2.3rem,4vw,3.6rem);
+  line-height:1.05;
+  letter-spacing:-.035em;
+  margin-bottom:1rem;
+}
+
+.contact p{
+  max-width:760px;
+  margin:0 auto 2rem;
+  color:#d8e0ef;
+  font-size:1.1rem;
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.80);
+  backdrop-filter:blur(8px);
+  z-index:3000;
+  align-items:center;
+  justify-content:center;
+  padding:1rem;
+}
+
+.modal.show{display:flex;}
+
+.modal-content{
+  width:min(720px,95%);
+  max-height:90vh;
+  overflow-y:auto;
+  background:linear-gradient(145deg,#121a2a,#0e1421);
+  border:1px solid var(--border2);
+  border-radius:28px;
+  padding:2.2rem;
+  position:relative;
+  box-shadow:0 30px 90px rgba(0,0,0,.62);
+}
+
+.modal-content h2{
+  margin-bottom:.5rem;
+  font-size:2rem;
+}
+
+.modal-content p{
+  color:var(--muted);
+  margin-bottom:1.5rem;
+}
+
+.modal-close{
+  position:absolute;
+  top:1rem;
+  right:1rem;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:rgba(255,255,255,.07);
+  color:white;
+  border:1px solid var(--border);
+  font-size:1.65rem;
+  cursor:pointer;
+}
+
+#contactForm{
+  display:grid;
+  gap:1rem;
+}
+
+#contactForm label{
+  font-size:.95rem;
+  color:#d8e0ef;
+  font-weight:700;
+}
+
+#contactForm input,
+#contactForm select,
+#contactForm textarea{
+  width:100%;
+  margin-top:.35rem;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:#070a10;
+  color:white;
+  font-size:1rem;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+#formStatus{
+  margin-top:.5rem;
+  color:#d8e0ef;
+  font-weight:700;
+}
+
+footer{
+  padding:2.2rem;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+  background:#05080e;
+}
+
+/* ===== CHATBOT ===== */
+.mh-chat-launcher{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.18);
+  background:#101725;
+  box-shadow:0 18px 45px rgba(0,0,0,.42);
+  cursor:pointer;
+  z-index:2500;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  overflow:hidden;
+}
+
+.mh-chat-launcher img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+.mh-chat-widget{
+  position:fixed;
+  right:22px;
+  bottom:108px;
+  width:410px;
+  max-width:calc(100vw - 32px);
+  height:640px;
+  max-height:calc(100vh - 136px);
+  background:#0f1522;
+  border:1px solid var(--border2);
+  border-radius:24px;
+  box-shadow:0 24px 80px rgba(0,0,0,.60);
+  overflow:hidden;
+  z-index:2499;
+  display:none;
+  flex-direction:column;
+}
+
+.mh-chat-widget.open{
+  display:flex;
+}
+
+.mh-chat-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  background:linear-gradient(135deg,#121826,#1c2740);
+  border-bottom:1px solid var(--border);
+}
+
+.mh-chat-header-logo{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  border:1px solid var(--border);
+  padding:0;
+  overflow:hidden;
+  flex:0 0 auto;
+}
+
+.mh-chat-header-logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.mh-chat-header-text{
+  flex:1;
+  min-width:0;
+}
+
+.mh-chat-header-text h2{
+  font-size:1rem;
+  line-height:1.2;
+}
+
+.mh-chat-header-text p{
+  color:var(--muted);
+  font-size:.78rem;
+  margin-top:2px;
+}
+
+.mh-chat-close{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.08);
+  color:white;
+  cursor:pointer;
+  font-size:1.2rem;
+}
+
+.mh-chat-body{
+  flex:1;
+  overflow-y:auto;
+  padding:16px;
+  background:
+    radial-gradient(circle at top left, rgba(79,140,255,.10), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(139,92,246,.10), transparent 35%),
+    #0b0f16;
+}
+
+.mh-message-row{
+  display:flex;
+  margin-bottom:12px;
+}
+
+.mh-message-row.bot{ justify-content:flex-start; }
+.mh-message-row.user{ justify-content:flex-end; }
+
+.mh-message-group{
+  max-width:86%;
+}
+
+.mh-bubble{
+  padding:12px 14px;
+  border-radius:18px;
+  font-size:.92rem;
+  line-height:1.45;
+  white-space:pre-wrap;
+}
+
+.mh-message-row.bot .mh-bubble{
+  background:#171f2e;
+  color:#eef3ff;
+  border:1px solid var(--border);
+  border-bottom-left-radius:6px;
+}
+
+.mh-message-row.user .mh-bubble{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;
+  border-bottom-right-radius:6px;
+}
+
+.mh-chat-action-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:8px;
+}
+
+.mh-chat-action{
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.08);
+  color:white;
+  padding:8px 11px;
+  border-radius:999px;
+  font-size:.78rem;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.mh-chat-action:hover{
+  background:rgba(255,255,255,.14);
+}
+
+.mh-quick-replies{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:12px 14px;
+  border-top:1px solid var(--border);
+  background:#101725;
+}
+
+.mh-quick-btn{
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.06);
+  color:#d8e0ef;
+  padding:8px 10px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:.78rem;
+}
+
+.mh-quick-btn:hover{
+  color:white;
+  background:rgba(255,255,255,.12);
+}
+
+.mh-chat-reply-email{
+  padding:12px 14px 0;
+  background:#0f1522;
+  border-top:1px solid var(--border);
+}
+
+.mh-chat-reply-email label{
+  display:block;
+  color:#a9b4c8;
+  font-size:.74rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+
+.mh-chat-reply-email input{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#0b0f16;
+  color:white;
+  padding:11px 14px;
+  font-size:.9rem;
+}
+
+.mh-chat-reply-email input::placeholder{
+  color:#748094;
+}
+
+.mh-chat-composer{
+  display:flex;
+  gap:9px;
+  padding:12px;
+  background:#0f1522;
+  border-top:1px solid var(--border);
+}
+
+.mh-chat-composer input{
+  flex:1;
+  min-width:0;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#0b0f16;
+  color:white;
+  padding:12px 14px;
+  font-size:.92rem;
+}
+
+.mh-chat-composer button{
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;
+  font-weight:bold;
+  padding:0 16px;
+  cursor:pointer;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+  .nav-wrap{
+    min-height:78px;
+    position:relative;
+  }
+
+  .mobile-menu-btn{
+    display:inline-flex;
+    flex-shrink:0;
+  }
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    width:100%;
+    padding:1rem;
+    margin-top:0;
+    flex-direction:column;
+    align-items:stretch;
+    gap:.35rem;
+    background:rgba(5,8,14,.98);
+    border:1px solid var(--border);
+    border-top:none;
+    border-radius:0 0 22px 22px;
+    box-shadow:0 22px 60px rgba(0,0,0,.45);
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+
+  .nav-links a{
+    display:block;
+    padding:1rem;
+    text-align:center;
+    border-radius:14px;
+    background:rgba(255,255,255,.04);
+  }
+
+  .logo img{
+    width:50px;
+    height:50px;
+  }
+
+  .logo-main{
+    font-size:.95rem;
+    letter-spacing:.12em;
+  }
+
+  .logo-sub{
+    font-size:.64rem;
+  }
+
+  .hero{
+    padding:110px 0 56px;
+  }
+
+  .hero-content{
+    padding:2.25rem 1.3rem;
+    border-radius:24px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.25rem,10vw,3.5rem);
+  }
+
+  .about-grid,
+  .grid-3{
+    grid-template-columns:1fr;
+  }
+
+  .studio-gallery{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .about-image{
+    min-height:300px;
+  }
+
+  section{
+    padding:72px 0;
+  }
+}
+
+@media(max-width:600px){
+  .hero-actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .studio-gallery{
+    grid-template-columns:1fr;
+  }
+
+  .studio-gallery img{
+    height:260px;
+  }
+}
+
+
+@media(max-width:600px){
+  .mh-chat-launcher{
+    right:14px;
+    bottom:14px;
+    width:64px;
+    height:64px;
+  }
+
+  .mh-chat-widget{
+    right:12px;
+    left:12px;
+    bottom:88px;
+    width:auto;
+    height:70vh;
+    max-width:none;
+  }
+}
+
+
+/* TrackLab widescreen preview — original content and scripts preserved */
+:root{--bg:#07090d;--bg2:#0d141b;--card:#10151c;--accent:#83c9ee;--accent2:#9d80cc;--radius:0}
+body{background:#07090d}.container{width:min(1440px,88%)}
+.site-nav{background:rgba(5,8,12,.94)}.logo img{border-radius:3px}
+.btn{border-radius:2px;box-shadow:none;background:#88c9ec;color:#07121b}.btn-outline{background:transparent;color:white;border-color:#b4c3d0}
+.hero{min-height:85vh;text-align:left;justify-content:flex-start;padding:150px 6vw 100px}
+.hero::before{background:linear-gradient(90deg,rgba(2,5,9,.92),rgba(3,7,12,.65) 55%,rgba(3,7,12,.1))}
+.hero-content{width:min(100%,900px);padding:0;border:0;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;margin:0}
+.hero h1{font-size:clamp(3.6rem,7.4vw,7.8rem);line-height:1.02;letter-spacing:-.055em;margin:0 0 1.6rem}
+.hero-tag{color:#a9d9f2}.hero-rule{margin:0 0 1.5rem;border-radius:0}
+.hero p{max-width:700px;margin:0 0 2rem;font-weight:400;line-height:1.65}.hero-actions{justify-content:flex-start}
+section{padding:100px 0}.section-title{text-align:left;max-width:1050px;margin:0 0 3rem}
+.section-title h2{font-size:clamp(2.5rem,4.5vw,4.5rem)}
+.about{padding:0;background:#0e141b}.about-grid{width:100%;grid-template-columns:1fr 1fr;gap:0}
+.about-text{padding:clamp(3rem,7vw,8rem);background:transparent;border:0;border-radius:0;box-shadow:none}
+.about-text h3{font-size:clamp(2.4rem,4vw,4.5rem)}
+.about-image{min-height:570px;border:0;border-radius:0;box-shadow:none}.about-image img{height:100%;object-fit:cover}
+#music,.process{background:#080d13}.platforms,.gallery{background:#111923}
+.grid-3{gap:0;border-top:1px solid var(--border)}
+.card{background:transparent;border:0;border-right:1px solid var(--border);border-bottom:1px solid var(--border);border-radius:0;box-shadow:none;padding:2.4rem}
+.card:last-child{border-right:0}.card-icon{border-radius:0;background:none;border:0;box-shadow:none;justify-content:flex-start}
+.platform-card.featured::before{display:none}.platform-placeholder{border-radius:0}
+.studio-gallery{grid-template-columns:repeat(2,1fr);gap:12px}
+.studio-gallery img{height:clamp(260px,30vw,490px);border-radius:0;border:0;box-shadow:none}
+.contact{padding:145px 0;text-align:left}.contact p{margin:0 0 2rem}.contact h2{font-size:clamp(3rem,5vw,5.7rem)}
+.track-card,.featured-audio{border-radius:0;box-shadow:none}
+.preview-notice{position:relative;z-index:2;background:#b5d8eb;color:#0b1720;padding:10px 6vw;text-align:center;font-size:13px;font-weight:700}
+@media(max-width:900px){.hero{min-height:75vh;padding:140px 6vw 80px}.hero h1{font-size:clamp(3rem,10vw,5rem)}.about-grid{grid-template-columns:1fr}.about-text{padding:3rem 6vw}.about-image{min-height:380px}.grid-3{grid-template-columns:1fr}.card{border-right:0}.studio-gallery img{height:240px}}
+@media(max-width:560px){.studio-gallery{grid-template-columns:1fr}.studio-gallery img{height:280px}.contact{padding:95px 0}}
+</style>
+
+<!-- Ahrefs Web Analytics -->
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="7lQNEk2zG8w9MwqrpuapZA" async></script>
+</head>
+<body>
+<nav class="site-nav">
+<div class="container nav-wrap">
+<a aria-label="Track Lab Home" class="logo" href="#">
+<img alt="TrackLab logo" src="media/560cdf96-bc07-4e80-9301-790284ecf187.webp"/>
+<span class="logo-text">
+<span class="logo-main">TrackLab</span>
+<span class="logo-sub">Where Stories Find Their Sound</span>
+</span>
+</a>
+<button aria-expanded="false" aria-label="Open menu" class="mobile-menu-btn" onclick="toggleMobileMenu()" type="button">☰</button>
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#music">Music</a>
+<a href="#catalog">Catalog</a>
+<a href="#about">About</a>
+<a href="#studio">Studio</a>
+<a href="#" onclick="openContactForm(); return false;">Contact</a>
+</div>
+</div>
+</nav>
+<div class="preview-notice">WIDESCREEN DESIGN PREVIEW — LIVE HOMEPAGE UNCHANGED</div><header class="hero">
+<div class="hero-content">
+<div class="hero-tag">Original Instrumental Music • Cinematic Soundscapes • Production Cues</div>
+<h1>Where Stories Find Their Sound.</h1>
+<div class="hero-rule"></div>
+<p>
+      TrackLab is the creative studio of composer Michael Hall, producing original instrumental music,
+      cinematic soundscapes, and production cues for film, television, documentaries, podcasts,
+      advertising, retail environments, and visual media.
+    </p>
+<div class="hero-actions">
+<a class="btn btn-outline" href="#catalog">Catalog Direction</a>
+</div>
+</div>
+</header>
+<main>
+<section class="about" id="about">
+<div class="container about-grid">
+<div class="about-text">
+<div class="section-kicker">About</div>
+<h3>Music written to serve the story.</h3>
+<p>
+        TrackLab is the creative home of composer Michael Hall, built around original instrumental music
+        for visual storytelling.
+      </p>
+<p>
+        From intimate piano pieces and ambient textures to uplifting cinematic cues and emotional underscore,
+        every composition is crafted to support mood, movement, and meaning.
+      </p>
+<p>
+        Because sometimes the most powerful voice in a story is not dialogue. It is the music.
+      </p>
+</div>
+<div class="about-image">
+<img alt="TrackLab creative studio" src="media/560cdf96-bc07-4e80-9301-790284ecf187.webp"/>
+</div>
+</div>
+</section>
+<section id="music">
+<div class="container">
+<div class="section-title">
+<div class="section-kicker">Music</div>
+<h2>Original Music for Visual Media</h2>
+<p>Cinematic instrumentals, emotional underscore, ambient soundscapes, and production cues created for story-driven projects.</p>
+</div>
+<div class="grid-3">
+<div class="card">
+<div class="card-icon">🎹</div>
+<h3>Cinematic Piano</h3>
+<p>Reflective piano-led cues designed for emotion, warmth, memory, hope, and intimate storytelling.</p>
+<ul>
+<li>Reflective themes</li>
+<li>Emotional melodies</li>
+<li>Documentary moments</li>
+<li>Peaceful underscore</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-icon">🎬</div>
+<h3>Production Cues</h3>
+<p>Broadcast-minded instrumental cues developed for TAXI opportunities, publisher review, and future music library consideration.</p>
+<ul>
+<li>Film and television cues</li>
+<li>Commercial underscore</li>
+<li>Podcast and video music</li>
+<li>Retail-friendly instrumentals</li>
+</ul>
+</div>
+<div class="card">
+<div class="card-icon">◎</div>
+<h3>Ambient Soundscapes</h3>
+<p>Atmospheric textures and cinematic beds that help shape tone without overpowering the story.</p>
+<ul>
+<li>Warm textures</li>
+<li>Minimal accompaniment</li>
+<li>Emotional atmosphere</li>
+<li>Visual storytelling support</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="platforms" id="catalog">
+<div class="container">
+<div class="section-title">
+<div class="section-kicker">Catalog</div>
+<h2>Built for Publisher Review</h2>
+<p>TrackLab is focused on creating a growing instrumental catalog for TAXI submissions, music library consideration, and future publishing opportunities.</p>
+</div>
+<div class="grid-3">
+<div class="card platform-card featured">
+<h3>TAXI-Focused Catalog</h3>
+<div class="platform-placeholder">TAXI • Publisher Review • Production Cues</div>
+<p>Tracks are being developed with current TAXI opportunities, publisher briefs, and instrumental production music needs in mind.</p>
+</div>
+<div class="card platform-card">
+<h3>Composer Showcase</h3>
+<div class="platform-placeholder">Mood • Story • Atmosphere</div>
+<p>The music on this site is presented as a creative showcase, not as a direct catalog offer or outside contract.</p>
+</div>
+<div class="card platform-card">
+<h3>Future Publisher Links</h3>
+<div class="platform-placeholder">Profile Links Coming Later</div>
+<p>As tracks are added to TAXI or signed with publishers, this section can point visitors to the appropriate profile or approved catalog page.</p>
+</div>
+</div>
+<p class="platform-note">
+      TrackLab.studio is designed to introduce the sound, style, and direction of the catalog while keeping music clear for exclusive publisher opportunities.
+    </p>
+</div>
+</section>
+<section class="process" id="process">
+<div class="container">
+<div class="section-title">
+<div class="section-kicker">Process</div>
+<h2>Every Composition Begins with a Story</h2>
+<p>Whether developing a new cue or preparing music for publisher review, the process begins with emotion, purpose, and the story being told.</p>
+</div>
+<div class="grid-3">
+<div class="card">
+<div class="card-icon">1</div>
+<h3>Discover the Story</h3>
+<p>We identify the mood, purpose, audience, pacing, references, and emotional direction behind the project.</p>
+</div>
+<div class="card">
+<div class="card-icon">2</div>
+<h3>Compose the Emotion</h3>
+<p>The cue is shaped through melody, harmony, rhythm, texture, and atmosphere so it supports the visual moment.</p>
+</div>
+<div class="card">
+<div class="card-icon">3</div>
+<h3>Deliver the Sound</h3>
+<p>Final music is prepared for the intended use, whether for TAXI submission, publisher review, media production, or custom delivery.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="gallery" id="studio">
+<div class="container">
+<div class="section-title">
+<div class="section-kicker">Studio</div>
+<h2>Inside TrackLab</h2>
+<p>A focused production environment for creating cinematic instrumentals, emotional soundscapes, and publisher-ready music. The technology exists to serve the story.</p>
+</div>
+<div class="studio-gallery">
+<img alt="Creative production workstation" src="media/58AB4FF2-8F54-41CA-AF99-316594C12DE0.webp"/>
+<img alt="Music production workspace" src="media/800B6A24-65DC-4EC9-8B54-37E121A6A3CD.webp"/>
+<img alt="TrackLab studio" src="media/5041B005-33E2-4AC0-8729-725DB26CA426.webp"/>
+<img alt="TrackLab studio" src="media/ABDABCE2-2403-465C-A6AE-552888983B03.webp"/>
+</div>
+</div>
+</section>
+<section class="contact" id="contact">
+<div class="container">
+<div class="section-kicker">Contact</div>
+<h2>Let’s tell your story through music.</h2>
+<p>
+      Whether you are looking for original instrumental music, publisher opportunities, or a custom cue for a visual project, I would love to hear about it.
+    </p>
+<a class="btn" href="#" onclick="openContactForm(); return false;">
+      Start a Conversation
+    </a>
+</div>
+</section>
+</main>
+<footer>
+  © 2026 TrackLab.studio • Where Stories Find Their Sound
+</footer>
+<button aria-label="TrackLab Assistant" class="mh-chat-launcher" id="mhChatLauncher">
+<img alt="TrackLab Assistant" src="media/chat-icon.webp?v=3"/>
+</button>
+<div aria-label="TrackLab Assistant" class="mh-chat-widget" id="mhChatWidget">
+<div class="mh-chat-header">
+<div class="mh-chat-header-logo">
+<img alt="TrackLab Assistant" src="media/chat-icon.webp?v=3"/>
+</div>
+<div class="mh-chat-header-text">
+<h2>TrackLab Assistant</h2>
+<p>Ask about instrumental cues, catalog direction, composer style, or starting a conversation.</p>
+</div>
+<button aria-label="Close chat" class="mh-chat-close" id="mhChatClose">×</button>
+</div>
+<div class="mh-chat-body" id="mhChatBody"></div>
+<div class="mh-quick-replies">
+<button class="mh-quick-btn" data-question="What does TrackLab do?">What do you do?</button>
+<button class="mh-quick-btn" data-question="What is the catalog direction?">Catalog</button>
+<button class="mh-quick-btn" data-question="What styles do you compose?">Musical style</button>
+<button class="mh-quick-btn" data-question="Do you write custom music?">Custom composition</button>
+<button class="mh-quick-btn" data-question="How do I start a project?">Start a project</button>
+</div>
+<div class="mh-chat-reply-email">
+<label for="mhChatEmail">Email for personal reply</label>
+<input autocomplete="email" id="mhChatEmail" placeholder="Enter email, then tap Send" type="email"/>
+</div>
+<div class="mh-chat-composer">
+<input autocomplete="off" id="mhChatInput" placeholder="Ask me about instrumental cues, catalog direction, composer style, or contacting TrackLab." type="text"/>
+<button id="mhChatSend" type="button">Send</button>
+</div>
+</div>
+<div class="modal" id="contactModal">
+<div class="modal-content">
+<button class="modal-close" onclick="closeContactForm()">×</button>
+<h2>TrackLab Conversation Request</h2>
+<p>
+      Share the basics. I’ll follow up by email to discuss TrackLab, catalog direction, sound, story, and creative direction.
+    </p>
+<form id="contactForm">
+<label>
+        Your Name
+        <input name="name" placeholder="Your Name" required="" type="text"/>
+</label>
+<label>
+        Your Email
+        <input name="email" placeholder="Your Email" required="" type="email"/>
+</label>
+<label>
+        What kind of project is this?
+        <select name="projectType" required="">
+<option value="">Choose one</option>
+<option value="TAXI / Catalog Question">TAXI / Catalog Question</option>
+<option value="Custom Composition">Custom Composition</option>
+<option value="Film / Media Music">Film / Media Music</option>
+<option value="Podcast / YouTube Music">Podcast / YouTube Music</option>
+<option value="Retail / Background Music">Retail / Background Music</option>
+<option value="Music Library / Publisher Inquiry">Music Library / Publisher Inquiry</option>
+<option value="Other">Other</option>
+</select>
+</label>
+<label>
+        Where are you in the process?
+        <select name="projectStage" required="">
+<option value="">Choose one</option>
+<option value="I have a question about the catalog">I have a question about the catalog</option>
+<option value="I need custom music for a scene">I need custom music for a scene</option>
+<option value="I need music for a podcast or video">I need music for a podcast or video</option>
+<option value="I need background music for a public space">I need background music for a public space</option>
+<option value="I am a library or publisher looking for catalog music">I am a library or publisher looking for catalog music</option>
+<option value="I am exploring options">I am exploring options</option>
+<option value="Other">Other</option>
+</select>
+</label>
+<label>
+        Sound or style direction
+        <textarea name="soundDirection" placeholder="Describe the mood, style, scene, references, or emotional direction you need." required="" rows="4"></textarea>
+</label>
+<label>
+        Project details
+        <textarea name="message" placeholder="Tell me anything else helpful: project title, TAXI listing, publisher direction, deadline, catalog question, or custom composition details." required="" rows="5"></textarea>
+</label>
+<label>
+        Timeline
+        <select name="timeline">
+<option value="">Project Timeline</option>
+<option value="ASAP">ASAP</option>
+<option value="Within 1 Week">Within 1 Week</option>
+<option value="Within 2 Weeks">Within 2 Weeks</option>
+<option value="This Month">This Month</option>
+<option value="Flexible">Flexible</option>
+</select>
+</label>
+<button class="btn" type="submit">Send Request</button>
+<p id="formStatus"></p>
+</form>
+</div>
+</div>
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxF6MMH3_t53SuX8man44Nzly8JCgbPS5TM4hFRD04dwOBS4hh5cMR-A94Hk82bVyCk8g/exec";
+
+const mhChatLauncher = document.getElementById("mhChatLauncher");
+const mhChatWidget = document.getElementById("mhChatWidget");
+const mhChatClose = document.getElementById("mhChatClose");
+const mhChatBody = document.getElementById("mhChatBody");
+const mhChatInput = document.getElementById("mhChatInput");
+const mhChatEmail = document.getElementById("mhChatEmail");
+const mhChatSend = document.getElementById("mhChatSend");
+const mhQuickButtons = document.querySelectorAll(".mh-quick-btn");
+let mhPendingQuestion = "";
+
+const mhChatAnswers = [
+  {
+    keywords:["what do you do","what does tracklab do","tell me about tracklab","about tracklab","who are you","what is tracklab","tracklab","composer","composition","catalog direction","where stories find their sound"],
+    text:"TrackLab is the creative studio of composer Michael Hall, creating original instrumental music, cinematic soundscapes, and production cues for film, television, documentaries, podcasts, advertising, retail environments, and visual media."
+  },
+  {
+    keywords:["catalog","taxi","publisher","music library","placements","available","submission","profile"],
+    text:"TrackLab is currently focused on building a composer showcase and instrumental catalog for TAXI submissions, publisher review, and future music library opportunities. The website does not offer direct catalog; future profile links can be added as the catalog develops.",
+    action:"project"
+  },
+  {
+    keywords:["custom","custom composition","commission","score","project","projects","scene","film score","brief","hire","start","begin"],
+    text:"Custom composition begins with a conversation about the story, mood, pacing, references, and emotional direction of the project. From there, original music can be shaped around the scene, campaign, or production brief.",
+    action:"project"
+  },
+  {
+    keywords:["styles","style","compose","cinematic","piano","ambient","soundscapes","instrumental","orchestral","reflective","hopeful","emotional"],
+    text:"TrackLab focuses on cinematic piano, emotional underscore, ambient soundscapes, hopeful instrumental cues, reflective themes, and production music designed to support visual storytelling."
+  },
+  {
+    keywords:["anthem at first light","paper lantern room","echoes of the unsaid","shifting echoes","marble fingers","featured cue"],
+    text:"Those featured cues represent the current TrackLab direction: cinematic instrumentals, reflective themes, atmosphere, and story-focused production music."
+  },
+  {
+    keywords:["creative process","process","workflow","approach","production approach","sound","references","emotion","story"],
+    text:`Every composition begins with story. The process starts by identifying mood, purpose, audience, pacing, and emotional direction. Then the music is shaped through melody, harmony, rhythm, texture, and atmosphere so it supports the visual moment.`,
+    action:"project"
+  },
+  {
+    keywords:["timeline","asap","week","month","how long","deadline"],
+    text:"Project timelines vary by scope. The request form includes timeline options so the conversation can begin with realistic expectations.",
+    action:"project"
+  },
+  {
+    keywords:["contact","email","message","reach","talk","form","inquiry"],
+    text:"The best way to begin is to submit a TrackLab conversation request. Share the basics, and TrackLab will follow up by email about the catalog, sound, story, and next step.",
+    action:"project"
+  }
+];
+
+function mhAddChatMessage(content, sender = "bot", action = null){
+  const row = document.createElement("div");
+  row.className = `mh-message-row ${sender}`;
+
+  const group = document.createElement("div");
+  group.className = "mh-message-group";
+
+  const bubble = document.createElement("div");
+  bubble.className = "mh-bubble";
+  bubble.textContent = content;
+
+  group.appendChild(bubble);
+
+  if(action === "project"){
+    const actions = document.createElement("div");
+    actions.className = "mh-chat-action-row";
+
+    const button = document.createElement("button");
+    button.className = "mh-chat-action";
+    button.type = "button";
+    button.textContent = "Open Project Conversation Form";
+    button.addEventListener("click", openContactForm);
+
+    actions.appendChild(button);
+    group.appendChild(actions);
+  }
+
+  if(action === "email"){
+    const actions = document.createElement("div");
+    actions.className = "mh-chat-action-row";
+
+    const button = document.createElement("button");
+    button.className = "mh-chat-action";
+    button.type = "button";
+    button.textContent = "Send Question With Email";
+    button.addEventListener("click", mhSubmitPendingQuestion);
+
+    actions.appendChild(button);
+    group.appendChild(actions);
+  }
+
+  row.appendChild(group);
+  mhChatBody.appendChild(row);
+  mhChatBody.scrollTop = mhChatBody.scrollHeight;
+}
+
+function mhNormalize(text){
+  return text.toLowerCase().trim();
+}
+
+function mhIsValidEmail(email){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function mhGetReplyEmail(){
+  const email = mhChatEmail ? mhChatEmail.value.trim() : "";
+  return mhIsValidEmail(email) ? email : "";
+}
+
+function mhFindAnswer(question){
+  const clean = mhNormalize(question);
+  let bestMatch = null;
+  let bestScore = 0;
+
+  for(const item of mhChatAnswers){
+    for(const keyword of item.keywords){
+      const cleanKeyword = mhNormalize(keyword);
+
+      if(!cleanKeyword) continue;
+
+      if(clean === cleanKeyword){
+        const score = cleanKeyword.length + 1000;
+        if(score > bestScore){
+          bestScore = score;
+          bestMatch = item;
+        }
+      }else if(clean.includes(cleanKeyword)){
+        const score = cleanKeyword.length;
+        if(score > bestScore){
+          bestScore = score;
+          bestMatch = item;
+        }
+      }
+    }
+  }
+
+  return bestMatch;
+}
+
+async function mhSendUnansweredQuestion(question, replyEmail){
+  try{
+    await fetch(SCRIPT_URL, {
+      method:"POST",
+      mode:"no-cors",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        name:"Website Chat Visitor",
+        email: replyEmail,
+        projectType:"Website Chat Question",
+        projectStage:"Question asked in chat",
+        soundDirection:"Not provided",
+        message:question,
+        timeline:"Not provided",
+        source:"TrackLab Website Chat - Reply Email Provided"
+      })
+    });
+  }catch(error){
+    console.warn("MH chat fallback could not be sent", error);
+  }
+}
+
+function mhSubmitPendingQuestion(){
+  const replyEmail = mhGetReplyEmail();
+
+  if(!mhPendingQuestion){
+    mhAddChatMessage("There is no pending question to send. Type your question and I’ll help from there.", "bot");
+    return;
+  }
+
+  if(!replyEmail){
+    mhAddChatMessage("Please enter a valid email address in the Email for personal reply field, then tap Send.", "bot");
+    mhChatEmail.focus();
+    return;
+  }
+
+  mhSendUnansweredQuestion(mhPendingQuestion, replyEmail);
+  mhAddChatMessage("Thank you. Your question has been sent for review. A personal reply can be sent to the email address you provided.", "bot");
+
+  mhPendingQuestion = "";
+  mhChatInput.placeholder = "Ask me about instrumental cues, catalog direction, composer style, or contacting TrackLab.";
+  mhChatSend.textContent = "Send";
+}
+
+function mhHandleQuestion(question){
+  if(!question.trim()) return;
+
+  mhAddChatMessage(question, "user");
+
+  const answer = mhFindAnswer(question);
+
+  setTimeout(() => {
+    if(answer){
+      mhAddChatMessage(answer.text, "bot", answer.action || null);
+      return;
+    }
+
+    mhPendingQuestion = question;
+    mhAddChatMessage("I do not want to respond with inaccurate information. This question is outside the information provided on the website. Please enter your email in the reply field below, then tap Send, and I’ll forward your question for a personal reply.", "bot");
+    mhChatEmail.focus();
+    mhChatInput.placeholder = "Enter email above, then tap Send";
+    mhChatSend.textContent = "Send";
+  }, 250);
+}
+
+function mhSendCurrentQuestion(){
+  const typedText = mhChatInput.value.trim();
+  const replyEmail = mhGetReplyEmail();
+
+  if(mhPendingQuestion){
+    if(replyEmail){
+      mhSubmitPendingQuestion();
+      mhChatInput.value = "";
+      return;
+    }
+
+    if(mhIsValidEmail(typedText)){
+      mhChatEmail.value = typedText;
+      mhChatInput.value = "";
+      mhSubmitPendingQuestion();
+      return;
+    }
+
+    mhAddChatMessage("Please enter your email address first so a personal reply can be sent, then tap Send.", "bot");
+    mhChatEmail.focus();
+    return;
+  }
+
+  if(!typedText) return;
+
+  mhHandleQuestion(typedText);
+  mhChatInput.value = "";
+}
+
+if(mhChatLauncher && mhChatWidget){
+  mhChatLauncher.addEventListener("click", function(){
+    mhChatWidget.classList.toggle("open");
+    if(mhChatWidget.classList.contains("open") && mhChatInput){
+      mhChatInput.focus();
+    }
+  });
+}
+
+if(mhChatClose && mhChatWidget){
+  mhChatClose.addEventListener("click", function(){
+    mhChatWidget.classList.remove("open");
+  });
+}
+
+if(mhChatSend){
+  mhChatSend.addEventListener("click", mhSendCurrentQuestion);
+}
+
+if(mhChatInput){
+  mhChatInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){
+      mhSendCurrentQuestion();
+    }
+  });
+}
+
+mhQuickButtons.forEach(button => {
+  button.addEventListener("click", function(){
+    mhHandleQuestion(button.getAttribute("data-question") || button.textContent);
+  });
+});
+
+mhAddChatMessage("Hi, I’m the TrackLab assistant. I can answer questions about instrumental cues, catalog direction, composer style, featured audio, and TrackLab conversation requests. If a question is outside the website information, I’ll ask for an email before sending it for review.", "bot");
+
+
+
+function toggleMobileMenu(){
+  const navLinks = document.querySelector(".nav-links");
+  const menuButton = document.querySelector(".mobile-menu-btn");
+  if(!navLinks || !menuButton) return;
+
+  const isOpen = navLinks.classList.toggle("show");
+  menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  menuButton.innerHTML = isOpen ? "×" : "☰";
+}
+
+function closeMobileMenu(){
+  const navLinks = document.querySelector(".nav-links");
+  const menuButton = document.querySelector(".mobile-menu-btn");
+  if(!navLinks || !menuButton) return;
+
+  navLinks.classList.remove("show");
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.innerHTML = "☰";
+}
+
+document.querySelectorAll(".nav-links a").forEach(function(link){
+  link.addEventListener("click", closeMobileMenu);
+});
+
+function openContactForm(){
+  document.getElementById("contactModal").classList.add("show");
+  document.body.classList.add("modal-open");
+}
+
+function closeContactForm(){
+  document.getElementById("contactModal").classList.remove("show");
+  document.body.classList.remove("modal-open");
+}
+
+document.getElementById("contactModal").addEventListener("click", function(e){
+  if(e.target === this){
+    closeContactForm();
+  }
+});
+
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
+    closeContactForm();
+    closeMobileMenu();
+  }
+});
+
+document.getElementById("contactForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const form = e.target;
+  const status = document.getElementById("formStatus");
+
+  status.textContent = "Sending...";
+
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    projectType: form.projectType.value,
+    projectStage: form.projectStage.value,
+    soundDirection: form.soundDirection.value,
+    message: form.message.value,
+    timeline: form.timeline.value,
+    source:"TrackLab Conversation Form"
+  };
+
+  try{
+    await fetch(SCRIPT_URL, {
+      method:"POST",
+      mode:"no-cors",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(data)
+    });
+
+    status.textContent = "Thank you. Your request has been sent.";
+    form.reset();
+
+    setTimeout(function(){
+      closeContactForm();
+      status.textContent = "";
+    }, 2500);
+
+  }catch(error){
+    status.textContent = "Something went wrong. Please try again.";
+  }
+});
+</script>
+</body>
+</html>
