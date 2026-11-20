@@ -1446,15 +1446,21 @@ html body .site-nav .logo-main,html body .logo-main{text-transform:none!importan
 </style><style>
 /* Preview: square brand mark floats across navigation/hero boundary. */
 html body .site-nav{overflow:visible!important}
-html body .site-nav .nav-wrap{position:relative!important;padding-left:155px!important;min-height:86px!important}
+html body .site-nav .nav-wrap{position:relative!important;padding-left:0!important;padding-right:0!important;min-height:86px!important;justify-content:flex-end!important;box-sizing:border-box!important}
 html body .site-nav a.logo{position:absolute!important;left:0!important;top:12px!important;z-index:5!important;display:block!important;width:128px!important;height:128px!important;filter:drop-shadow(0 10px 18px rgba(0,0,0,.5))}
 html body .site-nav a.logo img{display:block!important;width:128px!important;height:128px!important;max-width:none!important;object-fit:cover!important;border-radius:14px!important}
 html body .site-nav .logo-text{display:none!important}
 @media(max-width:700px){
- html body .site-nav .nav-wrap{padding-left:120px!important;min-height:86px!important}
+ html body .site-nav .nav-wrap{padding-left:0!important;padding-right:0!important;min-height:86px!important;justify-content:flex-end!important}
  html body .site-nav a.logo{top:12px!important;width:104px!important;height:104px!important}
  html body .site-nav a.logo img{width:104px!important;height:104px!important;border-radius:12px!important}
 }
+</style><style>
+/* Keep navigation inside its container while the brand floats independently. */
+html body .site-nav .nav-wrap{width:min(1320px,92%)!important;max-width:92vw!important;margin-inline:auto!important;box-sizing:border-box!important}
+html body .site-nav .nav-links{margin-left:auto!important;min-width:0!important}
+html body .site-nav .mobile-menu-btn{margin-left:auto!important;flex-shrink:0!important}
+html body .site-nav a.logo{left:0!important;right:auto!important}
 </style></head>
 <body><nav class="site-nav"><div class="container nav-wrap"><a class="logo" aria-label="TrackLab Studio Home" href="preview.html"><img alt="TrackLab Studio" src="media/tracklab-logo.webp"/></a><button aria-expanded="false" aria-label="Open menu" class="mobile-menu-btn" onclick="toggleMobileMenu()" type="button">☰</button><div class="nav-links"><a href="preview.html">Home</a><a href="preview-about.html">About</a><a href="preview-music.html">Music</a><a href="preview-studio.html">Studio</a><a href="preview-contact.html">Contact</a></div></div></nav><div class="preview-notice">MULTI-PAGE PORTFOLIO PREVIEW — LIVE HOMEPAGE UNCHANGED</div><main><header class="hero" id="home"><div class="hero-inner"><div class="hero-portrait"><img src="media/MH-image.webp" alt="Michael Hall" /></div><div class="hero-content">
 <div class="hero-tag">MICHAEL HALL &nbsp; / &nbsp; COMPOSER · MUSICIAN · PRODUCER</div>
