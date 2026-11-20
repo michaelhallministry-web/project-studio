@@ -1376,24 +1376,24 @@ html body main .home-creative-process h2{color:#f2f1f3!important}
 </div>
 <div class="mh-chat-header-text">
 <h2>TrackLab Assistant</h2>
-<p>Ask about Michael Hall, music production, remote recording, or collaboration.</p>
+<p>Ask about Michael, the music, the studio, or the creative process.</p>
 </div>
 <button aria-label="Close chat" class="mh-chat-close" id="mhChatClose">×</button>
 </div>
 <div class="mh-chat-body" id="mhChatBody"></div>
 <div class="mh-quick-replies">
 <button class="mh-quick-btn" data-question="Who is Michael Hall?">About Michael</button>
-<button class="mh-quick-btn" data-question="Can you collaborate remotely?">Remote recording</button>
-<button class="mh-quick-btn" data-question="What production work do you do?">Production</button>
-<button class="mh-quick-btn" data-question="What collaboration services are available?">Collaboration</button>
-<button class="mh-quick-btn" data-question="How do I get in touch?">Get in touch</button>
+<button class="mh-quick-btn" data-question="Where can I listen to music?">Music</button>
+<button class="mh-quick-btn" data-question="What is on the Studio page?">Studio</button>
+<button class="mh-quick-btn" data-question="How do you work?">Creative process</button>
+<button class="mh-quick-btn" data-question="How do I get in touch?">Contact</button>
 </div>
 <div class="mh-chat-reply-email">
 <label for="mhChatEmail">Email for personal reply</label>
 <input autocomplete="email" id="mhChatEmail" placeholder="Enter email, then tap Send" type="email"/>
 </div>
 <div class="mh-chat-composer">
-<input autocomplete="off" id="mhChatInput" placeholder="Ask about my background, composition, production, or collaboration." type="text"/>
+<input autocomplete="off" id="mhChatInput" placeholder="Ask about the music, studio, or creative process." type="text"/>
 <button id="mhChatSend" type="button">Send</button>
 </div>
 </div>
@@ -1477,19 +1477,20 @@ const mhQuickButtons = document.querySelectorAll(".mh-quick-btn");
 let mhPendingQuestion = "";
 
 const mhChatAnswers = [
-  {keywords:["who is michael hall","about michael","your background","biography","bio","touring","musical experience","who are you"],text:"Michael Hall is a keyboardist, composer, and music producer with a background in live performance, including touring as a keyboardist in the 1990s, and years of arranging and leading music. TrackLab Studio brings his experience in performance, composition, and production into one creative workspace."},
-  {keywords:["what does tracklab do","what do you do","about tracklab","tracklab studio","what is tracklab"],text:"TrackLab Studio is Michael Hall's personal music portfolio and creative studio, centered on original composition, arranging, music production, keyboard and MIDI work, and collaboration with artists and recording studios."},
-  {keywords:["remote recording","remote session","record remotely","collaborate remotely","vst connect","cubase","recording online"],text:"TrackLab Studio uses Cubase Pro and can explore remote recording and session collaboration. We can discuss keyboard parts, file exchange, and suitable remote workflows; technical compatibility, availability, and deliverables are confirmed before a project begins.",action:"project"},
-  {keywords:["keyboard","midi","synthesizer","piano parts","session player","session keyboardist"],text:"Michael's background is rooted in keyboards and performance. Potential contributions include piano and synthesizer parts, MIDI programming, musical textures, and arrangement support. Share your track or project idea to discuss the fit.",action:"project"},
-  {keywords:["production work","music production","arranging","arrangement","producer","mixing","what can you produce"],text:"TrackLab Studio develops original instrumental compositions and arrangements, with keyboard-based production, MIDI instruments, and creative collaboration. For a specific recording, production, or mixing request, the best next step is a conversation about the scope and workflow.",action:"project"},
-  {keywords:["collaboration services","collaboration","collaborate","work together","studio partnership","other studios"],text:"TrackLab Studio welcomes conversations with musicians, artists, producers, studios, and media creators about original composition, keyboard sessions, arrangements, and production collaboration. Each project is discussed individually.",action:"project"},
-  {keywords:["composition","original music","custom music","commission","instrumental","soundtrack","score"],text:"Michael composes original instrumental music and develops musical ideas for a variety of creative contexts. Tell me about your project, intended mood, and musical direction to start a conversation.",action:"project"},
-  {keywords:["musical style","music styles","genres","style of music","what styles"],text:"TrackLab Studio isn't limited to one genre. Michael's work draws on a background in keyboards, live performance, arranging, and instrumental production. Musical style is discussed around the needs of each collaboration."},
-  {keywords:["catalog","taxi","publisher","licensing","music library"],text:"Michael is developing a separate music catalog. This website is his professional portfolio, not a direct licensing storefront. For catalog or publisher-specific inquiries, please use the contact form.",action:"project"},
-  {keywords:["creative process","production approach","workflow","your process","how do you work"],text:"The process starts with a conversation about the music, goals, style, references, instrumentation, and delivery needs. From there, the arrangement, composition, or session workflow can be planned together.",action:"project"},
-  {keywords:["price","pricing","rates","cost","budget","quote"],text:"Rates depend on the work involved, session format, and deliverables. I don't want to give you an inaccurate figure. Please share your project details through the contact form so Michael can follow up.",action:"project"},
-  {keywords:["timeline","deadline","how long","availability","schedule"],text:"Timing and availability depend on the scope of the project. The contact form lets you share your preferred timeline so Michael can follow up with realistic expectations.",action:"project"},
-  {keywords:["get in touch","contact","email","message","reach michael","start a project","inquiry"],text:"You can contact Michael through the TrackLab Studio conversation form. Share what you're working on and a reply email, and he'll have the details needed to follow up.",action:"project"}
+  {keywords:["who is michael hall","about michael","your background","biography","bio","touring","musical experience","who are you"],text:"A keyboardist, composer, MIDI arranger and music producer whose creative path began on stage and continues in the studio. Background includes touring as a performing keyboardist in the 1990s and years of arranging, playing, and leading music. More information is available on the About page."},
+  {keywords:["what does tracklab do","what do you do","about tracklab","tracklab studio","what is tracklab"],text:"TrackLab Studio brings Michael Hall's experience together for original instrumental music, composition, MIDI arranging, and thoughtful music production. The site includes About, Music, Studio, and Contact pages."},
+  {keywords:["listen to music","music page","listen to the music","hear your music","tracks","playlist","audio player","samples","recordings"],text:"The Music page features eight selected original recordings in a single player. Select a track to listen, or use Previous and Next to move through the playlist."},
+  {keywords:["studio gallery","studio page","studio photos","studio pictures","your studio","studio equipment","studio software","cubase screenshots"],text:"The Studio page shows photographs of the TrackLab workspace and Cubase production sessions. Select a gallery image to view it larger."},
+  {keywords:["creative process","production approach","workflow","your process","how do you work","work together","collaboration","collaborate"],text:"Each creative partnership begins with a conversation about the idea, musical style, direction, instrumentation, and recording needs. TrackLab can explore composition, arranging, keyboard and MIDI parts, and production with artists and creative teams. The homepage explains this approach, and Contact is where an inquiry can begin.",action:"project"},
+  {keywords:["remote recording","remote session","record remotely","collaborate remotely","vst connect","cubase","recording online"],text:"TrackLab uses Cubase Pro and can discuss remote keyboard and MIDI recording or production contributions. Technical compatibility, format, scheduling, and deliverables are confirmed before work begins.",action:"project"},
+  {keywords:["keyboard","midi","synthesizer","piano parts","session player","session keyboardist"],text:"Michael's background includes keyboards, live performance, MIDI arranging, and production. Keyboard parts, synthesizer textures, MIDI work, and arrangements can be discussed for a specific project.",action:"project"},
+  {keywords:["production work","music production","arranging","arrangement","producer","mixing","what can you produce"],text:"TrackLab focuses on original instrumental compositions, MIDI arranging, keyboard-driven recordings, and thoughtful music production. Specific project needs and scope can be discussed through Contact.",action:"project"},
+  {keywords:["composition","original music","custom music","commission","instrumental","soundtrack","score"],text:"TrackLab develops original instrumental music and compositions for creative projects. The Music page offers examples, and Contact is available for discussing a specific musical idea.",action:"project"},
+  {keywords:["musical style","music styles","genres","style of music","what styles"],text:"TrackLab is not limited to one genre. The musical direction is shaped by the project, with a conversation about style, references, mood, and instrumentation."},
+  {keywords:["catalog","taxi","publisher","licensing","music library"],text:"This website presents Michael Hall's music and studio work rather than operating as a direct music-licensing storefront. Catalog or publishing questions can be sent through Contact.",action:"project"},
+  {keywords:["price","pricing","rates","cost","budget","quote"],text:"Pricing depends on the project, recording format, scope, and deliverables. Rather than provide an inaccurate figure, please share the details through the contact form for a personal reply.",action:"project"},
+  {keywords:["timeline","deadline","how long","availability","schedule"],text:"Scheduling and turnaround depend on the project. Please include your preferred timeline in the contact form so Michael can respond with realistic expectations.",action:"project"},
+  {keywords:["get in touch","contact","email","message","reach michael","start a project","inquiry"],text:"Use the Contact page or open the project conversation form to describe your idea and provide a reply email.",action:"project"}
 ];
 
 function mhAddChatMessage(content, sender = "bot", action = null){
@@ -1623,7 +1624,7 @@ function mhSubmitPendingQuestion(){
   mhAddChatMessage("Thank you. Your question has been submitted for review. If it does not arrive, please use the contact form to follow up.", "bot");
 
   mhPendingQuestion = "";
-  mhChatInput.placeholder = "Ask about my background, composition, production, or collaboration.";
+  mhChatInput.placeholder = "Ask about the music, studio, or creative process.";
   mhChatSend.textContent = "Send";
 }
 
@@ -1710,7 +1711,7 @@ mhQuickButtons.forEach(button => {
   });
 });
 
-mhAddChatMessage("Welcome to TrackLab Studio! Select a topic below to learn more about Michael Hall, his music, and opportunities to collaborate.", "bot");
+mhAddChatMessage("Welcome to TrackLab Studio! Choose a topic to learn about Michael Hall, hear the music, explore the studio, or ask about a project.", "bot");
 
 
 
