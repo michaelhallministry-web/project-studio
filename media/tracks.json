@@ -5,7 +5,7 @@
       "title": "Anthem at First Light"
     },
     {
-      "src": "media/audio/Broken%20Crown%20Rise%20(1).mp3",
+      "src": "media/audio/Broken%20Crown%20Rise%20%281%29.mp3",
       "title": "Broken Crown Rise (1)"
     },
     {
@@ -25,7 +25,11 @@
       "title": "Marble Fingers"
     },
     {
-      "src": "media/audio/Quiet%20Window%20Light%20(1).mp3",
+      "src": "media/audio/paper-lantern-room.mp3",
+      "title": "paper lantern room"
+    },
+    {
+      "src": "media/audio/Quiet%20Window%20Light%20%281%29.mp3",
       "title": "Quiet Window Light (1)"
     },
     {
@@ -41,16 +45,12 @@
       "title": "Skyborne Overture"
     },
     {
-      "src": "media/audio/Skybound%20Overture%20(1).mp3",
+      "src": "media/audio/Skybound%20Overture%20%281%29.mp3",
       "title": "Skybound Overture (1)"
     },
     {
       "src": "media/audio/Skybound%20Overture.mp3",
       "title": "Skybound Overture"
-    },
-    {
-      "src": "media/audio/paper-lantern-room.mp3",
-      "title": "paper lantern room"
     }
   ]
 }
