@@ -1369,6 +1369,11 @@ html body footer .bmi-affiliation .bmi-wordmark{display:inline-flex;align-items:
 /* BMI affiliation on its own centered footer line */
 html body footer .bmi-affiliation{display:flex!important;width:max-content;max-width:100%;align-items:center;justify-content:center;gap:9px;margin:12px auto 0!important;padding:0!important;border:0!important;text-align:center;vertical-align:initial}
 @media(max-width:680px){html body footer .bmi-affiliation{margin:12px auto 0!important}}
+</style><style>
+/* Structural footer rows: guaranteed separate centered lines */
+html body footer .footer-copyright{display:block!important;width:100%;text-align:center}
+html body footer .footer-bmi-row{display:block!important;clear:both!important;width:100%!important;text-align:center!important;margin-top:13px!important}
+html body footer .footer-bmi-row .bmi-affiliation{display:inline-flex!important;width:auto!important;max-width:100%;margin:0 auto!important;padding:0!important;border:0!important;align-items:center;justify-content:center;gap:9px;vertical-align:middle}
 </style></head>
 <body><nav class="site-nav"><div class="container nav-wrap"><a class="logo" aria-label="TrackLab Studio Home" href="preview.html"><img alt="TrackLab Studio logo" src="media/560cdf96-bc07-4e80-9301-790284ecf187.webp"/><span class="logo-text"><span class="logo-main">TrackLab Studio</span><span class="logo-sub">Music • Composition • Production</span></span></a><button aria-expanded="false" aria-label="Open menu" class="mobile-menu-btn" onclick="toggleMobileMenu()" type="button">☰</button><div class="nav-links"><a href="preview.html">Home</a><a href="preview-about.html">About</a><a href="preview-music.html">Music</a><a href="preview-studio.html">Studio</a><a href="preview-contact.html">Contact</a></div></div></nav><div class="preview-notice">MULTI-PAGE PORTFOLIO PREVIEW — LIVE HOMEPAGE UNCHANGED</div><main><header class="portfolio-page-header"><div class="container"><div class="section-kicker">01 / ABOUT</div><h1>Michael Hall</h1><p>The person, experience, and musicianship behind TrackLab Studio.</p></div></header><section class="about portfolio-split" id="about"><div class="container about-grid">
 <div class="about-text"><div class="section-kicker">01 / THE PERSON BEHIND THE MUSIC</div><h3>Michael Hall</h3>
@@ -1378,8 +1383,8 @@ html body footer .bmi-affiliation{display:flex!important;width:max-content;max-w
 </div><div class="about-image"><img src="media/MH-image.webp" alt="Michael Hall, composer and producer at TrackLab Studio"/></div>
 </div></section></main><div class="studio-lightbox" id="studioLightbox" role="dialog" aria-modal="true" aria-label="Expanded studio photograph" hidden><button class="studio-lightbox-close" type="button" aria-label="Close enlarged photograph">×</button><button class="studio-lightbox-prev" type="button" aria-label="Previous photograph">‹</button><figure><img id="studioLightboxImage" alt=""/><figcaption id="studioLightboxCaption"></figcaption></figure><button class="studio-lightbox-next" type="button" aria-label="Next photograph">›</button></div>
 <footer>
-  © 2026 TrackLab Studio • Michael Hall | Music · Production · Collaboration
-  <span class="bmi-affiliation"><span class="bmi-wordmark" aria-label="BMI">BMI</span><span>BMI-Affiliated Composer</span></span>
+  <div class="footer-copyright">© 2026 TrackLab Studio • Michael Hall | Music · Production · Collaboration</div>
+  <div class="footer-bmi-row"><span class="bmi-affiliation"><span class="bmi-wordmark" aria-label="BMI">BMI</span><span>BMI-Affiliated Composer</span></span></div>
 </footer>
 <button aria-label="TrackLab Assistant" class="mh-chat-launcher" id="mhChatLauncher">
 <img alt="TrackLab Assistant" src="media/chat-icon.webp?v=3"/>
