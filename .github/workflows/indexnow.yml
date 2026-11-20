@@ -1,0 +1,47 @@
+name: Notify IndexNow of TrackLab public page updates
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'about.html'
+      - 'studio.html'
+      - 'music.html'
+      - 'contact.html'
+      - 'sitemap.xml'
+      - '852da23e8b985626a0bf52fa31f17699.txt'
+permissions:
+  contents: read
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for GitHub Pages deployment and key availability
+        run: |
+          for attempt in $(seq 1 20); do
+            response=$(curl -fsSL --max-time 15 "https://track-lab.studio/852da23e8b985626a0bf52fa31f17699.txt" || true)
+            if [ "$response" = "852da23e8b985626a0bf52fa31f17699" ]; then
+              echo "IndexNow key is live"
+              exit 0
+            fi
+            sleep 30
+          done
+          echo "Key not yet published; skipping submission"
+          exit 1
+      - name: Submit canonical URLs to IndexNow
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request, urllib.error
+          host = "track-lab.studio"
+          key = "852da23e8b985626a0bf52fa31f17699"
+          urls = ["https://track-lab.studio/" ] + [f"https://track-lab.studio/{page}.html" for page in ("about", "studio", "music", "contact")]
+          payload = json.dumps({"host":host,"key":key,"keyLocation":f"https://{host}/{key}.txt","urlList":urls}).encode()
+          request = urllib.request.Request("https://api.indexnow.org/indexnow", data=payload, headers={"Content-Type":"application/json; charset=utf-8"}, method="POST")
+          try:
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  print("IndexNow HTTP status:", response.status)
+          except urllib.error.HTTPError as error:
+              print("IndexNow HTTP status:", error.code)
+              raise
+          PY
