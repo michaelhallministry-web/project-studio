@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Music | TrackLab Studio — Michael Hall</title>
+<meta name="description" content="Meet Michael Hall: keyboardist, composer, producer, and founder of TrackLab. Explore original music, production, and remote studio collaboration."/>
+<style>
+:root{
+  --bg:#070a10;
+  --bg2:#0d1320;
+  --card:#111827;
+  --text:#f7f9ff;
+  --muted:#a9b4c8;
+  --soft:#d7e0f2;
+  --accent:#4f8cff;
+  --accent2:#8b5cf6;
+  --cyan:#26d9ff;
+  --purple:#a855f7;
+  --border:rgba(255,255,255,.12);
+  --border2:rgba(255,255,255,.18);
+  --shadow:0 28px 90px rgba(0,0,0,.58);
+  --radius:26px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(79,140,255,.12), transparent 34rem),
+    radial-gradient(circle at top right, rgba(139,92,246,.12), transparent 34rem),
+    var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+body.modal-open{overflow:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+.container{
+  width:min(1320px,92%);
+  margin:auto;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:56px;
+  padding:0 30px;
+  border-radius:999px;
+  border:1px solid transparent;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;
+  font-size:1rem;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 14px 34px rgba(79,140,255,.24);
+}
+
+.btn-outline{
+  background:rgba(255,255,255,.04);
+  border-color:rgba(255,255,255,.28);
+  box-shadow:none;
+}
+
+/* NAV */
+
+.site-nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(5,8,14,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav-wrap{
+  min-height:86px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:.95rem;
+}
+
+.logo img{
+  width:58px;
+  height:58px;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+.logo-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+
+.logo-main{
+  font-size:1.15rem;
+  font-weight:900;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+
+.logo-sub{
+  margin-top:.28rem;
+  color:var(--soft);
+  font-size:.74rem;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:2rem;
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+.nav-links a{color:var(--soft);}
+.nav-links a:hover{color:var(--accent);}
+
+.mobile-menu-btn{
+  display:none;
+  width:46px;
+  height:46px;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.24);
+  background:rgba(255,255,255,.06);
+  color:white;
+  font-size:1.65rem;
+  line-height:1;
+  cursor:pointer;
+}
+
+.mobile-menu-btn:hover{
+  background:rgba(255,255,255,.10);
+}
+
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  padding:128px 0 72px;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.20), rgba(0,0,0,.78)),
+    url("media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp") center/cover no-repeat;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at left center, rgba(38,217,255,.32), transparent 26rem),
+    radial-gradient(circle at right center, rgba(168,85,247,.34), transparent 26rem),
+    linear-gradient(90deg, rgba(0,0,0,.58), transparent 24%, transparent 76%, rgba(0,0,0,.58));
+}
+
+.hero-content{
+  position:relative;
+  width:min(96vw,1680px);
+  padding:4.5rem 5.75rem 4.25rem;
+  border-radius:32px;
+  border:1px solid rgba(255,255,255,.18);
+  background:
+    linear-gradient(135deg, rgba(10,14,24,.74), rgba(10,14,24,.58)),
+    radial-gradient(circle at left center, rgba(79,140,255,.18), transparent 32rem),
+    radial-gradient(circle at right center, rgba(139,92,246,.18), transparent 32rem);
+  backdrop-filter:blur(16px);
+  box-shadow:var(--shadow);
+}
+
+.hero-tag{
+  color:#83adff;
+  text-transform:uppercase;
+  letter-spacing:.26em;
+  font-size:.9rem;
+  font-weight:900;
+  margin-bottom:1.3rem;
+}
+
+.hero h1{
+  max-width:1450px;
+  margin:0 auto 1.9rem;
+  font-size:clamp(3.15rem,4.9vw,5.6rem);
+  line-height:1.12;
+  letter-spacing:-.028em;
+}
+
+.hero-rule{
+  width:82px;
+  height:3px;
+  border-radius:999px;
+  margin:0 auto 1.85rem;
+  background:linear-gradient(90deg,var(--cyan),var(--purple));
+}
+
+.hero p{
+  max-width:1050px;
+  margin:0 auto 3rem;
+  color:#e2e8f7;
+  font-size:clamp(1.05rem,1.25vw,1.32rem);
+  line-height:1.75;
+  font-weight:600;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:1rem;
+}
+
+/* SECTIONS */
+
+section{padding:96px 0;}
+
+.section-title{
+  text-align:center;
+  max-width:850px;
+  margin:0 auto 3.2rem;
+}
+
+.section-kicker{
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:.24em;
+  font-size:.8rem;
+  font-weight:900;
+  margin-bottom:.75rem;
+}
+
+.section-title h2{
+  font-size:clamp(2.25rem,4vw,3.5rem);
+  line-height:1.05;
+  letter-spacing:-.035em;
+  margin-bottom:.8rem;
+}
+
+.section-title p{
+  color:var(--muted);
+  font-size:1.08rem;
+}
+
+.about,
+.process,
+.platforms,
+.why{
+  background:var(--bg2);
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  align-items:stretch;
+}
+
+.about-text,
+.card,
+.featured-audio{
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025)),
+    var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:0 18px 60px rgba(0,0,0,.28);
+}
+
+.about-text{
+  padding:2.5rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.about-text h3{
+  font-size:2rem;
+  line-height:1.1;
+  margin-bottom:1.1rem;
+}
+
+.about-text p{
+  color:var(--muted);
+  margin-bottom:1rem;
+  font-size:1.04rem;
+}
+
+.about-image{
+  min-height:420px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:0 18px 60px rgba(0,0,0,.32);
+}
+
+.about-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.45rem;
+}
+
+.card{
+  padding:2rem;
+}
+
+.card h3{
+  font-size:1.35rem;
+  margin-bottom:.75rem;
+}
+
+.card p{
+  color:var(--muted);
+}
+
+.card ul{
+  list-style:none;
+  margin-top:1.2rem;
+}
+
+.card li{
+  color:var(--soft);
+  margin-bottom:.65rem;
+  padding-left:1.35rem;
+  position:relative;
+}
+
+.card li::before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  color:var(--accent);
+  font-weight:900;
+}
+
+.card-icon{
+  width:56px;
+  height:56px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:1.35rem;
+  font-size:1.7rem;
+  color:#fff;
+  background:linear-gradient(135deg, rgba(79,140,255,.24), rgba(139,92,246,.24));
+  border:1px solid rgba(255,255,255,.13);
+}
+
+/* FEATURED AUDIO */
+
+.listen{
+  background:
+    radial-gradient(circle at top left, rgba(79,140,255,.14), transparent 35rem),
+    radial-gradient(circle at bottom right, rgba(139,92,246,.15), transparent 35rem),
+    var(--bg);
+}
+
+.featured-audio{
+  max-width:900px;
+  margin:auto;
+  padding:2.5rem;
+  text-align:center;
+}
+
+.featured-audio h3{
+  font-size:2rem;
+  margin-bottom:.5rem;
+}
+
+.featured-audio p{
+  color:var(--muted);
+  margin-bottom:1.5rem;
+}
+
+.audio-meta{
+  color:var(--soft);
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:.8rem;
+  margin-bottom:1rem;
+}
+
+audio{
+  width:100%;
+  margin-top:1rem;
+}
+
+/* PLATFORMS */
+
+.platform-card{
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.platform-card.featured::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:
+    radial-gradient(circle at top, rgba(79,140,255,.20), transparent 45%),
+    radial-gradient(circle at bottom, rgba(139,92,246,.20), transparent 45%);
+  pointer-events:none;
+}
+
+.platform-card > *{
+  position:relative;
+  z-index:1;
+}
+
+.platform-logo{
+  width:min(260px,82%);
+  max-height:120px;
+  object-fit:contain;
+  display:block;
+  margin:1.5rem auto;
+}
+
+.platform-placeholder{
+  min-height:120px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px dashed rgba(255,255,255,.24);
+  border-radius:18px;
+  color:#d8e0ef;
+  margin:1.5rem auto;
+  padding:1rem;
+  background:rgba(255,255,255,.035);
+}
+
+.platform-note{
+  max-width:850px;
+  margin:2.25rem auto 0;
+  text-align:center;
+  color:#d8e0ef;
+  font-size:1.04rem;
+}
+
+/* GALLERY */
+
+.gallery{
+  background:
+    radial-gradient(circle at top left, rgba(79,140,255,.14), transparent 35rem),
+    radial-gradient(circle at bottom right, rgba(139,92,246,.15), transparent 35rem),
+    var(--bg);
+}
+
+.studio-gallery{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.45rem;
+}
+
+.studio-gallery img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+  box-shadow:0 18px 60px rgba(0,0,0,.28);
+}
+
+
+.music-catalog{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.45rem;
+}
+
+.track-card{
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025)),
+    var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:0 18px 60px rgba(0,0,0,.28);
+  padding:1.6rem;
+}
+
+.track-card.featured-track{
+  grid-column:1 / -1;
+  padding:2.2rem;
+  background:
+    radial-gradient(circle at top left, rgba(79,140,255,.18), transparent 34rem),
+    radial-gradient(circle at bottom right, rgba(139,92,246,.18), transparent 34rem),
+    linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.025)),
+    var(--card);
+}
+
+.track-top{
+  display:flex;
+  gap:1.1rem;
+  align-items:center;
+  margin-bottom:1rem;
+}
+
+.track-art{
+  width:74px;
+  height:74px;
+  border-radius:20px;
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+  color:#fff;
+  background:
+    radial-gradient(circle at top left, rgba(38,217,255,.42), transparent 55%),
+    linear-gradient(135deg,var(--accent),var(--accent2));
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 14px 34px rgba(79,140,255,.18);
+}
+
+.track-info{
+  flex:1;
+  min-width:0;
+}
+
+.track-info h3{
+  font-size:1.28rem;
+  line-height:1.2;
+  margin-bottom:.25rem;
+}
+
+.track-info p{
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+.track-card audio{
+  width:100%;
+  display:block;
+  min-height:54px;
+  margin-top:.9rem;
+}
+
+.track-link{
+  display:inline-flex;
+  margin-top:.9rem;
+  color:#dce7ff;
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.track-link:hover{
+  color:var(--accent);
+}
+
+@media(max-width:900px){
+  .music-catalog{
+    grid-template-columns:1fr;
+  }
+
+  .track-card.featured-track{
+    grid-column:auto;
+  }
+}
+
+
+/* CONTACT */
+
+.contact{
+  text-align:center;
+  background:
+    linear-gradient(rgba(0,0,0,.80),rgba(0,0,0,.84)),
+    url("media/481BDA2B-1490-49D7-B328-A87E01A8D4A2.webp") center/cover no-repeat;
+}
+
+.contact h2{
+  font-size:clamp(2.3rem,4vw,3.6rem);
+  line-height:1.05;
+  letter-spacing:-.035em;
+  margin-bottom:1rem;
+}
+
+.contact p{
+  max-width:760px;
+  margin:0 auto 2rem;
+  color:#d8e0ef;
+  font-size:1.1rem;
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.80);
+  backdrop-filter:blur(8px);
+  z-index:3000;
+  align-items:center;
+  justify-content:center;
+  padding:1rem;
+}
+
+.modal.show{display:flex;}
+
+.modal-content{
+  width:min(720px,95%);
+  max-height:90vh;
+  overflow-y:auto;
+  background:linear-gradient(145deg,#121a2a,#0e1421);
+  border:1px solid var(--border2);
+  border-radius:28px;
+  padding:2.2rem;
+  position:relative;
+  box-shadow:0 30px 90px rgba(0,0,0,.62);
+}
+
+.modal-content h2{
+  margin-bottom:.5rem;
+  font-size:2rem;
+}
+
+.modal-content p{
+  color:var(--muted);
+  margin-bottom:1.5rem;
+}
+
+.modal-close{
+  position:absolute;
+  top:1rem;
+  right:1rem;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:rgba(255,255,255,.07);
+  color:white;
+  border:1px solid var(--border);
+  font-size:1.65rem;
+  cursor:pointer;
+}
+
+#contactForm{
+  display:grid;
+  gap:1rem;
+}
+
+#contactForm label{
+  font-size:.95rem;
+  color:#d8e0ef;
+  font-weight:700;
+}
+
+#contactForm input,
+#contactForm select,
+#contactForm textarea{
+  width:100%;
+  margin-top:.35rem;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:#070a10;
+  color:white;
+  font-size:1rem;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+#formStatus{
+  margin-top:.5rem;
+  color:#d8e0ef;
+  font-weight:700;
+}
+
+footer{
+  padding:2.2rem;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+  background:#05080e;
+}
+
+/* ===== CHATBOT ===== */
+.mh-chat-launcher{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.18);
+  background:#101725;
+  box-shadow:0 18px 45px rgba(0,0,0,.42);
+  cursor:pointer;
+  z-index:2500;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  overflow:hidden;
+}
+
+.mh-chat-launcher img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+.mh-chat-widget{
+  position:fixed;
+  right:22px;
+  bottom:108px;
+  width:410px;
+  max-width:calc(100vw - 32px);
+  height:640px;
+  max-height:calc(100vh - 136px);
+  background:#0f1522;
+  border:1px solid var(--border2);
+  border-radius:24px;
+  box-shadow:0 24px 80px rgba(0,0,0,.60);
+  overflow:hidden;
+  z-index:2499;
+  display:none;
+  flex-direction:column;
+}
+
+.mh-chat-widget.open{
+  display:flex;
+}
+
+.mh-chat-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  background:linear-gradient(135deg,#121826,#1c2740);
+  border-bottom:1px solid var(--border);
+}
+
+.mh-chat-header-logo{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  border:1px solid var(--border);
+  padding:0;
+  overflow:hidden;
+  flex:0 0 auto;
+}
+
+.mh-chat-header-logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.mh-chat-header-text{
+  flex:1;
+  min-width:0;
+}
+
+.mh-chat-header-text h2{
+  font-size:1rem;
+  line-height:1.2;
+}
+
+.mh-chat-header-text p{
+  color:var(--muted);
+  font-size:.78rem;
+  margin-top:2px;
+}
+
+.mh-chat-close{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.08);
+  color:white;
+  cursor:pointer;
+  font-size:1.2rem;
+}
+
+.mh-chat-body{
+  flex:1;
+  overflow-y:auto;
+  padding:16px;
+  background:
+    radial-gradient(circle at top left, rgba(79,140,255,.10), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(139,92,246,.10), transparent 35%),
+    #0b0f16;
+}
+
+.mh-message-row{
+  display:flex;
+  margin-bottom:12px;
+}
+
+.mh-message-row.bot{ justify-content:flex-start; }
+.mh-message-row.user{ justify-content:flex-end; }
+
+.mh-message-group{
+  max-width:86%;
+}
+
+.mh-bubble{
+  padding:12px 14px;
+  border-radius:18px;
+  font-size:.92rem;
+  line-height:1.45;
+  white-space:pre-wrap;
+}
+
+.mh-message-row.bot .mh-bubble{
+  background:#171f2e;
+  color:#eef3ff;
+  border:1px solid var(--border);
+  border-bottom-left-radius:6px;
+}
+
+.mh-message-row.user .mh-bubble{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;
+  border-bottom-right-radius:6px;
+}
+
+.mh-chat-action-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:8px;
+}
+
+.mh-chat-action{
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.08);
+  color:white;
+  padding:8px 11px;
+  border-radius:999px;
+  font-size:.78rem;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.mh-chat-action:hover{
+  background:rgba(255,255,255,.14);
+}
+
+.mh-quick-replies{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:12px 14px;
+  border-top:1px solid var(--border);
+  background:#101725;
+}
+
+.mh-quick-btn{
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.06);
+  color:#d8e0ef;
+  padding:8px 10px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:.78rem;
+}
+
+.mh-quick-btn:hover{
+  color:white;
+  background:rgba(255,255,255,.12);
+}
+
+.mh-chat-reply-email{
+  padding:12px 14px 0;
+  background:#0f1522;
+  border-top:1px solid var(--border);
+}
+
+.mh-chat-reply-email label{
+  display:block;
+  color:#a9b4c8;
+  font-size:.74rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+
+.mh-chat-reply-email input{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#0b0f16;
+  color:white;
+  padding:11px 14px;
+  font-size:.9rem;
+}
+
+.mh-chat-reply-email input::placeholder{
+  color:#748094;
+}
+
+.mh-chat-composer{
+  display:flex;
+  gap:9px;
+  padding:12px;
+  background:#0f1522;
+  border-top:1px solid var(--border);
+}
+
+.mh-chat-composer input{
+  flex:1;
+  min-width:0;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#0b0f16;
+  color:white;
+  padding:12px 14px;
+  font-size:.92rem;
+}
+
+.mh-chat-composer button{
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;
+  font-weight:bold;
+  padding:0 16px;
+  cursor:pointer;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+  .nav-wrap{
+    min-height:78px;
+    position:relative;
+  }
+
+  .mobile-menu-btn{
+    display:inline-flex;
+    flex-shrink:0;
+  }
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    width:100%;
+    padding:1rem;
+    margin-top:0;
+    flex-direction:column;
+    align-items:stretch;
+    gap:.35rem;
+    background:rgba(5,8,14,.98);
+    border:1px solid var(--border);
+    border-top:none;
+    border-radius:0 0 22px 22px;
+    box-shadow:0 22px 60px rgba(0,0,0,.45);
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+
+  .nav-links a{
+    display:block;
+    padding:1rem;
+    text-align:center;
+    border-radius:14px;
+    background:rgba(255,255,255,.04);
+  }
+
+  .logo img{
+    width:50px;
+    height:50px;
+  }
+
+  .logo-main{
+    font-size:.95rem;
+    letter-spacing:.12em;
+  }
+
+  .logo-sub{
+    font-size:.64rem;
+  }
+
+  .hero{
+    padding:110px 0 56px;
+  }
+
+  .hero-content{
+    padding:2.25rem 1.3rem;
+    border-radius:24px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.25rem,10vw,3.5rem);
+  }
+
+  .about-grid,
+  .grid-3{
+    grid-template-columns:1fr;
+  }
+
+  .studio-gallery{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .about-image{
+    min-height:300px;
+  }
+
+  section{
+    padding:72px 0;
+  }
+}
+
+@media(max-width:600px){
+  .hero-actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .studio-gallery{
+    grid-template-columns:1fr;
+  }
+
+  .studio-gallery img{
+    height:260px;
+  }
+}
+
+
+@media(max-width:600px){
+  .mh-chat-launcher{
+    right:14px;
+    bottom:14px;
+    width:64px;
+    height:64px;
+  }
+
+  .mh-chat-widget{
+    right:12px;
+    left:12px;
+    bottom:88px;
+    width:auto;
+    height:70vh;
+    max-width:none;
+  }
+}
+
+
+/* TrackLab widescreen preview — original content and scripts preserved */
+:root{--bg:#07090d;--bg2:#0d141b;--card:#10151c;--accent:#83c9ee;--accent2:#9d80cc;--radius:0}
+body{background:#07090d}.container{width:min(1440px,88%)}
+.site-nav{background:rgba(5,8,12,.94)}.logo img{border-radius:3px}
+.btn{border-radius:2px;box-shadow:none;background:#88c9ec;color:#07121b}.btn-outline{background:transparent;color:white;border-color:#b4c3d0}
+.hero{min-height:85vh;text-align:left;justify-content:flex-start;padding:150px 6vw 100px}
+.hero::before{background:linear-gradient(90deg,rgba(2,5,9,.92),rgba(3,7,12,.65) 55%,rgba(3,7,12,.1))}
+.hero-content{width:min(100%,900px);padding:0;border:0;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;margin:0}
+.hero h1{font-size:clamp(3.6rem,7.4vw,7.8rem);line-height:1.02;letter-spacing:-.055em;margin:0 0 1.6rem}
+.hero-tag{color:#a9d9f2}.hero-rule{margin:0 0 1.5rem;border-radius:0}
+.hero p{max-width:700px;margin:0 0 2rem;font-weight:400;line-height:1.65}.hero-actions{justify-content:flex-start}
+section{padding:100px 0}.section-title{text-align:left;max-width:1050px;margin:0 0 3rem}
+.section-title h2{font-size:clamp(2.5rem,4.5vw,4.5rem)}
+.about{padding:0;background:#0e141b}.about-grid{width:100%;grid-template-columns:1fr 1fr;gap:0}
+.about-text{padding:clamp(3rem,7vw,8rem);background:transparent;border:0;border-radius:0;box-shadow:none}
+.about-text h3{font-size:clamp(2.4rem,4vw,4.5rem)}
+.about-image{min-height:570px;border:0;border-radius:0;box-shadow:none}.about-image img{height:100%;object-fit:cover}
+#music,.process{background:#080d13}.platforms,.gallery{background:#111923}
+.grid-3{gap:0;border-top:1px solid var(--border)}
+.card{background:transparent;border:0;border-right:1px solid var(--border);border-bottom:1px solid var(--border);border-radius:0;box-shadow:none;padding:2.4rem}
+.card:last-child{border-right:0}.card-icon{border-radius:0;background:none;border:0;box-shadow:none;justify-content:flex-start}
+.platform-card.featured::before{display:none}.platform-placeholder{border-radius:0}
+.studio-gallery{grid-template-columns:repeat(2,1fr);gap:12px}
+.studio-gallery img{height:clamp(260px,30vw,490px);border-radius:0;border:0;box-shadow:none}
+.contact{padding:145px 0;text-align:left}.contact p{margin:0 0 2rem}.contact h2{font-size:clamp(3rem,5vw,5.7rem)}
+.track-card,.featured-audio{border-radius:0;box-shadow:none}
+.preview-notice{position:relative;z-index:2;background:#b5d8eb;color:#0b1720;padding:10px 6vw;text-align:center;font-size:13px;font-weight:700}
+@media(max-width:900px){.hero{min-height:75vh;padding:140px 6vw 80px}.hero h1{font-size:clamp(3rem,10vw,5rem)}.about-grid{grid-template-columns:1fr}.about-text{padding:3rem 6vw}.about-image{min-height:380px}.grid-3{grid-template-columns:1fr}.card{border-right:0}.studio-gallery img{height:240px}}
+@media(max-width:560px){.studio-gallery{grid-template-columns:1fr}.studio-gallery img{height:280px}.contact{padding:95px 0}}
+
+/* Portfolio widescreen redesign */
+.hero{min-height:670px;height:76vh;max-height:850px;display:flex;align-items:center;padding:125px 6vw 70px}
+.hero h1{font-size:clamp(2.5rem,5.6vw,6rem);letter-spacing:-.055em;line-height:1.12;max-width:1120px;white-space:normal}
+.hero-content{width:min(100%,1150px)}
+.hero p{max-width:740px;font-size:clamp(1rem,1.4vw,1.15rem)}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-tag{letter-spacing:.17em}
+.portfolio-work{background:#080e15}
+.portfolio-bands{border-top:1px solid rgba(255,255,255,.18)}
+.portfolio-band{display:grid;grid-template-columns:70px 1fr 60px;gap:24px;align-items:center;border-bottom:1px solid rgba(255,255,255,.18);padding:34px 8px}
+.portfolio-num{color:#89b6d5;font-size:.85rem;letter-spacing:.12em}
+.portfolio-band h3{font-size:clamp(1.4rem,2.5vw,2.3rem);margin:0 0 8px}
+.portfolio-band p{max-width:830px;color:#bac5d3;margin:0}
+.portfolio-symbol{font-size:2.1rem;color:#86c9e8;text-align:right}
+.portfolio-small{color:#aab8c7;font-size:.9rem;margin-top:25px;max-width:850px}
+.portfolio-collab{display:grid;grid-template-columns:1fr 1fr;padding:0;background:#101821}
+.portfolio-collab-image{background:url('media/800B6A24-65DC-4EC9-8B54-37E121A6A3CD.webp') center/cover;min-height:690px}
+.portfolio-collab-copy{padding:clamp(50px,6vw,110px);align-self:center}
+.portfolio-collab-copy h2{font-size:clamp(2.3rem,4vw,4.4rem);line-height:1.09;margin:18px 0 22px}
+.portfolio-collab-copy>p{color:#d0d9e5;max-width:660px}
+.portfolio-capabilities{border-top:1px solid rgba(255,255,255,.17);margin:28px 0}
+.portfolio-capabilities>div{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.17);display:grid;gap:5px}
+.portfolio-capabilities strong{font-size:1.07rem}
+.portfolio-capabilities span{color:#b7c4d1;font-size:.94rem}
+.portfolio-collab-copy .btn{margin-top:25px}
+.portfolio-split .about-image img{object-fit:cover}
+@media(min-width:1200px){.hero h1{font-size:clamp(3.5rem,5.3vw,5.6rem)}}
+@media(max-width:900px){.hero{height:auto;min-height:620px}.portfolio-collab{grid-template-columns:1fr}.portfolio-collab-image{min-height:380px}.portfolio-collab-copy{padding:55px 6vw}}
+@media(max-width:560px){.hero{min-height:620px;padding:120px 6vw 65px}.hero h1{font-size:clamp(2.35rem,9vw,3.5rem)}.portfolio-band{grid-template-columns:38px 1fr;gap:12px}.portfolio-symbol{display:none}.hero-actions .btn{width:100%}}
+
+/* Studio photo strip and accessible lightbox */
+.studio-gallery{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important}
+.studio-photo{appearance:none;display:block;padding:0;margin:0;border:0;background:#080b11;cursor:zoom-in;overflow:hidden;min-width:0;aspect-ratio:16/10}
+.studio-gallery .studio-photo img{display:block;width:100%;height:100%;object-fit:cover;border:0;border-radius:0;box-shadow:none;transition:transform .2s ease}
+.studio-photo:hover img{transform:scale(1.035)}.studio-photo:focus-visible{outline:3px solid #8fd4ff;outline-offset:3px}
+.studio-gallery-hint{color:#aebbc9;font-size:.85rem;margin-top:12px}
+.studio-lightbox[hidden]{display:none!important}
+.studio-lightbox{position:fixed;z-index:100000;inset:0;display:flex;align-items:center;justify-content:center;gap:16px;padding:55px 65px;background:rgba(0,0,0,.94)}
+.studio-lightbox figure{margin:0;min-width:0;max-width:min(1200px,100%);max-height:100%;display:flex;flex-direction:column;align-items:center;gap:12px}
+.studio-lightbox figure img{max-width:100%;max-height:calc(100dvh - 145px);object-fit:contain;display:block}
+.studio-lightbox figcaption{color:#dce6f0;text-align:center;font-size:.9rem}
+.studio-lightbox button{color:white;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);border-radius:3px;cursor:pointer}
+.studio-lightbox-close{position:absolute;right:24px;top:18px;font-size:30px;width:45px;height:45px}
+.studio-lightbox-prev,.studio-lightbox-next{flex:0 0 42px;height:55px;font-size:34px}
+.studio-lightbox button:focus-visible{outline:3px solid #8fd4ff;outline-offset:3px}
+@media(max-width:700px){.studio-gallery{grid-template-columns:repeat(4,minmax(180px,1fr))!important;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory}.studio-photo{scroll-snap-align:start}.studio-lightbox{padding:65px 10px 45px;gap:5px}.studio-lightbox-prev,.studio-lightbox-next{flex-basis:32px}.studio-lightbox figure img{max-height:calc(100dvh - 145px)}}
+
+/* Biography portrait: intentionally sized as a portrait, not a full-bleed banner */
+.portfolio-split .about-image{min-height:0;display:flex;align-items:center;justify-content:center;padding:36px clamp(20px,4vw,70px);background:#0c121b;overflow:hidden}
+.portfolio-split .about-image img{display:block;width:auto;max-width:100%;height:auto;max-height:440px;aspect-ratio:auto;object-fit:contain;border-radius:3px;box-shadow:0 14px 45px rgba(0,0,0,.35)}
+@media(max-width:900px){.portfolio-split .about-image{min-height:0;padding:30px 20px}.portfolio-split .about-image img{max-height:380px}}
+
+/* About portrait: closer to biography, larger, softly rounded */
+.portfolio-split .about-grid{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:0;align-items:stretch}
+.portfolio-split .about-text{padding:clamp(38px,5vw,76px) clamp(24px,3vw,48px) clamp(38px,5vw,76px) clamp(32px,6vw,90px)}
+.portfolio-split .about-image{min-height:0;padding:24px clamp(24px,3vw,48px) 24px 0;display:flex;align-items:center;justify-content:flex-start;background:#0c121b}
+.portfolio-split .about-image img{width:100%;max-width:540px;height:auto;max-height:650px;object-fit:cover;object-position:center;border-radius:20px;box-shadow:0 14px 42px rgba(0,0,0,.28)}
+@media(max-width:900px){.portfolio-split .about-grid{grid-template-columns:1fr}.portfolio-split .about-text{padding:48px 6vw 24px}.portfolio-split .about-image{justify-content:center;padding:8px 6vw 48px}.portfolio-split .about-image img{width:min(100%,460px);max-height:560px;border-radius:18px}}
+
+/* Lower portrait within biography panel so the full head has breathing room */
+@media(min-width:901px){
+ .portfolio-split .about-image{padding-top:78px;padding-bottom:28px;align-items:center}
+ .portfolio-split .about-image img{max-height:590px;object-fit:contain;object-position:center center}
+}
+
+/* Compact full-width portfolio listening library */
+.portfolio-audio{margin-top:58px;border-top:1px solid rgba(255,255,255,.22)}
+.portfolio-audio-heading{padding:30px 0 18px}.portfolio-audio-heading h3{font-size:clamp(1.5rem,2.6vw,2.3rem);margin:0 0 6px}.portfolio-audio-heading p{color:#aebfd0;margin:0}
+.portfolio-audio-item{display:grid;grid-template-columns:minmax(220px,1fr) minmax(260px,1.25fr);align-items:center;gap:28px;padding:16px 6px;border-top:1px solid rgba(255,255,255,.12)}
+.portfolio-audio-info{display:flex;align-items:center;gap:22px;min-width:0}.portfolio-audio-number{font-size:.8rem;color:#91cbe8;letter-spacing:.08em}.portfolio-audio-info strong{font-size:1.02rem;font-weight:600}
+.portfolio-audio-item audio{display:block;width:100%;height:42px;min-width:0;accent-color:#88c9ec}
+@media(max-width:700px){.portfolio-audio-item{grid-template-columns:1fr;gap:10px;padding:16px 0}.portfolio-audio-item audio{width:100%}}
+
+/* Unified portfolio player and playlist */
+.portfolio-single-player{padding:28px clamp(18px,3vw,38px);background:#111c29;border-top:2px solid #8fcde9}
+.portfolio-now-label{color:#91cce9;font-size:.7rem;letter-spacing:.2em;font-weight:700}
+.portfolio-single-player h4{font-size:clamp(1.5rem,2.5vw,2.3rem);margin:9px 0 19px}
+#portfolioMainAudio{width:100%;height:48px;display:block}
+.portfolio-player-nav{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:16px}
+.portfolio-player-nav button{background:none;border:1px solid #52657a;border-radius:2px;color:#e4edf7;padding:9px 14px;cursor:pointer}
+.portfolio-player-nav button:hover{border-color:#8fcde9;color:#8fcde9}
+#portfolioTrackCount{color:#9db1c6;font-size:.8rem;letter-spacing:.12em}
+.portfolio-playlist{border-top:1px solid rgba(255,255,255,.16)}
+.portfolio-track{width:100%;display:grid;grid-template-columns:55px 1fr 28px;align-items:center;text-align:left;gap:15px;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.13);color:#e6edf7;padding:17px 16px;cursor:pointer;font:inherit}
+.portfolio-track:hover{background:#152331}
+.portfolio-track.is-active{background:#182a3b;box-shadow:inset 3px 0 #8fcde9}
+.portfolio-track-num{font-size:.8rem;color:#91cce9}
+.portfolio-track-name{font-weight:600}
+.portfolio-track-indicator{color:#8fcde9;text-align:right}
+.portfolio-track:focus-visible,.portfolio-player-nav button:focus-visible{outline:3px solid #8fcde9;outline-offset:-3px}
+.portfolio-audio-note{font-size:.8rem;color:#9aaec2;margin-top:14px}
+</style>
+
+<!-- Ahrefs Web Analytics -->
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="7lQNEk2zG8w9MwqrpuapZA" async></script>
+<style>
+.portfolio-page-header{padding:145px 0 62px;background:linear-gradient(110deg,#0b131d,#15283a);border-bottom:1px solid rgba(255,255,255,.12)}
+.portfolio-page-header h1{font-size:clamp(2.8rem,6vw,5.8rem);line-height:1.08;letter-spacing:-.045em;margin:16px 0}
+.portfolio-page-header p{max-width:760px;color:#c6d3df;font-size:1.1rem}
+.portfolio-entry{background:#0c131c}.portfolio-entry-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(255,255,255,.16)}
+.portfolio-entry-grid a{display:block;padding:clamp(26px,4vw,62px);background:#101b27;color:#eaf2fb;text-decoration:none}
+.portfolio-entry-grid a:hover{background:#192b3b}.portfolio-entry-grid a span{font-size:.75rem;letter-spacing:.15em;color:#8ac9e9}
+.portfolio-entry-grid h2{font-size:clamp(1.5rem,2.8vw,2.7rem);margin:16px 0 9px}.portfolio-entry-grid p{color:#c3d0df}
+.portfolio-subnav{padding:32px 0;background:#0b121b;border-top:1px solid rgba(255,255,255,.13)}
+.portfolio-subnav .container{display:flex;gap:18px;justify-content:space-between;flex-wrap:wrap}
+.portfolio-subnav a{color:#9ed4f0;text-decoration:none}.portfolio-subnav a:hover{text-decoration:underline}
+@media(max-width:700px){.portfolio-entry-grid{grid-template-columns:1fr}.portfolio-page-header{padding:125px 0 50px}}
+</style></head>
+<body><div class="preview-notice">MULTI-PAGE PORTFOLIO PREVIEW — LIVE HOMEPAGE UNCHANGED</div><main><header class="portfolio-page-header"><div class="container"><div class="section-kicker">02 / SELECTED WORK</div><h1>Composition & Production</h1><p>A curated listening room featuring original instrumental compositions and production work.</p></div></header><section id="work" class="portfolio-work"><div class="container"><div class="section-title"><div class="section-kicker">02 / SELECTED WORK</div><h2>Composition &amp; Production</h2><p>Original instrumental music, piano-led ideas, cinematic textures, and arrangements. This is a portfolio of creative work—not a public licensing catalog.</p></div>
+<div class="portfolio-bands">
+<div class="portfolio-band"><span class="portfolio-num">01</span><div><h3>Original Composition</h3><p>Instrumental themes, piano pieces, emotional underscore, and musical ideas developed from the ground up.</p></div><span class="portfolio-symbol">♫</span></div>
+<div class="portfolio-band"><span class="portfolio-num">02</span><div><h3>Arranging &amp; Production</h3><p>Building a song or cue through harmony, keyboards, MIDI programming, orchestration, sound selection, and production.</p></div><span class="portfolio-symbol">◉</span></div>
+<div class="portfolio-band"><span class="portfolio-num">03</span><div><h3>Creative Exploration</h3><p>Atmospheric sound design, cinematic sketches, and evolving musical ideas for future projects and collaborations.</p></div><span class="portfolio-symbol">↗</span></div>
+</div><div class="portfolio-audio" aria-label="Composition audio samples"><div class="portfolio-audio-heading"><h3>Listen to the Music</h3><p>Selected original recordings from TrackLab Studio. Select a title below to listen.</p></div><div class="portfolio-single-player"><div class="portfolio-now-label">NOW SELECTED</div><h4 id="portfolioNowPlaying">Anthem at First Light</h4><audio id="portfolioMainAudio" controls controlsList="nodownload noplaybackrate" disablePictureInPicture preload="none" aria-label="TrackLab composition player"><source src="media/audio/Anthem-at-First-Light.mp3" type="audio/mpeg"/>Your browser does not support audio playback.</audio><div class="portfolio-player-nav"><button type="button" id="portfolioPrevious" aria-label="Previous track">‹ Previous</button><span id="portfolioTrackCount">01 / 08</span><button type="button" id="portfolioNext" aria-label="Next track">Next ›</button></div></div><div class="portfolio-playlist" aria-label="Composition playlist"><button class="portfolio-track is-active" type="button" data-src="media/audio/Anthem-at-First-Light.mp3" data-title="Anthem at First Light" aria-label="Play Anthem at First Light" aria-current="true"><span class="portfolio-track-num">01</span><span class="portfolio-track-name">Anthem at First Light</span><span class="portfolio-track-indicator" aria-hidden="true">♫</span></button><button class="portfolio-track" type="button" data-src="media/audio/Broken%20Crown%20Rise.mp3" data-title="Broken Crown Rise" aria-label="Play Broken Crown Rise" aria-current="false"><span class="portfolio-track-num">02</span><span class="portfolio-track-name">Broken Crown Rise</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Echoes-of-the-Unsaid.mp3" data-title="Echoes of the Unsaid" aria-label="Play Echoes of the Unsaid" aria-current="false"><span class="portfolio-track-num">03</span><span class="portfolio-track-name">Echoes of the Unsaid</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Marble-Fingers.mp3" data-title="Marble Fingers" aria-label="Play Marble Fingers" aria-current="false"><span class="portfolio-track-num">04</span><span class="portfolio-track-name">Marble Fingers</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Quiet%20Window%20Light.mp3" data-title="Quiet Window Light" aria-label="Play Quiet Window Light" aria-current="false"><span class="portfolio-track-num">05</span><span class="portfolio-track-name">Quiet Window Light</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Shifting-Echoes.mp3" data-title="Shifting Echoes" aria-label="Play Shifting Echoes" aria-current="false"><span class="portfolio-track-num">06</span><span class="portfolio-track-name">Shifting Echoes</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Skyborne%20Overture.mp3" data-title="Skyborne Overture" aria-label="Play Skyborne Overture" aria-current="false"><span class="portfolio-track-num">07</span><span class="portfolio-track-name">Skyborne Overture</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/paper-lantern-room.mp3" data-title="Paper Lantern Room" aria-label="Play Paper Lantern Room" aria-current="false"><span class="portfolio-track-num">08</span><span class="portfolio-track-name">Paper Lantern Room</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button></div><p class="portfolio-audio-note">Portfolio listening samples. No download links are provided.</p></div>
+</div></section></main><div class="portfolio-subnav"><div class="container"><a href="preview-home.html">← Home</a><a href="preview-contact.html">Contact / Collaborate →</a></div></div>
+<div class="studio-lightbox" id="studioLightbox" role="dialog" aria-modal="true" aria-label="Expanded studio photograph" hidden><button class="studio-lightbox-close" type="button" aria-label="Close enlarged photograph">×</button><button class="studio-lightbox-prev" type="button" aria-label="Previous photograph">‹</button><figure><img id="studioLightboxImage" alt=""/><figcaption id="studioLightboxCaption"></figcaption></figure><button class="studio-lightbox-next" type="button" aria-label="Next photograph">›</button></div>
+<footer>
+  © 2026 TrackLab Studio • Michael Hall | Music · Production · Collaboration
+</footer>
+<button aria-label="TrackLab Assistant" class="mh-chat-launcher" id="mhChatLauncher">
+<img alt="TrackLab Assistant" src="media/chat-icon.webp?v=3"/>
+</button>
+<div aria-label="TrackLab Assistant" class="mh-chat-widget" id="mhChatWidget">
+<div class="mh-chat-header">
+<div class="mh-chat-header-logo">
+<img alt="TrackLab Assistant" src="media/chat-icon.webp?v=3"/>
+</div>
+<div class="mh-chat-header-text">
+<h2>TrackLab Assistant</h2>
+<p>Ask about Michael Hall, music production, remote recording, or collaboration.</p>
+</div>
+<button aria-label="Close chat" class="mh-chat-close" id="mhChatClose">×</button>
+</div>
+<div class="mh-chat-body" id="mhChatBody"></div>
+<div class="mh-quick-replies">
+<button class="mh-quick-btn" data-question="Who is Michael Hall?">About Michael</button>
+<button class="mh-quick-btn" data-question="Can you collaborate remotely?">Remote recording</button>
+<button class="mh-quick-btn" data-question="What production work do you do?">Production</button>
+<button class="mh-quick-btn" data-question="What collaboration services are available?">Collaboration</button>
+<button class="mh-quick-btn" data-question="How do I get in touch?">Get in touch</button>
+</div>
+<div class="mh-chat-reply-email">
+<label for="mhChatEmail">Email for personal reply</label>
+<input autocomplete="email" id="mhChatEmail" placeholder="Enter email, then tap Send" type="email"/>
+</div>
+<div class="mh-chat-composer">
+<input autocomplete="off" id="mhChatInput" placeholder="Ask about my background, composition, production, or collaboration." type="text"/>
+<button id="mhChatSend" type="button">Send</button>
+</div>
+</div>
+<div class="modal" id="contactModal">
+<div class="modal-content">
+<button class="modal-close" onclick="closeContactForm()">×</button>
+<h2>Connect with TrackLab Studio</h2>
+<p>
+      Tell me a little about your project or collaboration idea. I’ll follow up by email to discuss what you have in mind.
+    </p>
+<form id="contactForm">
+<label>
+        Your Name
+        <input name="name" placeholder="Your Name" required="" type="text"/>
+</label>
+<label>
+        Your Email
+        <input name="email" placeholder="Your Email" required="" type="email"/>
+</label>
+<label>
+        What kind of project is this?
+        <select name="projectType" required="">
+<option value="">Choose one</option>
+<option value="Remote Recording">Remote Recording</option>
+<option value="Custom Composition">Custom Composition</option>
+<option value="Keyboard / MIDI Session">Keyboard / MIDI Session</option>
+<option value="Arranging / Music Production">Arranging / Music Production</option>
+<option value="Studio / Producer Collaboration">Studio / Producer Collaboration</option>
+<option value="Original Instrumental Composition">Original Instrumental Composition</option>
+<option value="Other">Other</option>
+</select>
+</label>
+<label>
+        Where are you in the process?
+        <select name="projectStage" required="">
+<option value="">Choose one</option>
+<option value="I would like to discuss a remote session">I would like to discuss a remote session</option>
+<option value="I need keyboard or MIDI parts">I need keyboard or MIDI parts</option>
+<option value="I need arranging or production help">I need arranging or production help</option>
+<option value="I am exploring a creative collaboration">I am exploring a creative collaboration</option>
+<option value="I have an original music inquiry">I have an original music inquiry</option>
+<option value="I am exploring options">I am exploring options</option>
+<option value="Other">Other</option>
+</select>
+</label>
+<label>
+        Musical direction (if applicable)
+        <textarea name="soundDirection" placeholder="Describe your musical style, references, or the sound you have in mind." required="" rows="4"></textarea>
+</label>
+<label>
+        Project details
+        <textarea name="message" placeholder="Tell me about your project, recording needs, preferred workflow, or collaboration idea." required="" rows="5"></textarea>
+</label>
+<label>
+        Timeline
+        <select name="timeline">
+<option value="">Project Timeline</option>
+<option value="ASAP">ASAP</option>
+<option value="Within 1 Week">Within 1 Week</option>
+<option value="Within 2 Weeks">Within 2 Weeks</option>
+<option value="This Month">This Month</option>
+<option value="Flexible">Flexible</option>
+</select>
+</label>
+<button class="btn" type="submit">Send Request</button>
+<p id="formStatus"></p>
+</form>
+</div>
+</div>
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxF6MMH3_t53SuX8man44Nzly8JCgbPS5TM4hFRD04dwOBS4hh5cMR-A94Hk82bVyCk8g/exec";
+
+const mhChatLauncher = document.getElementById("mhChatLauncher");
+const mhChatWidget = document.getElementById("mhChatWidget");
+const mhChatClose = document.getElementById("mhChatClose");
+const mhChatBody = document.getElementById("mhChatBody");
+const mhChatInput = document.getElementById("mhChatInput");
+const mhChatEmail = document.getElementById("mhChatEmail");
+const mhChatSend = document.getElementById("mhChatSend");
+const mhQuickButtons = document.querySelectorAll(".mh-quick-btn");
+let mhPendingQuestion = "";
+
+const mhChatAnswers = [
+  {keywords:["who is michael hall","about michael","your background","biography","bio","touring","musical experience","who are you"],text:"Michael Hall is a keyboardist, composer, and music producer with a background in live performance, including touring as a keyboardist in the 1990s, and years of arranging and leading music. TrackLab Studio brings his experience in performance, composition, and production into one creative workspace."},
+  {keywords:["what does tracklab do","what do you do","about tracklab","tracklab studio","what is tracklab"],text:"TrackLab Studio is Michael Hall's personal music portfolio and creative studio, centered on original composition, arranging, music production, keyboard and MIDI work, and collaboration with artists and recording studios."},
+  {keywords:["remote recording","remote session","record remotely","collaborate remotely","vst connect","cubase","recording online"],text:"TrackLab Studio uses Cubase Pro and can explore remote recording and session collaboration. We can discuss keyboard parts, file exchange, and suitable remote workflows; technical compatibility, availability, and deliverables are confirmed before a project begins.",action:"project"},
+  {keywords:["keyboard","midi","synthesizer","piano parts","session player","session keyboardist"],text:"Michael's background is rooted in keyboards and performance. Potential contributions include piano and synthesizer parts, MIDI programming, musical textures, and arrangement support. Share your track or project idea to discuss the fit.",action:"project"},
+  {keywords:["production work","music production","arranging","arrangement","producer","mixing","what can you produce"],text:"TrackLab Studio develops original instrumental compositions and arrangements, with keyboard-based production, MIDI instruments, and creative collaboration. For a specific recording, production, or mixing request, the best next step is a conversation about the scope and workflow.",action:"project"},
+  {keywords:["collaboration services","collaboration","collaborate","work together","studio partnership","other studios"],text:"TrackLab Studio welcomes conversations with musicians, artists, producers, studios, and media creators about original composition, keyboard sessions, arrangements, and production collaboration. Each project is discussed individually.",action:"project"},
+  {keywords:["composition","original music","custom music","commission","instrumental","soundtrack","score"],text:"Michael composes original instrumental music and develops musical ideas for a variety of creative contexts. Tell me about your project, intended mood, and musical direction to start a conversation.",action:"project"},
+  {keywords:["musical style","music styles","genres","style of music","what styles"],text:"TrackLab Studio isn't limited to one genre. Michael's work draws on a background in keyboards, live performance, arranging, and instrumental production. Musical style is discussed around the needs of each collaboration."},
+  {keywords:["catalog","taxi","publisher","licensing","music library"],text:"Michael is developing a separate music catalog. This website is his professional portfolio, not a direct licensing storefront. For catalog or publisher-specific inquiries, please use the contact form.",action:"project"},
+  {keywords:["creative process","production approach","workflow","your process","how do you work"],text:"The process starts with a conversation about the music, goals, style, references, instrumentation, and delivery needs. From there, the arrangement, composition, or session workflow can be planned together.",action:"project"},
+  {keywords:["price","pricing","rates","cost","budget","quote"],text:"Rates depend on the work involved, session format, and deliverables. I don't want to give you an inaccurate figure. Please share your project details through the contact form so Michael can follow up.",action:"project"},
+  {keywords:["timeline","deadline","how long","availability","schedule"],text:"Timing and availability depend on the scope of the project. The contact form lets you share your preferred timeline so Michael can follow up with realistic expectations.",action:"project"},
+  {keywords:["get in touch","contact","email","message","reach michael","start a project","inquiry"],text:"You can contact Michael through the TrackLab Studio conversation form. Share what you're working on and a reply email, and he'll have the details needed to follow up.",action:"project"}
+];
+
+function mhAddChatMessage(content, sender = "bot", action = null){
+  const row = document.createElement("div");
+  row.className = `mh-message-row ${sender}`;
+
+  const group = document.createElement("div");
+  group.className = "mh-message-group";
+
+  const bubble = document.createElement("div");
+  bubble.className = "mh-bubble";
+  bubble.textContent = content;
+
+  group.appendChild(bubble);
+
+  if(action === "project"){
+    const actions = document.createElement("div");
+    actions.className = "mh-chat-action-row";
+
+    const button = document.createElement("button");
+    button.className = "mh-chat-action";
+    button.type = "button";
+    button.textContent = "Open Project Conversation Form";
+    button.addEventListener("click", openContactForm);
+
+    actions.appendChild(button);
+    group.appendChild(actions);
+  }
+
+  if(action === "email"){
+    const actions = document.createElement("div");
+    actions.className = "mh-chat-action-row";
+
+    const button = document.createElement("button");
+    button.className = "mh-chat-action";
+    button.type = "button";
+    button.textContent = "Send Question With Email";
+    button.addEventListener("click", mhSubmitPendingQuestion);
+
+    actions.appendChild(button);
+    group.appendChild(actions);
+  }
+
+  row.appendChild(group);
+  mhChatBody.appendChild(row);
+  mhChatBody.scrollTop = mhChatBody.scrollHeight;
+}
+
+function mhNormalize(text){
+  return text.toLowerCase().trim();
+}
+
+function mhIsValidEmail(email){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function mhGetReplyEmail(){
+  const email = mhChatEmail ? mhChatEmail.value.trim() : "";
+  return mhIsValidEmail(email) ? email : "";
+}
+
+function mhFindAnswer(question){
+  const clean = mhNormalize(question);
+  let bestMatch = null;
+  let bestScore = 0;
+
+  for(const item of mhChatAnswers){
+    for(const keyword of item.keywords){
+      const cleanKeyword = mhNormalize(keyword);
+
+      if(!cleanKeyword) continue;
+
+      if(clean === cleanKeyword){
+        const score = cleanKeyword.length + 1000;
+        if(score > bestScore){
+          bestScore = score;
+          bestMatch = item;
+        }
+      }else if(clean.includes(cleanKeyword)){
+        const score = cleanKeyword.length;
+        if(score > bestScore){
+          bestScore = score;
+          bestMatch = item;
+        }
+      }
+    }
+  }
+
+  return bestMatch;
+}
+
+async function mhSendUnansweredQuestion(question, replyEmail){
+  try{
+    await fetch(SCRIPT_URL, {
+      method:"POST",
+      mode:"no-cors",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        name:"Website Chat Visitor",
+        email: replyEmail,
+        projectType:"Website Chat Question",
+        projectStage:"Question asked in chat",
+        soundDirection:"Not provided",
+        message:question,
+        timeline:"Not provided",
+        source:"TrackLab Website Chat - Reply Email Provided"
+      })
+    });
+  }catch(error){
+    console.warn("MH chat fallback could not be sent", error);
+  }
+}
+
+function mhSubmitPendingQuestion(){
+  const replyEmail = mhGetReplyEmail();
+
+  if(!mhPendingQuestion){
+    mhAddChatMessage("There is no pending question to send. Type your question and I’ll help from there.", "bot");
+    return;
+  }
+
+  if(!replyEmail){
+    mhAddChatMessage("Please enter a valid email address in the Email for personal reply field, then tap Send.", "bot");
+    mhChatEmail.focus();
+    return;
+  }
+
+  mhSendUnansweredQuestion(mhPendingQuestion, replyEmail);
+  mhAddChatMessage("Thank you. Your question has been submitted for review. If it does not arrive, please use the contact form to follow up.", "bot");
+
+  mhPendingQuestion = "";
+  mhChatInput.placeholder = "Ask about my background, composition, production, or collaboration.";
+  mhChatSend.textContent = "Send";
+}
+
+function mhHandleQuestion(question){
+  if(!question.trim()) return;
+
+  mhAddChatMessage(question, "user");
+
+  const answer = mhFindAnswer(question);
+
+  setTimeout(() => {
+    if(answer){
+      mhAddChatMessage(answer.text, "bot", answer.action || null);
+      return;
+    }
+
+    mhPendingQuestion = question;
+    mhAddChatMessage("I do not want to respond with inaccurate information. This question is outside the information provided on the website. Please enter your email in the reply field below, then tap Send, and I’ll forward your question for a personal reply.", "bot");
+    mhChatEmail.focus();
+    mhChatInput.placeholder = "Enter email above, then tap Send";
+    mhChatSend.textContent = "Send";
+  }, 250);
+}
+
+function mhSendCurrentQuestion(){
+  const typedText = mhChatInput.value.trim();
+  const replyEmail = mhGetReplyEmail();
+
+  if(mhPendingQuestion){
+    if(replyEmail){
+      mhSubmitPendingQuestion();
+      mhChatInput.value = "";
+      return;
+    }
+
+    if(mhIsValidEmail(typedText)){
+      mhChatEmail.value = typedText;
+      mhChatInput.value = "";
+      mhSubmitPendingQuestion();
+      return;
+    }
+
+    mhAddChatMessage("Please enter your email address first so a personal reply can be sent, then tap Send.", "bot");
+    mhChatEmail.focus();
+    return;
+  }
+
+  if(!typedText) return;
+
+  mhHandleQuestion(typedText);
+  mhChatInput.value = "";
+}
+
+if(mhChatLauncher && mhChatWidget){
+  mhChatLauncher.addEventListener("click", function(){
+    mhChatWidget.classList.toggle("open");
+    if(mhChatWidget.classList.contains("open") && mhChatInput){
+      mhChatInput.focus();
+    }
+  });
+}
+
+if(mhChatClose && mhChatWidget){
+  mhChatClose.addEventListener("click", function(){
+    mhChatWidget.classList.remove("open");
+  });
+}
+
+if(mhChatSend){
+  mhChatSend.addEventListener("click", mhSendCurrentQuestion);
+}
+
+if(mhChatInput){
+  mhChatInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){
+      mhSendCurrentQuestion();
+    }
+  });
+}
+
+mhQuickButtons.forEach(button => {
+  button.addEventListener("click", function(){
+    mhHandleQuestion(button.getAttribute("data-question") || button.textContent);
+  });
+});
+
+mhAddChatMessage("Welcome to TrackLab Studio! Select a topic below to learn more about Michael Hall, his music, and opportunities to collaborate.", "bot");
+
+
+
+function toggleMobileMenu(){
+  const navLinks = document.querySelector(".nav-links");
+  const menuButton = document.querySelector(".mobile-menu-btn");
+  if(!navLinks || !menuButton) return;
+
+  const isOpen = navLinks.classList.toggle("show");
+  menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  menuButton.innerHTML = isOpen ? "×" : "☰";
+}
+
+function closeMobileMenu(){
+  const navLinks = document.querySelector(".nav-links");
+  const menuButton = document.querySelector(".mobile-menu-btn");
+  if(!navLinks || !menuButton) return;
+
+  navLinks.classList.remove("show");
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.innerHTML = "☰";
+}
+
+document.querySelectorAll(".nav-links a").forEach(function(link){
+  link.addEventListener("click", closeMobileMenu);
+});
+
+function openContactForm(){
+  document.getElementById("contactModal").classList.add("show");
+  document.body.classList.add("modal-open");
+}
+
+function closeContactForm(){
+  document.getElementById("contactModal").classList.remove("show");
+  document.body.classList.remove("modal-open");
+}
+
+document.getElementById("contactModal").addEventListener("click", function(e){
+  if(e.target === this){
+    closeContactForm();
+  }
+});
+
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
+    closeContactForm();
+    closeMobileMenu();
+  }
+});
+
+document.getElementById("contactForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const form = e.target;
+  const status = document.getElementById("formStatus");
+
+  status.textContent = "Sending...";
+
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    projectType: form.projectType.value,
+    projectStage: form.projectStage.value,
+    soundDirection: form.soundDirection.value,
+    message: form.message.value,
+    timeline: form.timeline.value,
+    source:"TrackLab Conversation Form"
+  };
+
+  try{
+    await fetch(SCRIPT_URL, {
+      method:"POST",
+      mode:"no-cors",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(data)
+    });
+
+    status.textContent = "Your request was submitted. If you do not receive a reply, please try again or use another contact method.";
+    form.reset();
+
+    setTimeout(function(){
+      closeContactForm();
+      status.textContent = "";
+    }, 2500);
+
+  }catch(error){
+    status.textContent = "Something went wrong. Please try again.";
+  }
+});
+
+(function(){
+ const box=document.getElementById("studioLightbox");
+ const photos=Array.from(document.querySelectorAll(".studio-gallery .studio-photo"));
+ const image=document.getElementById("studioLightboxImage");
+ const caption=document.getElementById("studioLightboxCaption");
+ let current=0,previousFocus=null;
+ function show(i){current=(i+photos.length)%photos.length;const original=photos[current].querySelector("img");image.src=original.currentSrc||original.src;image.alt=original.alt;caption.textContent=original.alt;}
+ function close(){box.hidden=true;document.body.style.overflow="";if(previousFocus)previousFocus.focus();}
+ photos.forEach((photo,i)=>photo.addEventListener("click",()=>{previousFocus=document.activeElement;show(i);box.hidden=false;document.body.style.overflow="hidden";box.querySelector(".studio-lightbox-close").focus();}));
+ box.querySelector(".studio-lightbox-close").addEventListener("click",close);
+ box.querySelector(".studio-lightbox-prev").addEventListener("click",()=>show(current-1));
+ box.querySelector(".studio-lightbox-next").addEventListener("click",()=>show(current+1));
+ box.addEventListener("click",e=>{if(e.target===box)close();});
+ document.addEventListener("keydown",e=>{if(box.hidden)return;if(e.key==="Escape"){close();}else if(e.key==="ArrowLeft"){show(current-1);}else if(e.key==="ArrowRight"){show(current+1);}else if(e.key==="Tab"){const controls=Array.from(box.querySelectorAll("button"));const idx=controls.indexOf(document.activeElement);if(e.shiftKey&&idx===0){e.preventDefault();controls[controls.length-1].focus();}else if(!e.shiftKey&&idx===controls.length-1){e.preventDefault();controls[0].focus();}}});
+})();
+
+/* One player, nine selectable portfolio compositions */
+(function(){
+ const audio=document.getElementById("portfolioMainAudio");
+ const buttons=Array.from(document.querySelectorAll(".portfolio-track"));
+ const title=document.getElementById("portfolioNowPlaying");
+ const count=document.getElementById("portfolioTrackCount");
+ if(!audio||!buttons.length)return;
+ let index=0;
+ function selectTrack(next,play){
+   index=(next+buttons.length)%buttons.length;
+   const item=buttons[index];
+   const source=item.dataset.src;
+   if(audio.getAttribute("src")!==source){audio.pause();audio.setAttribute("src",source);audio.load();}
+   title.textContent=item.dataset.title;
+   count.textContent=String(index+1).padStart(2,"0")+" / "+String(buttons.length).padStart(2,"0");
+   buttons.forEach((button,i)=>{button.classList.toggle("is-active",i===index);button.setAttribute("aria-current",i===index?"true":"false");button.querySelector(".portfolio-track-indicator").textContent=i===index?"♫":"▶";});
+   if(play){const promise=audio.play();if(promise&&promise.catch)promise.catch(()=>{});}
+ }
+ buttons.forEach((button,i)=>button.addEventListener("click",()=>selectTrack(i,true)));
+ document.getElementById("portfolioPrevious").addEventListener("click",()=>selectTrack(index-1,true));
+ document.getElementById("portfolioNext").addEventListener("click",()=>selectTrack(index+1,true));
+ audio.addEventListener("ended",()=>selectTrack(index+1,true));
+ selectTrack(0,false);
+})();
+</script>
+</body>
+</html>
