@@ -1940,8 +1940,8 @@ document.getElementById("contactForm").addEventListener("submit", async function
    panel.style.setProperty("--beat-brightness",(1+hit*.085).toFixed(3));
    draw.clearRect(0,0,cssWidth,cssHeight);
    const accent=getComputedStyle(panel).getPropertyValue("--track-accent").trim()||"#ffdaac";
-   const usable=Math.min(cssWidth*.65,670),startX=cssWidth-usable-18;
-   const floor=cssHeight*.85,barW=usable/bars;
+   const usable=Math.min(cssWidth*.55,600),startX=cssWidth-usable-18;
+   const floor=cssHeight*.43,barW=usable/bars;
    for(let j=0;j<bars;j++){
      const freq=55*Math.pow(110, j/(bars-1));
      const center=Math.min(bins.length-1,Math.max(1,Math.round(freq/hz)));
@@ -1953,10 +1953,10 @@ document.getElementById("contactForm").addEventListener("submit", async function
      bandPeak[j]=Math.max(value,bandPeak[j]*.995,.22);
      const relative=value/bandPeak[j];
      const movement=Math.max(0,value-bandAverage[j]);
-     const target=Math.min(.96,Math.pow(relative,1.45)*.62+movement*.68);
+     const target=Math.min(.98,Math.pow(relative,1.12)*.86+movement*.9);
      levels[j]=target>levels[j]?levels[j]*.48+target*.52:levels[j]*.66+target*.34;
      if(value<.025)levels[j]*=.6;
-     const height=(3+levels[j]*cssHeight*.47);
+     const height=(5+levels[j]*cssHeight*.36);
      const x=startX+j*barW;
      const gradient=draw.createLinearGradient(0,floor-height,0,floor);
      gradient.addColorStop(0,accent);
