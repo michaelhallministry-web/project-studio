@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'media/audio/**'
+      - 'media/track-titles.json'
       - '.github/workflows/update-tracks.yml'
   workflow_dispatch:
 permissions:
@@ -20,11 +21,16 @@ jobs:
           python3 - <<'PY'
           import json, pathlib, re
           folder = pathlib.Path('media/audio')
+          titles_path = pathlib.Path('media/track-titles.json')
+          titles = json.loads(titles_path.read_text()).get('titles', {}) if titles_path.exists() else {}
           tracks = []
           for f in sorted(folder.iterdir(), key=lambda p: p.name.casefold()):
               if not f.is_file() or f.suffix.lower() != '.mp3':
                   continue
-              title = re.sub(r'[-_]+', ' ', f.stem).strip()
+              if f.stat().st_size < 1024:
+                  print(f'Skipping invalid audio: {f.name}')
+                  continue
+              title = titles.get(f.name) or re.sub(r'[-_]+', ' ', f.stem).strip()
               tracks.append({'src': 'media/audio/' + __import__('urllib.parse', fromlist=['quote']).quote(f.name), 'title': title})
           pathlib.Path('media/tracks.json').write_text(json.dumps({'tracks': tracks}, indent=2) + '\n')
           print(f'Catalog contains {len(tracks)} MP3 tracks')
