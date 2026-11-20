@@ -1,0 +1,56 @@
+{
+  "tracks": [
+    {
+      "src": "media/audio/Anthem-at-First-Light.mp3",
+      "title": "Anthem at First Light"
+    },
+    {
+      "src": "media/audio/Broken%20Crown%20Rise%20(1).mp3",
+      "title": "Broken Crown Rise (1)"
+    },
+    {
+      "src": "media/audio/Broken%20Crown%20Rise.mp3",
+      "title": "Broken Crown Rise"
+    },
+    {
+      "src": "media/audio/Echoes-of-the-Unsaid.mp3",
+      "title": "Echoes of the Unsaid"
+    },
+    {
+      "src": "media/audio/If-It-Aint-Mercy.mp3",
+      "title": "If It Aint Mercy"
+    },
+    {
+      "src": "media/audio/Marble-Fingers.mp3",
+      "title": "Marble Fingers"
+    },
+    {
+      "src": "media/audio/Quiet%20Window%20Light%20(1).mp3",
+      "title": "Quiet Window Light (1)"
+    },
+    {
+      "src": "media/audio/Quiet%20Window%20Light.mp3",
+      "title": "Quiet Window Light"
+    },
+    {
+      "src": "media/audio/Shifting-Echoes.mp3",
+      "title": "Shifting Echoes"
+    },
+    {
+      "src": "media/audio/Skyborne%20Overture.mp3",
+      "title": "Skyborne Overture"
+    },
+    {
+      "src": "media/audio/Skybound%20Overture%20(1).mp3",
+      "title": "Skybound Overture (1)"
+    },
+    {
+      "src": "media/audio/Skybound%20Overture.mp3",
+      "title": "Skybound Overture"
+    },
+    {
+      "src": "media/audio/paper-lantern-room.mp3",
+      "title": "paper lantern room"
+    }
+  ]
+}
