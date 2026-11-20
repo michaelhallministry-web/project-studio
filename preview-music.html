@@ -1420,8 +1420,19 @@ html body footer .footer-bmi-row .bmi-affiliation{display:inline-flex!important;
 html body footer .footer-bmi-break{display:block!important;content:"";height:0;clear:both}
 html body footer .footer-copyright,html body footer .footer-bmi-row{display:block!important;flex-basis:100%!important;width:100%!important;clear:both!important;text-align:center!important}
 html body footer .footer-bmi-row{margin-top:8px!important}
+</style><style>
+/* Embedded MP3 artwork, kept clear of the existing audio visualizer */
+.portfolio-single-player .tracklab-art-layout{display:flex;align-items:center;gap:22px;position:relative;z-index:2;margin-bottom:18px;min-height:104px}
+.portfolio-single-player .tracklab-art-details{min-width:0;flex:1}
+.portfolio-single-player .tracklab-art-details h4{margin:8px 0 0}
+.portfolio-single-player .tracklab-cover{width:104px;height:104px;flex:0 0 104px;overflow:hidden;border-radius:7px;border:1px solid rgba(255,255,255,.2);background:linear-gradient(135deg,#24405b,#17202f);box-shadow:0 8px 22px rgba(0,0,0,.22);display:grid;place-items:center}
+.portfolio-single-player .tracklab-cover img{width:100%;height:100%;object-fit:cover}
+.portfolio-single-player .tracklab-cover img[hidden]{display:none}
+.portfolio-single-player .tracklab-cover-placeholder{font-size:38px;color:rgba(255,255,255,.5)}
+.portfolio-single-player .tracklab-cover:has(img:not([hidden])) .tracklab-cover-placeholder{display:none}
+@media(max-width:550px){.portfolio-single-player .tracklab-art-layout{gap:13px;min-height:76px}.portfolio-single-player .tracklab-cover{width:76px;height:76px;flex-basis:76px}.portfolio-single-player .tracklab-cover-placeholder{font-size:29px}}
 </style></head>
-<body><nav class="site-nav"><div class="container nav-wrap"><a class="logo" aria-label="TrackLab Studio Home" href="preview.html"><img alt="TrackLab Studio logo" src="media/560cdf96-bc07-4e80-9301-790284ecf187.webp"/><span class="logo-text"><span class="logo-main">TrackLab Studio</span><span class="logo-sub">Music • Composition • Production</span></span></a><button aria-expanded="false" aria-label="Open menu" class="mobile-menu-btn" onclick="toggleMobileMenu()" type="button">☰</button><div class="nav-links"><a href="preview.html">Home</a><a href="preview-about.html">About</a><a href="preview-music.html">Music</a><a href="preview-studio.html">Studio</a><a href="preview-contact.html">Contact</a></div></div></nav><div class="preview-notice">MULTI-PAGE PORTFOLIO PREVIEW — LIVE HOMEPAGE UNCHANGED</div><main><section id="work" class="portfolio-work portfolio-music-first"><div class="container"><div class="portfolio-music-intro"><div class="section-kicker">02 / MUSIC</div><h1>Listen to the Music</h1><p>Original compositions and selected recordings by Michael Hall.</p></div><div class="portfolio-audio" aria-label="Composition audio samples"><div class="portfolio-audio-heading"><h3>Listen to the Music</h3><p>Selected original recordings from TrackLab Studio. Select a title below to listen.</p></div><div class="portfolio-single-player"><canvas id="tracklabVisualizer" class="tracklab-visualizer" aria-hidden="true"></canvas><div class="portfolio-now-label">NOW SELECTED</div><h4 id="portfolioNowPlaying">Anthem at First Light</h4><audio id="portfolioMainAudio" controls controlsList="nodownload noplaybackrate" disablePictureInPicture preload="none" aria-label="TrackLab composition player"><source src="media/audio/Anthem-at-First-Light.mp3" type="audio/mpeg"/>Your browser does not support audio playback.</audio><div class="portfolio-player-nav"><button type="button" id="portfolioPrevious" aria-label="Previous track">‹ Previous</button><span id="portfolioTrackCount">01 / 08</span><button type="button" id="portfolioNext" aria-label="Next track">Next ›</button></div></div><div class="portfolio-playlist" aria-label="Composition playlist"><button class="portfolio-track is-active" type="button" data-src="media/audio/Anthem-at-First-Light.mp3" data-title="Anthem at First Light" aria-label="Play Anthem at First Light" aria-current="true"><span class="portfolio-track-num">01</span><span class="portfolio-track-name">Anthem at First Light</span><span class="portfolio-track-indicator" aria-hidden="true">♫</span></button><button class="portfolio-track" type="button" data-src="media/audio/Broken%20Crown%20Rise.mp3" data-title="Broken Crown Rise" aria-label="Play Broken Crown Rise" aria-current="false"><span class="portfolio-track-num">02</span><span class="portfolio-track-name">Broken Crown Rise</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Echoes-of-the-Unsaid.mp3" data-title="Echoes of the Unsaid" aria-label="Play Echoes of the Unsaid" aria-current="false"><span class="portfolio-track-num">03</span><span class="portfolio-track-name">Echoes of the Unsaid</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Marble-Fingers.mp3" data-title="Marble Fingers" aria-label="Play Marble Fingers" aria-current="false"><span class="portfolio-track-num">04</span><span class="portfolio-track-name">Marble Fingers</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Quiet%20Window%20Light.mp3" data-title="Quiet Window Light" aria-label="Play Quiet Window Light" aria-current="false"><span class="portfolio-track-num">05</span><span class="portfolio-track-name">Quiet Window Light</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Shifting-Echoes.mp3" data-title="Shifting Echoes" aria-label="Play Shifting Echoes" aria-current="false"><span class="portfolio-track-num">06</span><span class="portfolio-track-name">Shifting Echoes</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Skyborne%20Overture.mp3" data-title="Skyborne Overture" aria-label="Play Skyborne Overture" aria-current="false"><span class="portfolio-track-num">07</span><span class="portfolio-track-name">Skyborne Overture</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/paper-lantern-room.mp3" data-title="Paper Lantern Room" aria-label="Play Paper Lantern Room" aria-current="false"><span class="portfolio-track-num">08</span><span class="portfolio-track-name">Paper Lantern Room</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button></div><p class="portfolio-audio-note">Portfolio listening samples. No download links are provided.</p></div></div></section><div class="studio-lightbox" id="studioLightbox" role="dialog" aria-modal="true" aria-label="Expanded studio photograph" hidden><button class="studio-lightbox-close" type="button" aria-label="Close enlarged photograph">×</button><button class="studio-lightbox-prev" type="button" aria-label="Previous photograph">‹</button><figure><img id="studioLightboxImage" alt=""/><figcaption id="studioLightboxCaption"></figcaption></figure><button class="studio-lightbox-next" type="button" aria-label="Next photograph">›</button></div>
+<body><nav class="site-nav"><div class="container nav-wrap"><a class="logo" aria-label="TrackLab Studio Home" href="preview.html"><img alt="TrackLab Studio logo" src="media/560cdf96-bc07-4e80-9301-790284ecf187.webp"/><span class="logo-text"><span class="logo-main">TrackLab Studio</span><span class="logo-sub">Music • Composition • Production</span></span></a><button aria-expanded="false" aria-label="Open menu" class="mobile-menu-btn" onclick="toggleMobileMenu()" type="button">☰</button><div class="nav-links"><a href="preview.html">Home</a><a href="preview-about.html">About</a><a href="preview-music.html">Music</a><a href="preview-studio.html">Studio</a><a href="preview-contact.html">Contact</a></div></div></nav><div class="preview-notice">MULTI-PAGE PORTFOLIO PREVIEW — LIVE HOMEPAGE UNCHANGED</div><main><section id="work" class="portfolio-work portfolio-music-first"><div class="container"><div class="portfolio-music-intro"><div class="section-kicker">02 / MUSIC</div><h1>Listen to the Music</h1><p>Original compositions and selected recordings by Michael Hall.</p></div><div class="portfolio-audio" aria-label="Composition audio samples"><div class="portfolio-audio-heading"><h3>Listen to the Music</h3><p>Selected original recordings from TrackLab Studio. Select a title below to listen.</p></div><div class="portfolio-single-player"><canvas id="tracklabVisualizer" class="tracklab-visualizer" aria-hidden="true"></canvas><div class="tracklab-art-layout"><div class="tracklab-cover" id="tracklabCover" aria-label="Embedded track artwork"><div class="tracklab-cover-placeholder" aria-hidden="true">♫</div><img id="tracklabCoverImage" alt="" hidden></div><div class="tracklab-art-details"><div class="portfolio-now-label">NOW SELECTED</div><h4 id="portfolioNowPlaying">Anthem at First Light</h4></div></div><audio id="portfolioMainAudio" controls controlsList="nodownload noplaybackrate" disablePictureInPicture preload="none" aria-label="TrackLab composition player"><source src="media/audio/Anthem-at-First-Light.mp3" type="audio/mpeg"/>Your browser does not support audio playback.</audio><div class="portfolio-player-nav"><button type="button" id="portfolioPrevious" aria-label="Previous track">‹ Previous</button><span id="portfolioTrackCount">01 / 08</span><button type="button" id="portfolioNext" aria-label="Next track">Next ›</button></div></div><div class="portfolio-playlist" aria-label="Composition playlist"><button class="portfolio-track is-active" type="button" data-src="media/audio/Anthem-at-First-Light.mp3" data-title="Anthem at First Light" aria-label="Play Anthem at First Light" aria-current="true"><span class="portfolio-track-num">01</span><span class="portfolio-track-name">Anthem at First Light</span><span class="portfolio-track-indicator" aria-hidden="true">♫</span></button><button class="portfolio-track" type="button" data-src="media/audio/Broken%20Crown%20Rise.mp3" data-title="Broken Crown Rise" aria-label="Play Broken Crown Rise" aria-current="false"><span class="portfolio-track-num">02</span><span class="portfolio-track-name">Broken Crown Rise</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Echoes-of-the-Unsaid.mp3" data-title="Echoes of the Unsaid" aria-label="Play Echoes of the Unsaid" aria-current="false"><span class="portfolio-track-num">03</span><span class="portfolio-track-name">Echoes of the Unsaid</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Marble-Fingers.mp3" data-title="Marble Fingers" aria-label="Play Marble Fingers" aria-current="false"><span class="portfolio-track-num">04</span><span class="portfolio-track-name">Marble Fingers</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Quiet%20Window%20Light.mp3" data-title="Quiet Window Light" aria-label="Play Quiet Window Light" aria-current="false"><span class="portfolio-track-num">05</span><span class="portfolio-track-name">Quiet Window Light</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Shifting-Echoes.mp3" data-title="Shifting Echoes" aria-label="Play Shifting Echoes" aria-current="false"><span class="portfolio-track-num">06</span><span class="portfolio-track-name">Shifting Echoes</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/Skyborne%20Overture.mp3" data-title="Skyborne Overture" aria-label="Play Skyborne Overture" aria-current="false"><span class="portfolio-track-num">07</span><span class="portfolio-track-name">Skyborne Overture</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button><button class="portfolio-track" type="button" data-src="media/audio/paper-lantern-room.mp3" data-title="Paper Lantern Room" aria-label="Play Paper Lantern Room" aria-current="false"><span class="portfolio-track-num">08</span><span class="portfolio-track-name">Paper Lantern Room</span><span class="portfolio-track-indicator" aria-hidden="true">▶</span></button></div><p class="portfolio-audio-note">Portfolio listening samples. No download links are provided.</p></div></div></section><div class="studio-lightbox" id="studioLightbox" role="dialog" aria-modal="true" aria-label="Expanded studio photograph" hidden><button class="studio-lightbox-close" type="button" aria-label="Close enlarged photograph">×</button><button class="studio-lightbox-prev" type="button" aria-label="Previous photograph">‹</button><figure><img id="studioLightboxImage" alt=""/><figcaption id="studioLightboxCaption"></figcaption></figure><button class="studio-lightbox-next" type="button" aria-label="Next photograph">›</button></div>
 <footer>
   <div class="footer-copyright">© 2026 TrackLab Studio • Michael Hall | Music · Production · Collaboration</div>
   <br class="footer-bmi-break" />
@@ -2021,6 +2032,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
    const source=item.dataset.src;
    if(audio.getAttribute("src")!==source){audio.pause();audio.setAttribute("src",source);audio.load();}
    title.textContent=item.dataset.title;
+   document.dispatchEvent(new CustomEvent("tracklab:trackchange",{detail:{src:source,title:item.dataset.title}}));
    const playerPanel=document.querySelector(".portfolio-single-player");
    const moods=["sunrise","crown","echoes","marble","window","shifting","skyborne","lantern"];
    if(playerPanel)playerPanel.dataset.mood=moods[index]||"sunrise";
@@ -2035,5 +2047,68 @@ document.getElementById("contactForm").addEventListener("submit", async function
  selectTrack(0,false);
 })();
 </script>
-</body>
+<script>
+/* Read ID3v2 APIC artwork from a bounded byte range, without downloading each MP3. */
+(function(){
+ const image=document.getElementById("tracklabCoverImage");
+ const cover=document.getElementById("tracklabCover");
+ if(!image||!cover)return;
+ const cache=new Map();
+ let current="",objectUrl="";
+ const sync=b=>((b[0]&127)*2097152)+((b[1]&127)*16384)+((b[2]&127)*128)+(b[3]&127);
+ function artwork(bytes){
+   if(bytes.length<10||String.fromCharCode(...bytes.slice(0,3))!=="ID3")return null;
+   const version=bytes[3],flags=bytes[5],size=sync(bytes.slice(6,10));
+   if(version<3||version>4||size>2097152||bytes.length<10+size)return null;
+   let pos=10,end=10+size;
+   if(flags&64){if(version===3){if(pos+4>end)return null;pos+=4+new DataView(bytes.buffer,bytes.byteOffset+pos,4).getUint32(0);}else{if(pos+4>end)return null;pos+=sync(bytes.slice(pos,pos+4));}}
+   while(pos+10<=end){
+     const id=String.fromCharCode(...bytes.slice(pos,pos+4));
+     if(!/^[A-Z0-9]{4}$/.test(id))break;
+     const n=version===4?sync(bytes.slice(pos+4,pos+8)):new DataView(bytes.buffer,bytes.byteOffset+pos+4,4).getUint32(0);
+     pos+=10;if(!n||pos+n>end)break;
+     if(id==="APIC"){
+       const frame=bytes.subarray(pos,pos+n),enc=frame[0];
+       let p=1;while(p<frame.length&&frame[p]!==0)p++;
+       const mime=new TextDecoder("latin1").decode(frame.subarray(1,p)).toLowerCase();p+=2;
+       if(enc===1||enc===2){while(p+1<frame.length&&(frame[p]||frame[p+1]))p+=2;p+=2;}
+       else{while(p<frame.length&&frame[p])p++;p++;}
+       const data=frame.subarray(p);
+       if(data.length>16){
+         const type=mime==="image/png"?"image/png":mime==="image/jpeg"||mime==="image/jpg"?"image/jpeg":null;
+         if(type)return new Blob([data],{type});
+       }
+     }
+     pos+=n;
+   }
+   return null;
+ }
+ async function readCover(src){
+   const url=new URL(src,location.href);
+   const head=await fetch(url,{headers:{Range:"bytes=0-9"}});
+   if(!head.ok)return null;
+   const h=new Uint8Array(await head.arrayBuffer());
+   if(h.length<10||String.fromCharCode(...h.slice(0,3))!=="ID3")return null;
+   const size=sync(h.slice(6,10))+10;
+   if(size<20||size>2097152)return null;
+   const response=await fetch(url,{headers:{Range:"bytes=0-"+(size-1)}});
+   if(!response.ok)return null;
+   if(response.status!==206&&Number(response.headers.get("content-length"))>2097152)return null;
+   const bytes=new Uint8Array(await response.arrayBuffer());
+   return artwork(bytes);
+ }
+ document.addEventListener("tracklab:trackchange",async event=>{
+   const src=event.detail.src;current=src;
+   image.hidden=true;image.removeAttribute("src");
+   if(objectUrl){URL.revokeObjectURL(objectUrl);objectUrl="";}
+   try{
+     if(!cache.has(src))cache.set(src,readCover(src).catch(()=>null));
+     const blob=await cache.get(src);
+     if(current!==src||!blob)return;
+     objectUrl=URL.createObjectURL(blob);
+     image.src=objectUrl;image.alt="Cover artwork for "+event.detail.title;image.hidden=false;
+   }catch(e){/* Keep the musical-note fallback when no embedded artwork is available. */}
+ });
+})();
+</script></body>
 </html>
