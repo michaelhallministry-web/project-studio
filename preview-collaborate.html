@@ -1303,6 +1303,39 @@ html body main header.portfolio-page-header{padding-top:94px!important;padding-b
 html body main header.portfolio-page-header h1{margin:5px 0 8px!important}
 html body main .about-text h3{margin:8px 0 14px!important}
 @media(max-width:700px){html body main header.portfolio-page-header h1,html body main header.hero h1{font-size:27px!important}html body main section.about.portfolio-split .about-text h3{font-size:22px!important}}
+</style><style>
+/* Centered multi-page editorial layout; portrait navigation cards */
+html body main .portfolio-page-header>.container{text-align:center!important;max-width:1000px!important;margin-inline:auto!important}
+html body main .portfolio-page-header p{margin-inline:auto!important}
+html body main .portfolio-page-header .section-kicker{text-align:center!important}
+html body main section.gallery>.container,html body main section.portfolio-work>.container,html body main section.portfolio-music-first>.container{max-width:1160px!important;margin-inline:auto!important}
+html body main section.gallery .section-title{text-align:center!important;max-width:820px!important;margin:0 auto 28px!important}
+html body main section.gallery .section-title p{margin-inline:auto!important}
+html body main section.portfolio-collab .portfolio-collab-copy{text-align:center!important}
+html body main section.portfolio-collab .portfolio-collab-copy p{margin-inline:auto!important}
+html body main section.contact>.container{text-align:center!important;max-width:900px!important;margin-inline:auto!important}
+html body main section.contact>.container p{margin-inline:auto!important}
+html body main section.about .about-grid{max-width:1160px!important;margin-inline:auto!important}
+html body main section.about .about-text{display:flex;flex-direction:column;justify-content:center}
+html body main section.about .about-text .section-kicker{text-align:left}
+html body main .portfolio-music-intro{text-align:center!important}
+html body main .portfolio-entry{padding:62px 0!important;background:#101820!important}
+html body main .portfolio-entry .container{max-width:1280px!important;margin-inline:auto!important}
+html body main .portfolio-entry-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:18px!important;background:transparent!important}
+html body main .portfolio-entry-grid>a{position:relative;isolation:isolate;min-height:390px!important;aspect-ratio:3/4;display:flex!important;flex-direction:column;justify-content:flex-end;text-align:left;padding:24px!important;overflow:hidden;border:1px solid rgba(255,255,255,.2);border-radius:6px!important;color:#fff!important;background:#162b38!important;box-shadow:0 12px 28px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s}
+html body main .portfolio-entry-grid>a::before{content:"";position:absolute;inset:0;z-index:-2;background-position:center;background-size:cover;transition:transform .35s}
+html body main .portfolio-entry-grid>a:nth-child(1)::before{background-image:url("media/MH-image.webp")}
+html body main .portfolio-entry-grid>a:nth-child(2)::before{background-image:url("media/5041B005-33E2-4AC0-8729-725DB26CA426.webp")}
+html body main .portfolio-entry-grid>a:nth-child(3)::before{background-image:url("media/800B6A24-65DC-4EC9-8B54-37E121A6A3CD.webp")}
+html body main .portfolio-entry-grid>a:nth-child(4)::before{background-image:url("media/58AB4FF2-8F54-41CA-AF99-316594C12DE0.webp")}
+html body main .portfolio-entry-grid>a::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(5,12,20,.97) 0%,rgba(7,15,25,.6) 40%,rgba(7,15,25,.05) 80%)}
+html body main .portfolio-entry-grid>a:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(0,0,0,.3);filter:none!important}
+html body main .portfolio-entry-grid>a:hover::before{transform:scale(1.04)}
+html body main .portfolio-entry-grid>a span{color:#b9e8f2!important;font-size:11px!important;letter-spacing:.12em!important}
+html body main .portfolio-entry-grid>a h2{color:#fff!important;font-size:23px!important;margin:10px 0 7px!important}
+html body main .portfolio-entry-grid>a p{color:#e4e9ee!important;font-size:14px!important;line-height:1.5!important}
+@media(max-width:1000px){html body main .portfolio-entry-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}html body main .portfolio-entry-grid>a{min-height:340px!important}}
+@media(max-width:600px){html body main .portfolio-entry-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}html body main .portfolio-entry-grid>a{min-height:255px!important;padding:14px!important}html body main .portfolio-entry-grid>a h2{font-size:18px!important}html body main .portfolio-entry-grid>a p{font-size:12px!important}html body main .portfolio-entry{padding:32px 0!important}}
 </style></head>
 <body><nav class="site-nav"><div class="container nav-wrap"><a class="logo" aria-label="TrackLab Studio Home" href="preview-home.html"><img alt="TrackLab Studio logo" src="media/560cdf96-bc07-4e80-9301-790284ecf187.webp"/><span class="logo-text"><span class="logo-main">TrackLab Studio</span><span class="logo-sub">Composition • Production • Collaboration</span></span></a><button aria-expanded="false" aria-label="Open menu" class="mobile-menu-btn" onclick="toggleMobileMenu()" type="button">☰</button><div class="nav-links"><a href="preview-home.html">Home</a><a href="preview-about.html">About</a><a href="preview-music.html">Music</a><a href="preview-collaborate.html">Collaborate</a><a href="preview-studio.html">Studio</a><a href="preview-contact.html">Contact</a></div></div></nav><div class="preview-notice">MULTI-PAGE PORTFOLIO PREVIEW — LIVE HOMEPAGE UNCHANGED</div><main><header class="portfolio-page-header"><div class="container"><div class="section-kicker">03 / COLLABORATION</div><h1>Let's Make Music Together</h1><p>Remote recording, keyboard and MIDI sessions, arrangements, and creative partnerships.</p></div></header><section class="portfolio-collab" id="collaborate"><div class="portfolio-collab-image" role="img" aria-label="TrackLab recording and production workspace"></div><div class="portfolio-collab-copy"><div class="section-kicker">03 / WORK TOGETHER</div><h2>Connected studios. Shared creativity.</h2>
 <p>TrackLab is set up for music-making beyond one room. I'm interested in connecting with recording studios, producers, artists, composers, and media creators who need a musical partner.</p>
