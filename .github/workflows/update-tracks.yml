@@ -1,0 +1,40 @@
+name: Update TrackLab audio catalog
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'media/audio/**'
+      - '.github/workflows/update-tracks.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Rebuild MP3 catalog
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, re
+          folder = pathlib.Path('media/audio')
+          tracks = []
+          for f in sorted(folder.iterdir(), key=lambda p: p.name.casefold()):
+              if not f.is_file() or f.suffix.lower() != '.mp3':
+                  continue
+              title = re.sub(r'[-_]+', ' ', f.stem).strip()
+              tracks.append({'src': 'media/audio/' + __import__('urllib.parse', fromlist=['quote']).quote(f.name), 'title': title})
+          pathlib.Path('media/tracks.json').write_text(json.dumps({'tracks': tracks}, indent=2) + '\n')
+          print(f'Catalog contains {len(tracks)} MP3 tracks')
+          PY
+      - name: Commit catalog when changed
+        run: |
+          if ! git diff --quiet -- media/tracks.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add media/tracks.json
+            git commit -m "Auto-update TrackLab MP3 catalog"
+            git push
+          fi
