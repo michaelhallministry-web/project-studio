@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TrackLab | Track Title Editor</title><style>
+:root{color-scheme:dark}body{margin:0;background:#090f19;color:#eef4ff;font:16px/1.5 system-ui,Arial,sans-serif}main{max-width:850px;margin:40px auto;padding:0 22px}h1{font-size:2rem}p{color:#b8c7dc}.panel{background:#121f30;border:1px solid #31465f;border-radius:15px;padding:22px;margin:20px 0}label{display:block;margin:15px 0;font-weight:600}small{display:block;color:#9cb3ce;font-weight:400}input{box-sizing:border-box;width:100%;margin-top:5px;background:#081320;color:#fff;border:1px solid #536b86;border-radius:8px;padding:12px;font:inherit}button,.link{display:inline-block;background:#3977c9;color:white;border:0;border-radius:8px;padding:12px 18px;font:inherit;cursor:pointer;text-decoration:none;margin:5px 8px 5px 0}.link{background:#253f60}#status{color:#9ce1c6}code{color:#a6d8ff}</style></head><body><main><a href="music.html" style="color:#9acbff">← Music page</a><h1>Track title editor</h1><p>Change the names visitors see without renaming or re-uploading your MP3 files. This editor prepares the changes; GitHub still requires you to commit them.</p><div class="panel" id="fields">Loading tracks…</div><button id="copy" disabled>Copy updated titles</button><a class="link" href="https://github.com/michaelhallministry-web/project-studio/edit/main/media/track-titles.json" target="_blank" rel="noopener">Open title file in GitHub</a><p id="status" role="status"></p><div class="panel"><strong>Save your changes</strong><p>1. Edit the titles above and select <b>Copy updated titles</b>.<br>2. Open the title file in GitHub.<br>3. Replace its entire contents with the copied text.<br>4. Select <b>Commit changes</b>. The music player will update automatically after deployment.</p><p>Never rename MP3 files in GitHub's text editor. If you need to change audio, upload the actual MP3 file.</p></div></main><script>
+(async()=>{
+const fields=document.getElementById('fields'),copy=document.getElementById('copy'),status=document.getElementById('status');
+try{
+const [cr,tr]=await Promise.all([fetch('media/tracks.json?'+Date.now(),{cache:'no-store'}),fetch('media/track-titles.json?'+Date.now(),{cache:'no-store'})]);
+if(!cr.ok||!tr.ok)throw Error('Could not load catalog');
+const catalog=await cr.json(),cfg=await tr.json();const titles=cfg.titles||{};
+fields.replaceChildren();
+for(const track of catalog.tracks||[]){
+const filename=decodeURIComponent(track.src.split('/').pop()),label=document.createElement('label'),hint=document.createElement('small'),input=document.createElement('input');
+hint.textContent='File: '+filename;input.value=titles[filename]||track.title||'';input.dataset.filename=filename;
+label.append(hint,input);fields.append(label);
+}
+copy.disabled=false;copy.onclick=async()=>{
+const result={titles:{...titles}};
+fields.querySelectorAll('input').forEach(input=>{const value=input.value.trim();if(value)result.titles[input.dataset.filename]=value;else delete result.titles[input.dataset.filename]});
+const json=JSON.stringify(result,null,2)+'\n';
+try{await navigator.clipboard.writeText(json);status.textContent='Copied! Open GitHub, replace the file contents, and commit.'}
+catch{const blob=new Blob([json],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='track-titles.json';a.click();URL.revokeObjectURL(url);status.textContent='Downloaded title file. Replace media/track-titles.json in GitHub and commit.'}
+};
+}catch(e){fields.textContent='Unable to load tracks. Please refresh and try again.';status.textContent=e.message}
+})();
+</script></body></html>
