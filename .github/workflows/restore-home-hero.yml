@@ -1,0 +1,25 @@
+name: Restore homepage hero background
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/restore-home-hero.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  restore-hero:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore the original WebP background from repository history
+        run: |
+          git show 141ed115a3f4e8933bd9bf3a4a84f0e0da1a1da5:media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp > media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp
+          test -s media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp
+          git add media/AD5E690D-CCD7-4362-83AA-026E16F59C3A.webp
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Restore original homepage hero background WebP"
+          git push
