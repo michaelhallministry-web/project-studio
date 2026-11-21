@@ -2017,14 +2017,17 @@ document.getElementById("contactForm").addEventListener("submit", async function
 <style id="tracklab-motion-v1">
 /* Progressive enhancements: preserve existing hero images, overlay and copy. */
 @media (prefers-reduced-motion: no-preference) {
-  .hero-background-loop span { animation-timing-function:ease-in-out; will-change:opacity,transform; }
+  .hero-background-loop span { animation-name:tracklabHeroCinematic!important; animation-duration:32s!important; animation-timing-function:ease-in-out; will-change:opacity,transform; }
+  @keyframes tracklabHeroCinematic {0%{opacity:0;transform:scale(1.07)} 4%{opacity:1} 22%{opacity:1} 25%,100%{opacity:0;transform:scale(1.015)}}
+  .hero .hero-content {animation:tlHeroEntrance .9s ease-out both;}
+  @keyframes tlHeroEntrance {from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
   .tl-reveal { opacity:0; transform:translate3d(0,22px,0); transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1); }
   .tl-reveal.tl-visible { opacity:1; transform:none; }
-  .portfolio-entry-grid > a, .portfolio-band, .music-card, .project-card, .work-card, .service-card, .card {
+  .portfolio-entry-grid > a, .hero-page-tiles > a, .portfolio-band, .music-card, .project-card, .work-card, .service-card, .card {
     transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
   }
   @media (hover:hover) and (pointer:fine) {
-    .portfolio-entry-grid > a:hover, .portfolio-band:hover, .music-card:hover, .project-card:hover, .work-card:hover, .service-card:hover, .card:hover {
+    .portfolio-entry-grid > a:hover, .hero-page-tiles > a:hover, .portfolio-band:hover, .music-card:hover, .project-card:hover, .work-card:hover, .service-card:hover, .card:hover {
       transform:translateY(-5px);box-shadow:0 20px 45px rgba(0,0,0,.24);
     }
   }
@@ -2042,7 +2045,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
     entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('tl-visible');observer.unobserve(entry.target);}});
   },{threshold:.08,rootMargin:'0px 0px -30px 0px'});
   const enhance=()=>{
-    document.querySelectorAll('main section, main .portfolio-band, main .portfolio-entry-grid > a, main .music-card, main .project-card, main .work-card, main .service-card').forEach(el=>{
+    document.querySelectorAll('main section, main .portfolio-band, main .portfolio-entry-grid > a, main .hero-page-tiles > a, main .about-grid, main .portfolio-collab, main .music-card, main .project-card, main .work-card, main .service-card').forEach(el=>{
       if(el.classList.contains('tl-reveal')||el.closest('.hero')||el.classList.contains('hero'))return;
       const rect=el.getBoundingClientRect();
       el.classList.add('tl-reveal');
