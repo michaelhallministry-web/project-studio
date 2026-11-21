@@ -1219,10 +1219,12 @@ section{padding:100px 0}.section-title{text-align:left;max-width:1050px;margin:0
 .hero::before{z-index:1;pointer-events:none}
 /* Rotating homepage studio backgrounds; no layout or copy changes */
 .hero-background-loop{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.hero-background-loop span{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat;opacity:0;animation:tracklabHeroLoop 16s infinite ease-in-out}
+.hero-background-loop span{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat;opacity:0;animation:tracklabHeroLoop 32s infinite}
 .hero-background-loop span:nth-child(1){background-image:url("media/studio-desk-xtouch.webp");animation-delay:0s}
-.hero-background-loop span:nth-child(2){background-image:url("media/5041B005-33E2-4AC0-8729-725DB26CA426.webp");animation-delay:8s}
-@keyframes tracklabHeroLoop{0%,45%{opacity:1}50%,95%{opacity:0}100%{opacity:1}}
+.hero-background-loop span:nth-child(2){background-image:url("media/481BDA2B-1490-49D7-B328-A87F01A8D4A2.webp");animation-delay:8s}
+.hero-background-loop span:nth-child(3){background-image:url("media/ABDABCE2-2403-465C-A6AF-552888983B03.webp");animation-delay:16s}
+.hero-background-loop span:nth-child(4){background-image:url("media/5041B005-33E2-4AC0-8729-725DB26CA426.webp");animation-delay:24s}
+@keyframes tracklabHeroLoop{0%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}
 @media(prefers-reduced-motion:reduce){.hero-background-loop span{animation:none;opacity:0}.hero-background-loop span:first-child{opacity:1}}
 </style>
 
@@ -1519,7 +1521,7 @@ html body .site-nav a.logo{left:0!important;right:auto!important}
 }
 </script>
 </head>
-<body><nav class="site-nav"><div class="container nav-wrap"><a class="logo" aria-label="TrackLab Studio Home" href="/"><img alt="TrackLab Studio" src="media/tracklab-logo.webp"/></a><button aria-expanded="false" aria-label="Open menu" class="mobile-menu-btn" onclick="toggleMobileMenu()" type="button">☰</button><div class="nav-links"><a href="/">Home</a><a href="about.html">About</a><a href="music.html">Music</a><a href="studio.html">Studio</a><a href="contact.html">Contact</a></div></div></nav><main><header class="hero" id="home"><div class="hero-background-loop" aria-hidden="true"><span></span><span></span></div><div class="hero-inner"><div class="hero-portrait"><img src="media/MH-image.webp" alt="Michael Hall" /></div><div class="hero-content">
+<body><nav class="site-nav"><div class="container nav-wrap"><a class="logo" aria-label="TrackLab Studio Home" href="/"><img alt="TrackLab Studio" src="media/tracklab-logo.webp"/></a><button aria-expanded="false" aria-label="Open menu" class="mobile-menu-btn" onclick="toggleMobileMenu()" type="button">☰</button><div class="nav-links"><a href="/">Home</a><a href="about.html">About</a><a href="music.html">Music</a><a href="studio.html">Studio</a><a href="contact.html">Contact</a></div></div></nav><main><header class="hero" id="home"><div class="hero-background-loop" aria-hidden="true"><span></span><span></span><span></span><span></span></div><div class="hero-inner"><div class="hero-portrait"><img src="media/MH-image.webp" alt="Michael Hall" /></div><div class="hero-content">
 <div class="hero-tag">MICHAEL HALL &nbsp; / &nbsp; COMPOSER · MUSICIAN · PRODUCER</div>
 <h1>Music. Composition. Production.</h1>
 <div class="hero-rule"></div>
