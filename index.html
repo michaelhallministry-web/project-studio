@@ -1214,6 +1214,9 @@ section{padding:100px 0}.section-title{text-align:left;max-width:1050px;margin:0
 .portfolio-track:focus-visible,.portfolio-player-nav button:focus-visible{outline:3px solid #8fcde9;outline-offset:-3px}
 .portfolio-audio-note{font-size:.8rem;color:#9aaec2;margin-top:14px}
 
+/* Keep the original dark hero treatment above rotating photos and below the content */
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(0,0,0,.32),rgba(0,0,0,.78)),linear-gradient(90deg,rgba(0,0,0,.45),transparent 45%,rgba(0,0,0,.4))}
+.hero::before{z-index:1;pointer-events:none}
 /* Rotating homepage studio backgrounds; no layout or copy changes */
 .hero-background-loop{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .hero-background-loop span{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat;opacity:0;animation:tracklabHeroLoop 16s infinite ease-in-out}
