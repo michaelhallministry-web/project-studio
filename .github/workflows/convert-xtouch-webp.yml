@@ -1,0 +1,39 @@
+name: Convert X-Touch studio image to WebP
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/convert-xtouch-webp.yml'
+permissions:
+  contents: write
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Convert the original PNG without changing the composition
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y webp
+          cwebp -quiet -q 88 "media/Behringer X-Touch Studio Session.png" -o "media/Behringer X-Touch Studio Session.webp"
+          test -s "media/Behringer X-Touch Studio Session.webp"
+      - name: Update gallery reference and remove old PNG
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('studio.html')
+          old = 'media/Behringer X-Touch Studio Session.png'
+          new = 'media/Behringer X-Touch Studio Session.webp'
+          text = path.read_text()
+          assert old in text, 'Expected gallery image reference missing'
+          path.write_text(text.replace(old, new))
+          PY
+          git rm -- "media/Behringer X-Touch Studio Session.png"
+          git add studio.html "media/Behringer X-Touch Studio Session.webp"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Convert X-Touch session photo to WebP and update gallery"
+          git push
