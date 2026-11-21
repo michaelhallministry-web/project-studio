@@ -291,7 +291,55 @@ text-transform:uppercase!important;
 
 .mh-chat-reply-email[hidden],.mh-quick-replies .mh-quick-btn[hidden]{display:none!important}.mh-quick-btn.mh-ask-other{border-color:rgba(125,150,255,.65);background:linear-gradient(115deg,#4f8cff,#8357e9);color:#fff;font-weight:700}.mh-chat-action-row a.mh-chat-action{text-decoration:none;display:inline-block}
 @media(max-width:600px){.mh-chat-launcher{right:14px;bottom:14px;width:64px;height:64px}.mh-chat-widget{right:12px;left:12px;bottom:88px;width:auto;height:70vh;max-width:none}}
-</style></head><body style="padding-top:86px"><nav class="site-nav" aria-label="Main navigation"><div class="wrap nav-wrap"><a class="logo-link" href="/" aria-label="TrackLab Studio Home"><img class="logo" src="media/tracklab-logo.webp" alt="TrackLab Studio"></a><button class="mobile-menu-btn" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleRemoteMenu()">☰</button><div class="nav-links" id="remoteNavLinks"><a href="/">Home</a><a href="/about.html">About</a><a href="/music.html">Music</a><a href="/studio.html">Studio</a><a href="/remote/" aria-current="page">Remote Sessions</a><a href="/contact.html">Contact</a></div></div></nav>
+</style><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://track-lab.studio/#website",
+      "url": "https://track-lab.studio/",
+      "name": "TrackLab Studio",
+      "publisher": {
+        "@id": "https://track-lab.studio/#organization"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://track-lab.studio/remote.html#webpage",
+      "url": "https://track-lab.studio/remote.html",
+      "name": "Remote Sessions | TrackLab Studio",
+      "isPartOf": {
+        "@id": "https://track-lab.studio/#website"
+      },
+      "about": {
+        "@id": "https://track-lab.studio/#organization"
+      },
+      "publisher": {
+        "@id": "https://track-lab.studio/#organization"
+      },
+      "mainEntity": {
+        "@id": "https://track-lab.studio/remote.html#service"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://track-lab.studio/remote.html#service",
+      "name": "Studio-to-studio remote keyboard, piano, synthesizer and MIDI session recording",
+      "provider": {
+        "@id": "https://track-lab.studio/#organization"
+      },
+      "url": "https://track-lab.studio/remote.html",
+      "mainEntityOfPage": {
+        "@id": "https://track-lab.studio/remote.html#webpage"
+      }
+    }
+  ]
+}
+</script>
+<link rel="canonical" href="https://track-lab.studio/remote.html">
+</head><body style="padding-top:86px"><nav class="site-nav" aria-label="Main navigation"><div class="wrap nav-wrap"><a class="logo-link" href="/" aria-label="TrackLab Studio Home"><img class="logo" src="media/tracklab-logo.webp" alt="TrackLab Studio"></a><button class="mobile-menu-btn" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleRemoteMenu()">☰</button><div class="nav-links" id="remoteNavLinks"><a href="/">Home</a><a href="/about.html">About</a><a href="/music.html">Music</a><a href="/studio.html">Studio</a><a href="/remote/" aria-current="page">Remote Sessions</a><a href="/contact.html">Contact</a></div></div></nav>
 <main><section class="hero"><div class="wrap remote-hero-grid"><div class="remote-hero-copy"><div class="eyebrow" style="margin-top:30px">TrackLab Studio / Studio-to-studio sessions</div><h1>Your Studio.<br><span>My Keys. Anywhere.</span></h1><p class="lead">I connect remotely to other recording studios to perform piano, keyboard, synthesizer, and MIDI parts for their productions. Your studio hosts and directs the recording session while I play from TrackLab Studio using a compatible VST Connect setup.</p><div class="actions"><a class="btn" href="#how-it-works">How Remote Sessions Work</a></div></div><div class="remote-hero-visual"><img src="media/remote-studio-session-with-guitarist.webp" alt="Michael Hall working at the TrackLab Studio desk during a remote recording session with a guitarist"></div></div></section>
 <section class="section" id="how-it-works"><div class="wrap"><div class="eyebrow">The experience</div><h2>Your production. A remote keyboardist.</h2><p class="section-intro">TrackLab Studio is available to contribute keyboard and MIDI performances to productions at other studios. You lead the project and musical direction; I bring the performance from my studio.</p><div class="grid"><article class="panel"><div class="num">01 / CONNECT</div><h3>Discuss your session</h3><p>Share your song, arrangement, references, and the keyboard or MIDI parts your production needs.</p></article><article class="panel"><div class="num">02 / COLLABORATE</div><h3>Connect the studios</h3><p>Using a compatible Steinberg VST Connect workflow, we can communicate while you direct the performance from your studio.</p></article><article class="panel"><div class="num">03 / CREATE</div><h3>Record the parts</h3><p>Capture piano, keyboard, synthesizer, or MIDI contributions that fit your arrangement and production.</p></article></div></div></section>
 <section class="section remote-tech-section"><div class="wrap"><div class="remote-tech-copy"><div class="eyebrow">Behind the connection</div><h2>Built for studio-to-studio collaboration.</h2><p class="section-intro">TrackLab uses Cubase Pro and Steinberg VST Connect for compatible remote sessions. Producers and engineers with a suitable host setup can direct keyboard performances remotely. Musicians may also connect through VST Connect Performer when the host and session configuration support it.</p><p style="color:var(--muted)">Before a session, we'll confirm the host and performer configuration, audio and MIDI routing, monitoring, connection quality, recording format, and scheduling.</p><div class="note">Remote keyboard and MIDI contributions are arranged directly with the studio or producer. Session timing and technical compatibility are confirmed together before recording.</div></div></div></section>
