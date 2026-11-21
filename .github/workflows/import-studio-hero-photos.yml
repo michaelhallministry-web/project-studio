@@ -1,0 +1,55 @@
+name: Import original studio photos and complete hero loop
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-studio-hero-photos.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Retrieve existing WebP files from original project-studio repository
+        run: |
+          set -euo pipefail
+          for name in 481BDA2B-1490-49D7-B328-A87F01A8D4A2.webp ABDABCE2-2403-465C-A6AF-552888983B03.webp; do
+            curl --fail --location --retry 3 --silent --show-error "https://raw.githubusercontent.com/vumc-media/project-studio/main/media/$name" -o "media/$name"
+            test -s "media/$name"
+            file "media/$name" | grep -qi webp
+          done
+      - name: Extend hero loop to four studio photographs
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          start=s.index('/* Rotating homepage studio backgrounds; no layout or copy changes */')
+          end=s.index('</style>',start)
+          block=s[start:end]
+          original='''<div class="hero-background-loop" aria-hidden="true"><span></span><span></span></div>'''
+          replacement='''<div class="hero-background-loop" aria-hidden="true"><span></span><span></span><span></span><span></span></div>'''
+          assert original in s, 'Hero loop structure changed; refusing unsafe edit'
+          block_start=block.index('.hero-background-loop span{')
+          block_end=block.index('@media(prefers-reduced-motion:reduce)',block_start)
+          new_css='''.hero-background-loop span{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat;opacity:0;animation:tracklabHeroLoop 32s infinite}
+          .hero-background-loop span:nth-child(1){background-image:url("media/studio-desk-xtouch.webp");animation-delay:0s}
+          .hero-background-loop span:nth-child(2){background-image:url("media/481BDA2B-1490-49D7-B328-A87F01A8D4A2.webp");animation-delay:8s}
+          .hero-background-loop span:nth-child(3){background-image:url("media/ABDABCE2-2403-465C-A6AF-552888983B03.webp");animation-delay:16s}
+          .hero-background-loop span:nth-child(4){background-image:url("media/5041B005-33E2-4AC0-8729-725DB26CA426.webp");animation-delay:24s}
+          @keyframes tracklabHeroLoop{0%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}
+          '''
+          block=block[:block_start]+new_css+block[block_end:]
+          s=s[:start]+block+s[end:]
+          s=s.replace(original,replacement,1)
+          p.write_text(s)
+          PY
+      - name: Commit verified photos and updated hero
+        run: |
+          git add index.html media/481BDA2B-1490-49D7-B328-A87F01A8D4A2.webp media/ABDABCE2-2403-465C-A6AF-552888983B03.webp
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Add original rear-view and Cubase WebP images to homepage hero loop"
+          git push
