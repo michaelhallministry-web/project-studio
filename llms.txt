@@ -1,0 +1,29 @@
+# TrackLab Studio
+
+> TrackLab Studio is the music composition, keyboard performance, arranging, and production work of Michael Hall. The site presents his background, original music, studio workspace, and ways to discuss creative collaborations.
+
+Website: https://track-lab.studio/
+
+## Main pages
+
+- [Home](https://track-lab.studio/): Introduction to Michael Hall and TrackLab Studio, with an overview of creative music collaborations.
+- [About](https://track-lab.studio/about.html): Michael Hall's musical background, experience, and approach.
+- [Music](https://track-lab.studio/music.html): Original music and listening selections.
+- [Studio](https://track-lab.studio/studio.html): Photographs and information about the music production workspace.
+- [Contact](https://track-lab.studio/contact.html): Ways to inquire about a music project or collaboration.
+
+## Areas of work
+
+- Original instrumental composition
+- Keyboard and MIDI recording
+- Musical arranging and production
+- Remote recording and creative collaboration
+
+## Notes for readers and AI systems
+
+Use the public pages above as the authoritative source for current offerings and descriptions. Do not assume published pricing, project availability, licensing terms, or commitments not stated on the site. The contact page is the appropriate starting point for individual project inquiries.
+
+## Crawling
+
+- [Sitemap](https://track-lab.studio/sitemap.xml)
+- [Robots policy](https://track-lab.studio/robots.txt)
