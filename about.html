@@ -1481,7 +1481,7 @@ html body.tl-about-interactive main section#about{opacity:0!important;visibility
 html body.tl-about-interactive main section#about.tl-about-revealed{opacity:1!important;visibility:visible;transform:none;transition:opacity .85s ease,transform .85s cubic-bezier(.2,.7,.2,1),visibility 0s}
 @media(prefers-reduced-motion:reduce){html body.tl-about-interactive main section#about{transform:none!important;transition:none!important}}
 @media(max-width:650px){html body main header.hero.tl-about-hero .hero-page-tiles{margin-top:28px!important}html body main header.hero.tl-about-hero{min-height:max(650px,calc(100svh - 86px))!important}}
-</style><link rel="stylesheet" href="/tracklab-buttons.css?v=1"></head>
+</style><link rel="stylesheet" href="/tracklab-buttons.css?v=1"><style>.mh-chat-reply-email[hidden]{display:none!important}.mh-quick-btn.mh-ask-other{border-color:rgba(125,150,255,.65);background:linear-gradient(115deg,#4f8cff,#8357e9);color:#fff;font-weight:700}.mh-chat-action-row a.mh-chat-action{text-decoration:none;display:inline-block}</style></head>
 <body><nav class="site-nav"><div class="container nav-wrap"><a class="logo" aria-label="TrackLab Studio Home" href="/home/"><img alt="TrackLab Studio" src="media/tracklab-logo.webp"/></a><button aria-expanded="false" aria-label="Open menu" class="mobile-menu-btn" onclick="toggleMobileMenu()" type="button">☰</button><div class="nav-links"><a href="/home/">Home</a><a href="/about/">About</a><a href="/music/">Music</a><a href="/studio/">Studio</a><a href="/remote/">Remote Sessions</a><a href="/contact/">Contact</a></div></div></nav><main><header class="hero tl-about-hero" id="home"><div class="hero-background-loop" aria-hidden="true"><span></span><span></span><span></span><span></span></div><div class="hero-inner"><div class="hero-content"><div class="hero-tag">MICHAEL HALL &nbsp; / &nbsp; COMPOSER · MUSICIAN · PRODUCER</div><h1>Music. Composition. Production.</h1><div class="hero-rule"></div><p>Decades of musicianship meet a modern production studio. Original compositions, keyboard-driven arrangements, and music production shaped by decades of musicianship and a love for bringing ideas to life.</p><div class="hero-page-tiles" aria-label="About Michael"><a href="#about"><span>About Michael</span></a></div></div></div></header><section class="about portfolio-split" id="about"><div class="container about-grid">
 <div class="about-text"><div class="section-kicker">01 / THE PERSON BEHIND THE MUSIC</div><h3>Michael Hall</h3>
 <p>A keyboardist, composer, MIDI arranger and music producer whose creative path began on stage and continues in the studio. Background includes touring as a performing keyboardist in the 1990s and years of arranging, playing, and leading music.</p>
@@ -1504,7 +1504,7 @@ html body.tl-about-interactive main section#about.tl-about-revealed{opacity:1!im
 </div>
 <div class="mh-chat-header-text">
 <h2>TrackLab Assistant</h2>
-<p>Ask about Michael, the music, the studio, or the creative process.</p>
+<p>Ask about Michael, music, studio, remote sessions, or the creative process.</p>
 </div>
 <button aria-label="Close chat" class="mh-chat-close" id="mhChatClose">×</button>
 </div>
@@ -1515,8 +1515,10 @@ html body.tl-about-interactive main section#about.tl-about-revealed{opacity:1!im
 <button class="mh-quick-btn" data-question="What is on the Studio page?">Studio</button>
 <button class="mh-quick-btn" data-question="How do you work?">Creative process</button>
 <button class="mh-quick-btn" data-question="How do I get in touch?">Contact</button>
+<button class="mh-quick-btn" data-question="remote sessions">Remote Sessions</button>
+<button class="mh-quick-btn mh-ask-other" id="mhAskOther" type="button">Ask Another Question</button>
 </div>
-<div class="mh-chat-reply-email">
+<div class="mh-chat-reply-email" id="mhChatReplyEmail" hidden>
 <label for="mhChatEmail">Email for personal reply</label>
 <input autocomplete="email" id="mhChatEmail" placeholder="Enter email, then tap Send" type="email"/>
 </div>
@@ -1605,6 +1607,7 @@ const mhQuickButtons = document.querySelectorAll(".mh-quick-btn");
 let mhPendingQuestion = "";
 
 const mhChatAnswers = [
+  {keywords:["remote sessions","remote session","remote recording","record remotely","collaborate remotely","vst connect","recording online"],text:"Remote Sessions lets artists and collaborators explore recording and production together from different locations. The Remote Sessions page explains how the process works, including planning, compatibility, and next steps. Visit /remote/ for details, or use Contact to discuss your project.",action:"remote"},
   {keywords:["who is michael hall","about michael","your background","biography","bio","touring","musical experience","who are you"],text:"A keyboardist, composer, MIDI arranger and music producer whose creative path began on stage and continues in the studio. Background includes touring as a performing keyboardist in the 1990s and years of arranging, playing, and leading music. More information is available on the About page."},
   {keywords:["what does tracklab do","what do you do","about tracklab","tracklab studio","what is tracklab"],text:"TrackLab Studio brings Michael Hall's experience together for original instrumental music, composition, MIDI arranging, and thoughtful music production. The site includes About, Music, Studio, and Contact pages."},
   {keywords:["listen to music","music page","listen to the music","hear your music","tracks","playlist","audio player","samples","recordings"],text:"The Music page features eight selected original recordings in a single player. Select a track to listen, or use Previous and Next to move through the playlist."},
@@ -1633,6 +1636,12 @@ function mhAddChatMessage(content, sender = "bot", action = null){
   bubble.textContent = content;
 
   group.appendChild(bubble);
+
+  if(action === "remote"){
+    const actions=document.createElement("div");actions.className="mh-chat-action-row";
+    const link=document.createElement("a");link.className="mh-chat-action";link.href="/remote/";link.textContent="Explore Remote Sessions";
+    actions.appendChild(link);group.appendChild(actions);
+  }
 
   if(action === "project"){
     const actions = document.createElement("div");
@@ -1734,6 +1743,13 @@ async function mhSendUnansweredQuestion(question, replyEmail){
   }
 }
 
+function mhShowOtherQuestion(){
+  const emailSection=document.getElementById("mhChatReplyEmail");
+  if(emailSection)emailSection.hidden=false;
+  mhAddChatMessage("Have a different question? Type it below and include your email address for a personal reply if it is not covered by the website.", "bot");
+  if(mhChatInput){mhChatInput.placeholder="Type your question here";mhChatInput.focus();}
+}
+
 function mhSubmitPendingQuestion(){
   const replyEmail = mhGetReplyEmail();
 
@@ -1770,6 +1786,7 @@ function mhHandleQuestion(question){
     }
 
     mhPendingQuestion = question;
+    const emailSection=document.getElementById("mhChatReplyEmail");if(emailSection)emailSection.hidden=false;
     mhAddChatMessage("I do not want to respond with inaccurate information. This question is outside the information provided on the website. Please enter your email in the reply field below, then tap Send, and I’ll forward your question for a personal reply.", "bot");
     mhChatEmail.focus();
     mhChatInput.placeholder = "Enter email above, then tap Send";
@@ -1833,13 +1850,17 @@ if(mhChatInput){
   });
 }
 
+const mhAskOther=document.getElementById("mhAskOther");
+if(mhAskOther)mhAskOther.addEventListener("click",mhShowOtherQuestion);
+
 mhQuickButtons.forEach(button => {
+  if(button.id==="mhAskOther")return;
   button.addEventListener("click", function(){
     mhHandleQuestion(button.getAttribute("data-question") || button.textContent);
   });
 });
 
-mhAddChatMessage("Welcome to TrackLab Studio! Choose a topic to learn about Michael Hall, hear the music, explore the studio, or ask about a project.", "bot");
+mhAddChatMessage("Welcome to TrackLab Studio! Choose a topic, explore Remote Sessions, or select Ask Another Question for something else.", "bot");
 
 
 
