@@ -2176,5 +2176,24 @@ document.getElementById("contactForm").addEventListener("submit", async function
    }catch(e){/* Keep the musical-note fallback when no embedded artwork is available. */}
  });
 })();
-</script></body>
+</script>
+<style id="tracklab-motion-v1">
+@media(prefers-reduced-motion:no-preference){
+ .tl-reveal{opacity:0;transform:translate3d(0,26px,0);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+ .tl-reveal.tl-visible{opacity:1;transform:none}
+ main :is(.portfolio-entry-grid>a,.hero-page-tiles>a,.portfolio-band,.music-card,.project-card,.work-card,.service-card,.card,.track-card,.studio-card){transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+ @media(hover:hover) and (pointer:fine){main :is(.portfolio-entry-grid>a,.hero-page-tiles>a,.portfolio-band,.music-card,.project-card,.work-card,.service-card,.card,.track-card,.studio-card):hover{transform:translateY(-5px);box-shadow:0 20px 45px rgba(0,0,0,.24)}}
+ main>header :is(h1,p){animation:tlPageIntro .8s ease-out both}
+ @keyframes tlPageIntro{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+}
+@media(prefers-reduced-motion:reduce){.tl-reveal{opacity:1!important;transform:none!important;transition:none!important}}
+</style>
+<script id="tracklab-motion-script-v1">
+(()=>{if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('tl-visible');observer.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -25px 0px'});
+ const enhance=()=>{document.querySelectorAll('main section > *, main .portfolio-band, main .portfolio-entry-grid > a, main .hero-page-tiles > a, main .about-grid, main .portfolio-collab, main .music-card, main .project-card, main .work-card, main .service-card').forEach(el=>{if(el.classList.contains('tl-reveal')||el.closest('.hero')||el.matches('script,style,form,button,input,textarea,select'))return;const rect=el.getBoundingClientRect();el.classList.add('tl-reveal');if(rect.top<innerHeight*.92)el.classList.add('tl-visible');else observer.observe(el)})};
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',enhance,{once:true});else enhance();
+})();
+</script>
+</body>
 </html>
