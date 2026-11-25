@@ -1,6 +1,10 @@
 {
   "tracks": [
     {
+      "src": "media/audio/01%20Morning%20Brew.mp3",
+      "title": "Morning Brew"
+    },
+    {
       "src": "media/audio/Anthem-at-First-Light.mp3",
       "title": "Anthem at First Light"
     },
