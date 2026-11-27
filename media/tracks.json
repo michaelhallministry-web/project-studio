@@ -65,8 +65,24 @@
       "title": "Skybound Overture"
     },
     {
+      "src": "media/audio/Somewhere%20Between%20Stars%20Part%20II.mp3",
+      "title": "Somewhere Between Stars Part II"
+    },
+    {
+      "src": "media/audio/Somewhere%20Between%20Stars.mp3",
+      "title": "Somewhere Between Stars"
+    },
+    {
       "src": "media/audio/Unbroken%20Horizon.mp3",
       "title": "Unbroken Horizon"
+    },
+    {
+      "src": "media/audio/Weightless%20Part%20II.mp3",
+      "title": "Weightless Part II"
+    },
+    {
+      "src": "media/audio/Weightless.mp3",
+      "title": "Weightless"
     }
   ]
 }
